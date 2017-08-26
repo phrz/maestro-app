@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		276BAE8A1F51D48F00526EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE891F51D48F00526EAB /* AppDelegate.swift */; };
+		276BAE8C1F51D48F00526EAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE8B1F51D48F00526EAB /* ViewController.swift */; };
+		276BAE911F51D48F00526EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276BAE901F51D48F00526EAB /* Assets.xcassets */; };
+		276BAE9F1F51D48F00526EAB /* MaestroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE9E1F51D48F00526EAB /* MaestroTests.swift */; };
+		276BAEAA1F51D48F00526EAB /* MaestroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAEA91F51D48F00526EAB /* MaestroUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		276BAE9B1F51D48F00526EAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 276BAE7E1F51D48F00526EAB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 276BAE851F51D48F00526EAB;
+			remoteInfo = Maestro;
+		};
+		276BAEA61F51D48F00526EAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 276BAE7E1F51D48F00526EAB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 276BAE851F51D48F00526EAB;
+			remoteInfo = Maestro;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		276BAE861F51D48F00526EAB /* Maestro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maestro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		276BAE891F51D48F00526EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		276BAE8B1F51D48F00526EAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		276BAE901F51D48F00526EAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		276BAE951F51D48F00526EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		276BAE9A1F51D48F00526EAB /* MaestroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaestroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		276BAE9E1F51D48F00526EAB /* MaestroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaestroTests.swift; sourceTree = "<group>"; };
+		276BAEA01F51D48F00526EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		276BAEA51F51D48F00526EAB /* MaestroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaestroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		276BAEA91F51D48F00526EAB /* MaestroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaestroUITests.swift; sourceTree = "<group>"; };
+		276BAEAB1F51D48F00526EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		276BAE831F51D48F00526EAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		276BAE971F51D48F00526EAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		276BAEA21F51D48F00526EAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		276BAE7D1F51D48F00526EAB = {
+			isa = PBXGroup;
+			children = (
+				276BAE881F51D48F00526EAB /* Maestro */,
+				276BAE9D1F51D48F00526EAB /* MaestroTests */,
+				276BAEA81F51D48F00526EAB /* MaestroUITests */,
+				276BAE871F51D48F00526EAB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		276BAE871F51D48F00526EAB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				276BAE861F51D48F00526EAB /* Maestro.app */,
+				276BAE9A1F51D48F00526EAB /* MaestroTests.xctest */,
+				276BAEA51F51D48F00526EAB /* MaestroUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		276BAE881F51D48F00526EAB /* Maestro */ = {
+			isa = PBXGroup;
+			children = (
+				276BAE891F51D48F00526EAB /* AppDelegate.swift */,
+				276BAE8B1F51D48F00526EAB /* ViewController.swift */,
+				276BAE901F51D48F00526EAB /* Assets.xcassets */,
+				276BAE951F51D48F00526EAB /* Info.plist */,
+			);
+			path = Maestro;
+			sourceTree = "<group>";
+		};
+		276BAE9D1F51D48F00526EAB /* MaestroTests */ = {
+			isa = PBXGroup;
+			children = (
+				276BAE9E1F51D48F00526EAB /* MaestroTests.swift */,
+				276BAEA01F51D48F00526EAB /* Info.plist */,
+			);
+			path = MaestroTests;
+			sourceTree = "<group>";
+		};
+		276BAEA81F51D48F00526EAB /* MaestroUITests */ = {
+			isa = PBXGroup;
+			children = (
+				276BAEA91F51D48F00526EAB /* MaestroUITests.swift */,
+				276BAEAB1F51D48F00526EAB /* Info.plist */,
+			);
+			path = MaestroUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		276BAE851F51D48F00526EAB /* Maestro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 276BAEAE1F51D48F00526EAB /* Build configuration list for PBXNativeTarget "Maestro" */;
+			buildPhases = (
+				276BAE821F51D48F00526EAB /* Sources */,
+				276BAE831F51D48F00526EAB /* Frameworks */,
+				276BAE841F51D48F00526EAB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Maestro;
+			productName = Maestro;
+			productReference = 276BAE861F51D48F00526EAB /* Maestro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		276BAE991F51D48F00526EAB /* MaestroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 276BAEB11F51D48F00526EAB /* Build configuration list for PBXNativeTarget "MaestroTests" */;
+			buildPhases = (
+				276BAE961F51D48F00526EAB /* Sources */,
+				276BAE971F51D48F00526EAB /* Frameworks */,
+				276BAE981F51D48F00526EAB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				276BAE9C1F51D48F00526EAB /* PBXTargetDependency */,
+			);
+			name = MaestroTests;
+			productName = MaestroTests;
+			productReference = 276BAE9A1F51D48F00526EAB /* MaestroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		276BAEA41F51D48F00526EAB /* MaestroUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 276BAEB41F51D48F00526EAB /* Build configuration list for PBXNativeTarget "MaestroUITests" */;
+			buildPhases = (
+				276BAEA11F51D48F00526EAB /* Sources */,
+				276BAEA21F51D48F00526EAB /* Frameworks */,
+				276BAEA31F51D48F00526EAB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				276BAEA71F51D48F00526EAB /* PBXTargetDependency */,
+			);
+			name = MaestroUITests;
+			productName = MaestroUITests;
+			productReference = 276BAEA51F51D48F00526EAB /* MaestroUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		276BAE7E1F51D48F00526EAB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Maestro;
+				TargetAttributes = {
+					276BAE851F51D48F00526EAB = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = M8MME6Q9DA;
+						ProvisioningStyle = Automatic;
+					};
+					276BAE991F51D48F00526EAB = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = M8MME6Q9DA;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 276BAE851F51D48F00526EAB;
+					};
+					276BAEA41F51D48F00526EAB = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = M8MME6Q9DA;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 276BAE851F51D48F00526EAB;
+					};
+				};
+			};
+			buildConfigurationList = 276BAE811F51D48F00526EAB /* Build configuration list for PBXProject "Maestro" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 276BAE7D1F51D48F00526EAB;
+			productRefGroup = 276BAE871F51D48F00526EAB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				276BAE851F51D48F00526EAB /* Maestro */,
+				276BAE991F51D48F00526EAB /* MaestroTests */,
+				276BAEA41F51D48F00526EAB /* MaestroUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		276BAE841F51D48F00526EAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				276BAE911F51D48F00526EAB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		276BAE981F51D48F00526EAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		276BAEA31F51D48F00526EAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		276BAE821F51D48F00526EAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				276BAE8C1F51D48F00526EAB /* ViewController.swift in Sources */,
+				276BAE8A1F51D48F00526EAB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		276BAE961F51D48F00526EAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				276BAE9F1F51D48F00526EAB /* MaestroTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		276BAEA11F51D48F00526EAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				276BAEAA1F51D48F00526EAB /* MaestroUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		276BAE9C1F51D48F00526EAB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 276BAE851F51D48F00526EAB /* Maestro */;
+			targetProxy = 276BAE9B1F51D48F00526EAB /* PBXContainerItemProxy */;
+		};
+		276BAEA71F51D48F00526EAB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 276BAE851F51D48F00526EAB /* Maestro */;
+			targetProxy = 276BAEA61F51D48F00526EAB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		276BAEAC1F51D48F00526EAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		276BAEAD1F51D48F00526EAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		276BAEAF1F51D48F00526EAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = M8MME6Q9DA;
+				INFOPLIST_FILE = Maestro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gdn.maestro.Maestro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		276BAEB01F51D48F00526EAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = M8MME6Q9DA;
+				INFOPLIST_FILE = Maestro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gdn.maestro.Maestro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		276BAEB21F51D48F00526EAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = M8MME6Q9DA;
+				INFOPLIST_FILE = MaestroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gdn.maestro.MaestroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maestro.app/Maestro";
+			};
+			name = Debug;
+		};
+		276BAEB31F51D48F00526EAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = M8MME6Q9DA;
+				INFOPLIST_FILE = MaestroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gdn.maestro.MaestroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maestro.app/Maestro";
+			};
+			name = Release;
+		};
+		276BAEB51F51D48F00526EAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = M8MME6Q9DA;
+				INFOPLIST_FILE = MaestroUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gdn.maestro.MaestroUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Maestro;
+			};
+			name = Debug;
+		};
+		276BAEB61F51D48F00526EAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = M8MME6Q9DA;
+				INFOPLIST_FILE = MaestroUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gdn.maestro.MaestroUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Maestro;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		276BAE811F51D48F00526EAB /* Build configuration list for PBXProject "Maestro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				276BAEAC1F51D48F00526EAB /* Debug */,
+				276BAEAD1F51D48F00526EAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		276BAEAE1F51D48F00526EAB /* Build configuration list for PBXNativeTarget "Maestro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				276BAEAF1F51D48F00526EAB /* Debug */,
+				276BAEB01F51D48F00526EAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		276BAEB11F51D48F00526EAB /* Build configuration list for PBXNativeTarget "MaestroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				276BAEB21F51D48F00526EAB /* Debug */,
+				276BAEB31F51D48F00526EAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		276BAEB41F51D48F00526EAB /* Build configuration list for PBXNativeTarget "MaestroUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				276BAEB51F51D48F00526EAB /* Debug */,
+				276BAEB61F51D48F00526EAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 276BAE7E1F51D48F00526EAB /* Project object */;
+}
