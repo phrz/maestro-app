@@ -13,6 +13,7 @@
 		276BAE9F1F51D48F00526EAB /* MaestroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE9E1F51D48F00526EAB /* MaestroTests.swift */; };
 		276BAEAA1F51D48F00526EAB /* MaestroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAEA91F51D48F00526EAB /* MaestroUITests.swift */; };
 		276BAEB81F51D90D00526EAB /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 276BAEB71F51D90D00526EAB /* Podfile */; };
+		DC733A832E1E5296A0659DB4 /* Pods_Maestro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4A59EE0C5CAE4810EDE3BCD /* Pods_Maestro.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,9 @@
 		276BAEA91F51D48F00526EAB /* MaestroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaestroUITests.swift; sourceTree = "<group>"; };
 		276BAEAB1F51D48F00526EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		276BAEB71F51D90D00526EAB /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		B4A59EE0C5CAE4810EDE3BCD /* Pods_Maestro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maestro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0F0AE24D1506D8EE3B498CF /* Pods-Maestro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maestro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maestro/Pods-Maestro.debug.xcconfig"; sourceTree = "<group>"; };
+		F9A84F8C566F794A8CEF2646 /* Pods-Maestro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maestro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maestro/Pods-Maestro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC733A832E1E5296A0659DB4 /* Pods_Maestro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +77,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		093A13EBDC3C01FAE0D205C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F0F0AE24D1506D8EE3B498CF /* Pods-Maestro.debug.xcconfig */,
+				F9A84F8C566F794A8CEF2646 /* Pods-Maestro.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		16580A1B85F311987F86C54D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4A59EE0C5CAE4810EDE3BCD /* Pods_Maestro.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		276BAE7D1F51D48F00526EAB = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +102,8 @@
 				276BAE9D1F51D48F00526EAB /* MaestroTests */,
 				276BAEA81F51D48F00526EAB /* MaestroUITests */,
 				276BAE871F51D48F00526EAB /* Products */,
+				093A13EBDC3C01FAE0D205C7 /* Pods */,
+				16580A1B85F311987F86C54D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,9 +153,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 276BAEAE1F51D48F00526EAB /* Build configuration list for PBXNativeTarget "Maestro" */;
 			buildPhases = (
+				A0DC4A221B7B00D88B36BED5 /* [CP] Check Pods Manifest.lock */,
 				276BAE821F51D48F00526EAB /* Sources */,
 				276BAE831F51D48F00526EAB /* Frameworks */,
 				276BAE841F51D48F00526EAB /* Resources */,
+				F03D4781F7E9DFCA82C8F282 /* [CP] Embed Pods Frameworks */,
+				AD938892DCADD8EA0ED96919 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,6 +279,64 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A0DC4A221B7B00D88B36BED5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Maestro-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD938892DCADD8EA0ED96919 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maestro/Pods-Maestro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F03D4781F7E9DFCA82C8F282 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Maestro/Pods-Maestro-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maestro/Pods-Maestro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		276BAE821F51D48F00526EAB /* Sources */ = {
@@ -390,6 +475,7 @@
 		};
 		276BAEAF1F51D48F00526EAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0F0AE24D1506D8EE3B498CF /* Pods-Maestro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M8MME6Q9DA;
@@ -403,6 +489,7 @@
 		};
 		276BAEB01F51D48F00526EAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9A84F8C566F794A8CEF2646 /* Pods-Maestro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M8MME6Q9DA;
