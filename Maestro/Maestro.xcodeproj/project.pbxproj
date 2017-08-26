@@ -12,6 +12,7 @@
 		276BAE911F51D48F00526EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276BAE901F51D48F00526EAB /* Assets.xcassets */; };
 		276BAE9F1F51D48F00526EAB /* MaestroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE9E1F51D48F00526EAB /* MaestroTests.swift */; };
 		276BAEAA1F51D48F00526EAB /* MaestroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAEA91F51D48F00526EAB /* MaestroUITests.swift */; };
+		276BAEB81F51D90D00526EAB /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 276BAEB71F51D90D00526EAB /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		276BAEA51F51D48F00526EAB /* MaestroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaestroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		276BAEA91F51D48F00526EAB /* MaestroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaestroUITests.swift; sourceTree = "<group>"; };
 		276BAEAB1F51D48F00526EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		276BAEB71F51D90D00526EAB /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		276BAE7D1F51D48F00526EAB = {
 			isa = PBXGroup;
 			children = (
+				276BAEB71F51D90D00526EAB /* Podfile */,
 				276BAE881F51D48F00526EAB /* Maestro */,
 				276BAE9D1F51D48F00526EAB /* MaestroTests */,
 				276BAEA81F51D48F00526EAB /* MaestroUITests */,
@@ -229,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				276BAEB81F51D90D00526EAB /* Podfile in Resources */,
 				276BAE911F51D48F00526EAB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
