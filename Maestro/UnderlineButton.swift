@@ -21,11 +21,15 @@ class UnderlineButton: UIButton {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.setTitleColor(.black, for: .normal)
-		self.sizeToFit()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+	
+	override func setTitle(_ title: String?, for state: UIControlState) {
+		super.setTitle(title, for: state)
+		self.sizeToFit()
 	}
 	
 	override func draw(_ rect: CGRect) {

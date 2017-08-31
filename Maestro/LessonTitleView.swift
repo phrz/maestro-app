@@ -11,7 +11,6 @@ import UIKit
 class LessonTitleView: UIView {
 	
 	var lessonCard: UIView!
-	var lessonCardContent: UIStackView!
 	var lessonDetail: UILabel!
 	var lessonTitle: UILabel!
 	var startButton: UIButton!
@@ -20,7 +19,9 @@ class LessonTitleView: UIView {
 		super.init(frame: frame)
 		
 		lessonCard = {
+			let em = UIFont.systemFontSize
 			let l = UIView()
+			l.layoutMargins = UIEdgeInsets(top: 3*em, left: 1*em, bottom: 1*em, right: 1*em)
 			l.backgroundColor = UIColor(white: 0.95, alpha: 1) // #F3F3F3
 			return l
 		}()
@@ -50,17 +51,11 @@ class LessonTitleView: UIView {
 			return b
 		}()
 		
-		lessonCardContent = {
-			let subviews: [UIView] = [lessonDetail, lessonTitle, startButton]
-			let s = UIStackView(arrangedSubviews: subviews)
-			s.axis = .vertical
-			s.alignment = .leading
-			s.distribution = .equalSpacing
-			return s
-		}()
-		
+		lessonCard.addSubview(lessonDetail)
+		lessonCard.addSubview(lessonTitle)
+		lessonCard.addSubview(startButton)
 		addSubview(lessonCard)
-		lessonCard.addSubview(lessonCardContent)
+		
 		updateConstraints()
 	}
 	
@@ -82,21 +77,20 @@ class LessonTitleView: UIView {
 		}
 		
 		lessonDetail.snp.makeConstraints { (make) in
-			make.width.equalToSuperview()
-//			make.top.equalToSuperview()
+			make.top.equalTo(lessonCard.snp.topMargin)
+			make.left.equalTo(lessonCard.snp.leftMargin)
+			make.right.equalTo(lessonCard.snp.rightMargin)
 		}
 		
 		lessonTitle.snp.makeConstraints { (make) in
-			make.width.equalToSuperview()
-//			make.top.equalToSuperview()
+			make.top.equalTo(lessonDetail.snp.bottom).offset(0.5*em)
+			make.left.equalTo(lessonCard.snp.leftMargin)
+			make.right.equalTo(lessonCard.snp.rightMargin)
 		}
 		
 		startButton.snp.makeConstraints { (make) in
-			make.right.equalToSuperview()
-		}
-		
-		lessonCardContent.snp.makeConstraints { (make) in
-			make.edges.equalToSuperview().inset(1*em)
+			make.rightMargin.equalToSuperview()
+			make.bottomMargin.equalToSuperview()
 		}
 		
 		super.updateConstraints()
