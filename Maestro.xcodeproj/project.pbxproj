@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27371F801F58567E0019E8FE /* LessonTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27371F7F1F58567E0019E8FE /* LessonTitleViewController.swift */; };
+		27371F821F58568F0019E8FE /* LessonTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27371F811F58568F0019E8FE /* LessonTitleView.swift */; };
 		276BAE8A1F51D48F00526EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE891F51D48F00526EAB /* AppDelegate.swift */; };
 		276BAE8C1F51D48F00526EAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE8B1F51D48F00526EAB /* ViewController.swift */; };
 		276BAE911F51D48F00526EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276BAE901F51D48F00526EAB /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27371F7F1F58567E0019E8FE /* LessonTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonTitleViewController.swift; sourceTree = "<group>"; };
+		27371F811F58568F0019E8FE /* LessonTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonTitleView.swift; sourceTree = "<group>"; };
 		276BAE861F51D48F00526EAB /* Maestro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maestro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		276BAE891F51D48F00526EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		276BAE8B1F51D48F00526EAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 			children = (
 				276BAE891F51D48F00526EAB /* AppDelegate.swift */,
 				276BAE8B1F51D48F00526EAB /* ViewController.swift */,
+				27371F7F1F58567E0019E8FE /* LessonTitleViewController.swift */,
+				27371F811F58568F0019E8FE /* LessonTitleView.swift */,
 				276BAE901F51D48F00526EAB /* Assets.xcassets */,
 				276BAE951F51D48F00526EAB /* Info.plist */,
 			);
@@ -343,6 +349,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27371F801F58567E0019E8FE /* LessonTitleViewController.swift in Sources */,
+				27371F821F58568F0019E8FE /* LessonTitleView.swift in Sources */,
 				276BAE8C1F51D48F00526EAB /* ViewController.swift in Sources */,
 				276BAE8A1F51D48F00526EAB /* AppDelegate.swift in Sources */,
 			);
@@ -578,6 +586,7 @@
 				276BAEB01F51D48F00526EAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		276BAEB11F51D48F00526EAB /* Build configuration list for PBXNativeTarget "MaestroTests" */ = {
 			isa = XCConfigurationList;
@@ -586,6 +595,7 @@
 				276BAEB31F51D48F00526EAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		276BAEB41F51D48F00526EAB /* Build configuration list for PBXNativeTarget "MaestroUITests" */ = {
 			isa = XCConfigurationList;
@@ -594,6 +604,7 @@
 				276BAEB61F51D48F00526EAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
