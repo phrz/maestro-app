@@ -1,0 +1,5 @@
+language: swift
+osx_image: xcode8.3
+xcode_project: Maestro.xcodeproj
+xcode_scheme: Maestro
+xcode_sdk: iphonesimulator10.3
