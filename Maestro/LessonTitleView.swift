@@ -7,17 +7,17 @@
 //
 
 import UIKit
+import UIImageViewAlignedSwift
 
 class LessonTitleView: UIView {
 	
-	var lessonCard: UIView!
-	var lessonDetail: UILabel!
-	var lessonTitle: UILabel!
-	var startButton: UIButton!
+	let lessonCard: UIView
+	let lessonDetail: UILabel
+	let lessonTitle: UILabel
+	let lessonIcon: UIImageViewAligned
+	let startButton: UIButton
 	
 	override init(frame: CGRect) {
-		super.init(frame: frame)
-		
 		lessonCard = {
 			let em = UIFont.systemFontSize
 			let l = UIView()
@@ -31,7 +31,7 @@ class LessonTitleView: UIView {
 			d.numberOfLines = 0 // Auto
 			d.lineBreakMode = .byWordWrapping
 			d.textColor = UIColor(white: 0, alpha: 0.6)
-			d.text = "Introduction · Lesson 1"
+			d.text = "INTRODUCTION · LESSON 1"
 			return d
 		}()
 		
@@ -45,14 +45,24 @@ class LessonTitleView: UIView {
 			return t
 		}()
 		
+		lessonIcon = {
+			let i = UIImage(imageLiteralResourceName: "quarter-note")
+			let iv = UIImageViewAligned(image: i)
+			iv.contentMode = .scaleAspectFit
+			iv.alignment = .topLeft
+			return iv
+		}()
+		
 		startButton = {
 			let b = UnderlineButton()
 			b.setTitle("Start", for: .normal)
 			return b
 		}()
 		
+		super.init(frame: frame)
 		lessonCard.addSubview(lessonDetail)
 		lessonCard.addSubview(lessonTitle)
+		lessonCard.addSubview(lessonIcon)
 		lessonCard.addSubview(startButton)
 		addSubview(lessonCard)
 		
@@ -65,11 +75,10 @@ class LessonTitleView: UIView {
 	
 	override func updateConstraints() {
 		let em = UIFont.systemFontSize
-		let statusBarHeight = UIApplication.shared.statusBarFrame.height
+//		let statusBarHeight = UIApplication.shared.statusBarFrame.height
 		
 		lessonCard.snp.makeConstraints { (make) in
-			let topMargin = 3.3*em + statusBarHeight
-			let margin = UIEdgeInsets(top: topMargin,
+			let margin = UIEdgeInsets(top: 0,
 			                          left: 1*em,
 			                          bottom: 1*em,
 			                          right: 1*em)
@@ -88,12 +97,23 @@ class LessonTitleView: UIView {
 			make.right.equalTo(lessonCard.snp.rightMargin)
 		}
 		
+		lessonIcon.snp.makeConstraints { (make) in
+			make.top.equalTo(lessonTitle.snp.bottom).offset(2*em)
+			make.left.equalTo(lessonCard.snp.leftMargin)
+			make.height.equalTo(64)
+			make.width.lessThanOrEqualToSuperview()
+		}
+		
 		startButton.snp.makeConstraints { (make) in
 			make.rightMargin.equalToSuperview()
 			make.bottomMargin.equalToSuperview()
 		}
 		
 		super.updateConstraints()
+	}
+	
+	override func layoutSubviews() {
+		super.layoutSubviews()
 	}
 
 }
