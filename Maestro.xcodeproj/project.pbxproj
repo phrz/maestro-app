@@ -19,6 +19,8 @@
 		276BAEAA1F51D48F00526EAB /* MaestroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAEA91F51D48F00526EAB /* MaestroUITests.swift */; };
 		276BAEB81F51D90D00526EAB /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 276BAEB71F51D90D00526EAB /* Podfile */; };
 		27D17CE81F5A2E800049382F /* UIImageViewAlignedSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D17CE71F5A2E800049382F /* UIImageViewAlignedSwift.framework */; };
+		A6B115041F5CBE660058B302 /* LessonContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B115021F5CBE660058B302 /* LessonContentView.swift */; };
+		A6B115051F5CBE660058B302 /* LessonContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B115031F5CBE660058B302 /* LessonContentViewController.swift */; };
 		DC733A832E1E5296A0659DB4 /* Pods_Maestro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4A59EE0C5CAE4810EDE3BCD /* Pods_Maestro.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		276BAEAB1F51D48F00526EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		276BAEB71F51D90D00526EAB /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		27D17CE71F5A2E800049382F /* UIImageViewAlignedSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIImageViewAlignedSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/Maestro-brumgfvogdyfwchklxufaqtvbcqn/Build/Products/Debug-iphonesimulator/UIImageViewAlignedSwift/UIImageViewAlignedSwift.framework"; sourceTree = "<group>"; };
+		A6B115021F5CBE660058B302 /* LessonContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonContentView.swift; sourceTree = "<group>"; };
+		A6B115031F5CBE660058B302 /* LessonContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonContentViewController.swift; sourceTree = "<group>"; };
 		B4A59EE0C5CAE4810EDE3BCD /* Pods_Maestro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maestro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F0AE24D1506D8EE3B498CF /* Pods-Maestro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maestro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maestro/Pods-Maestro.debug.xcconfig"; sourceTree = "<group>"; };
 		F9A84F8C566F794A8CEF2646 /* Pods-Maestro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maestro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maestro/Pods-Maestro.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 		276BAE881F51D48F00526EAB /* Maestro */ = {
 			isa = PBXGroup;
 			children = (
+				A6B115011F5CBDB40058B302 /* LessonContentView */,
 				276BAE891F51D48F00526EAB /* AppDelegate.swift */,
 				2763317A1F5A31F300E2EA67 /* MaestroNavigationBar.swift */,
 				27371F871F586D7F0019E8FE /* UnderlineButton.swift */,
@@ -179,6 +184,15 @@
 				276BAEAB1F51D48F00526EAB /* Info.plist */,
 			);
 			path = MaestroUITests;
+			sourceTree = "<group>";
+		};
+		A6B115011F5CBDB40058B302 /* LessonContentView */ = {
+			isa = PBXGroup;
+			children = (
+				A6B115021F5CBE660058B302 /* LessonContentView.swift */,
+				A6B115031F5CBE660058B302 /* LessonContentViewController.swift */,
+			);
+			name = LessonContentView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,6 +398,8 @@
 				27371F801F58567E0019E8FE /* LessonTitleViewController.swift in Sources */,
 				27371F841F585BBF0019E8FE /* TestView.swift in Sources */,
 				27371F881F586D7F0019E8FE /* UnderlineButton.swift in Sources */,
+				A6B115051F5CBE660058B302 /* LessonContentViewController.swift in Sources */,
+				A6B115041F5CBE660058B302 /* LessonContentView.swift in Sources */,
 				27371F821F58568F0019E8FE /* LessonTitleView.swift in Sources */,
 				276BAE8C1F51D48F00526EAB /* TestViewController.swift in Sources */,
 				276BAE8A1F51D48F00526EAB /* AppDelegate.swift in Sources */,
