@@ -85,21 +85,10 @@ class LessonContentView: UIView {
             
             return p
         }()*/
-        playButton = UIButton(type: UIButtonType.system) as UIButton
-        let url = URL(string: "https://s3.amazonaws.com/kargopolov/kukushka.mp3")
-        let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
-        player = AVPlayer(playerItem: playerItem)
-        let playerLayer=AVPlayerLayer(player: player!)
-        playerLayer.frame=CGRect(x:0, y:0, width:10, height:50)
-        playButton!.frame = CGRect(x: 10, y: 10, width: 60, height: 30)
-        playButton!.backgroundColor = UIColor.lightGray
-        playButton!.setTitle("Play", for: UIControlState.normal)
-        playButton!.tintColor = UIColor.black
-        //button is not responding
-        playButton.addTarget(self, action: #selector(self.playButtonTapped(_:)), for: .touchUpInside)
+       
         
         
-        lessonAudio.addSubview(playButton)
+        //lessonAudio.addSubview(playButton)
         lessonCard.addSubview(lessonImage)
         lessonCard.addSubview(lessonDetail)
         lessonCard.addSubview(lessonAudio)
@@ -116,24 +105,6 @@ class LessonContentView: UIView {
     }
     
     
-    func playButtonTapped(_ sender:UIButton)
-    {
-        NSLog("pressed!")
-        print("here it plays")
-        if player?.rate == 0
-        {
-            
-            player!.play()
-            //playButton!.setImage(UIImage(named: "player_control_pause_50px.png"), forState: UIControlState.Normal)
-            playButton!.setTitle("Pause", for: UIControlState.normal)
-        } else {
-            player!.pause()
-            //playButton!.setImage(UIImage(named: "player_control_play_50px.png"), forState: UIControlState.Normal)
-            playButton!.setTitle("Play", for: UIControlState.normal)
-        }
-        
-        
-    }
     override func updateConstraints() {
         let em = UIFont.systemFontSize
         //		let statusBarHeight = UIApplication.shared.statusBarFrame.height
