@@ -14,20 +14,17 @@ import AVFoundation
 
 class LessonContentView: UIView {
     
-    var lessonCard: UIView!
-    var lessonImage: UIImageView!
-    var lessonDetail: UILabel!
-    var lessonAudio: UIView!
-    var nextButton: UIButton!
-    //var playButton: UIButton!
-    var player:AVPlayer?
-    var playerItem:AVPlayerItem?
-    var progressBar: UISlider!
+    let lessonCard: UIView
+    let lessonImage: UIImageView
+    let lessonDetail: UILabel
+    let nextButton: UIButton
+    
+    let audioPlayerPlayButton: UIButton
+    let audioPlayerSlider: UISlider
+    let playerItem: AVPlayerItem?
+    
+    let progressBar: UISlider
 
-    
-    
-
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -58,45 +55,32 @@ class LessonContentView: UIView {
             return d
         }()
         
-        
-        
-        lessonAudio = {
-            let em = UIFont.systemFontSize
-            let a = UIView()
-            a.layoutMargins = UIEdgeInsets(top: 7*em, left: 1*em, bottom: 1*em, right: 1*em)
-            a.backgroundColor = UIColor(white: 0.95, alpha: 1) // #F3F3F3
-            
-            return a
-        }()
-        
         nextButton = {
             let b = UnderlineButton()
             b.setTitle("Next", for: .normal)
             return b
         }()
         
-        /*playButton = {
-            let p = UnderlineButton()
-                //UIButton(type: UIButtonType.system) as UIButton
-            let url = URL(string: "https://s3.amazonaws.com/kargopolov/kukushka.mp3")
-            let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
-            player = AVPlayer(playerItem: playerItem)
-            let playerLayer=AVPlayerLayer(player: player!)
-            playerLayer.frame=CGRect(x:0, y:0, width:10, height:50)
-            p.setTitle("Play", for: .normal)
-            p.addTarget(self, action: #selector(playButtonTapped(_:)), for: .touchUpInside)
-            
+        audioPlayerPlayButton = {
+            let p = UIButton()
+            p.setImage(UIImage(named: "play.png"), for: .normal)
+            p.backgroundColor = .clear
+            p.tintColor = .black
+            playButton.addTarget(self, action: #selector(self.playButtonTapped(_:)), for: .touchUpInside)
             return p
-        }()*/
-       
+        }()
         
+        audioPlayerSlider = {
+            let s = UISlider()
+            s.minimumValue = 0
+            return s
+        }()
         
-        //lessonAudio.addSubview(playButton)
-        //lessonAudio.addSubview(progressBar)
         lessonCard.addSubview(lessonImage)
         lessonCard.addSubview(lessonDetail)
-        lessonCard.addSubview(lessonAudio)
         lessonCard.addSubview(nextButton)
+        
+        lessonCard.addSubview(audioPlayerPlayButton)
         addSubview(lessonCard)
         
         updateConstraints()
@@ -131,12 +115,22 @@ class LessonContentView: UIView {
             make.right.equalTo(lessonCard.snp.rightMargin)
         }
         
-        lessonAudio.snp.makeConstraints { (make) in
+        /*lessonAudio.snp.makeConstraints { (make) in
             make.top.equalTo(lessonDetail.snp.bottomMargin).offset(2*em)
             make.left.equalTo(lessonCard.snp.leftMargin)
             make.right.equalTo(lessonCard.snp.rightMargin)
+        }*/
+        
+        audioPlayerPlayButton.snp.makeConstraints { make in
+//            p.frame = CGRect(x: 10, y: 10, width: 40, height: 30)
+            make.width.equalTo(40)
+            make.height.equalTo(30)
         }
         
+        audioPlayerSlider.snp.makeConstraints { make in
+            make.width.equalTo(300)
+            make.height.equalTo(20)
+        }
         
         nextButton.snp.makeConstraints { (make) in
             make.rightMargin.equalToSuperview()
