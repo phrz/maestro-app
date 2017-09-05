@@ -10,12 +10,12 @@ import UIKit
 
 class LessonContentViewController: UIViewController {
     
-    var lessonContentView: LessonTitleView{
-        return view as! LessonTitleView
+    var lessonContentView: LessonContentView{
+        return view as! LessonContentView
     }
     
     override func loadView() {
-        view = LessonTitleView(frame: UIScreen.main.bounds)
+        view = LessonContentView(frame: UIScreen.main.bounds)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

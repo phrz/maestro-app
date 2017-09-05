@@ -21,6 +21,7 @@
 		27D17CE81F5A2E800049382F /* UIImageViewAlignedSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D17CE71F5A2E800049382F /* UIImageViewAlignedSwift.framework */; };
 		A6B115041F5CBE660058B302 /* LessonContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B115021F5CBE660058B302 /* LessonContentView.swift */; };
 		A6B115051F5CBE660058B302 /* LessonContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B115031F5CBE660058B302 /* LessonContentViewController.swift */; };
+		A6B115091F5EE5840058B302 /* ImageName.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B115081F5EE5840058B302 /* ImageName.png */; };
 		DC733A832E1E5296A0659DB4 /* Pods_Maestro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4A59EE0C5CAE4810EDE3BCD /* Pods_Maestro.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		27D17CE71F5A2E800049382F /* UIImageViewAlignedSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIImageViewAlignedSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/Maestro-brumgfvogdyfwchklxufaqtvbcqn/Build/Products/Debug-iphonesimulator/UIImageViewAlignedSwift/UIImageViewAlignedSwift.framework"; sourceTree = "<group>"; };
 		A6B115021F5CBE660058B302 /* LessonContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonContentView.swift; sourceTree = "<group>"; };
 		A6B115031F5CBE660058B302 /* LessonContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonContentViewController.swift; sourceTree = "<group>"; };
+		A6B115081F5EE5840058B302 /* ImageName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageName.png; sourceTree = "<group>"; };
 		B4A59EE0C5CAE4810EDE3BCD /* Pods_Maestro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maestro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F0AE24D1506D8EE3B498CF /* Pods-Maestro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maestro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maestro/Pods-Maestro.debug.xcconfig"; sourceTree = "<group>"; };
 		F9A84F8C566F794A8CEF2646 /* Pods-Maestro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maestro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maestro/Pods-Maestro.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		276BAE881F51D48F00526EAB /* Maestro */ = {
 			isa = PBXGroup;
 			children = (
+				A6B1150A1F5EE93E0058B302 /* MockUpResources */,
 				A6B115011F5CBDB40058B302 /* LessonContentView */,
 				276BAE891F51D48F00526EAB /* AppDelegate.swift */,
 				2763317A1F5A31F300E2EA67 /* MaestroNavigationBar.swift */,
@@ -193,6 +196,14 @@
 				A6B115031F5CBE660058B302 /* LessonContentViewController.swift */,
 			);
 			name = LessonContentView;
+			sourceTree = "<group>";
+		};
+		A6B1150A1F5EE93E0058B302 /* MockUpResources */ = {
+			isa = PBXGroup;
+			children = (
+				A6B115081F5EE5840058B302 /* ImageName.png */,
+			);
+			name = MockUpResources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6B115091F5EE5840058B302 /* ImageName.png in Resources */,
 				276BAEB81F51D90D00526EAB /* Podfile in Resources */,
 				276BAE911F51D48F00526EAB /* Assets.xcassets in Resources */,
 			);
@@ -462,6 +474,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
+				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -512,6 +526,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
