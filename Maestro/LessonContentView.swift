@@ -42,7 +42,7 @@ class LessonContentView: UIView {
             let screenSize: CGRect = UIScreen.main.bounds
             let vImg = UIImageView()
             vImg.frame = CGRect(x: 0, y: 0, width: 5, height: screenSize.height * 0.01)
-            let i = UIImage(named:"ImageName.png")
+            let i = UIImage(named:"The-Staff.jpg")
             vImg.image = i
             vImg.translatesAutoresizingMaskIntoConstraints = false
             return vImg
@@ -53,7 +53,7 @@ class LessonContentView: UIView {
             d.numberOfLines = 0
             d.lineBreakMode = .byWordWrapping
             d.textColor = UIColor(white: 0, alpha: 0.6)
-            d.text = "Here is the lesson Detail"
+            d.text = "The staff consists of five lines and four spaces. Each of those lines and each of those spaces represents a different letter, which in turn represents a note. Those lines and spaces represent notes named A-G, and the note sequence moves alphabetically up the staff."
             return d
         }()
         
@@ -72,8 +72,9 @@ class LessonContentView: UIView {
             return b
         }()
         
-        playButton = {
-            let p = UIButton(type: UIButtonType.system) as UIButton
+        /*playButton = {
+            let p = UnderlineButton()
+                //UIButton(type: UIButtonType.system) as UIButton
             let url = URL(string: "https://s3.amazonaws.com/kargopolov/kukushka.mp3")
             let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
             player = AVPlayer(playerItem: playerItem)
@@ -83,7 +84,20 @@ class LessonContentView: UIView {
             p.addTarget(self, action: #selector(playButtonTapped(_:)), for: .touchUpInside)
             
             return p
-        }()
+        }()*/
+        playButton = UIButton(type: UIButtonType.system) as UIButton
+        let url = URL(string: "https://s3.amazonaws.com/kargopolov/kukushka.mp3")
+        let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
+        player = AVPlayer(playerItem: playerItem)
+        let playerLayer=AVPlayerLayer(player: player!)
+        playerLayer.frame=CGRect(x:0, y:0, width:10, height:50)
+        playButton!.frame = CGRect(x: 10, y: 10, width: 60, height: 30)
+        playButton!.backgroundColor = UIColor.lightGray
+        playButton!.setTitle("Play", for: UIControlState.normal)
+        playButton!.tintColor = UIColor.black
+        //button is not responding
+        playButton.addTarget(self, action: #selector(self.playButtonTapped(_:)), for: .touchUpInside)
+        
         
         lessonAudio.addSubview(playButton)
         lessonCard.addSubview(lessonImage)
@@ -104,8 +118,11 @@ class LessonContentView: UIView {
     
     func playButtonTapped(_ sender:UIButton)
     {
+        NSLog("pressed!")
+        print("here it plays")
         if player?.rate == 0
         {
+            
             player!.play()
             //playButton!.setImage(UIImage(named: "player_control_pause_50px.png"), forState: UIControlState.Normal)
             playButton!.setTitle("Pause", for: UIControlState.normal)
@@ -130,7 +147,7 @@ class LessonContentView: UIView {
         }
         
         lessonImage.snp.makeConstraints { (make) -> Void in
-            make.edges.equalTo(lessonCard).inset(UIEdgeInsetsMake(2, 50, 400, 50))
+            make.edges.equalTo(lessonCard).inset(UIEdgeInsetsMake(2, 20, 400, 20))
         }
 
         lessonDetail.snp.makeConstraints { (make) in
