@@ -19,9 +19,10 @@ class LessonContentView: UIView {
     var lessonDetail: UILabel!
     var lessonAudio: UIView!
     var nextButton: UIButton!
-    var playButton: UIButton!
+    //var playButton: UIButton!
     var player:AVPlayer?
     var playerItem:AVPlayerItem?
+    var progressBar: UISlider!
 
     
     
@@ -57,6 +58,8 @@ class LessonContentView: UIView {
             return d
         }()
         
+        
+        
         lessonAudio = {
             let em = UIFont.systemFontSize
             let a = UIView()
@@ -89,6 +92,7 @@ class LessonContentView: UIView {
         
         
         //lessonAudio.addSubview(playButton)
+        //lessonAudio.addSubview(progressBar)
         lessonCard.addSubview(lessonImage)
         lessonCard.addSubview(lessonDetail)
         lessonCard.addSubview(lessonAudio)
@@ -133,10 +137,12 @@ class LessonContentView: UIView {
             make.right.equalTo(lessonCard.snp.rightMargin)
         }
         
+        
         nextButton.snp.makeConstraints { (make) in
             make.rightMargin.equalToSuperview()
             make.bottomMargin.equalToSuperview()
         }
+        
         
         super.updateConstraints()
     }
