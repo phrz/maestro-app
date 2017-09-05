@@ -66,7 +66,7 @@ class LessonTitleView: UIView {
 		lessonCard.addSubview(startButton)
 		addSubview(lessonCard)
 		
-		updateConstraints()
+		setNeedsUpdateConstraints()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
