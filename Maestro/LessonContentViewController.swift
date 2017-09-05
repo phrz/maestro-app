@@ -51,12 +51,12 @@ class LessonContentViewController: UIViewController {
         {
             
             player!.play()
-            //playButton!.setImage(UIImage(named: "player_control_pause_50px.png"), forState: UIControlState.Normal)
-            playButton!.setTitle("Pause", for: UIControlState.normal)
+            playButton!.setImage(UIImage(named: "pause.png"), for: UIControlState.normal)
+            //playButton!.setTitle("Pause", for: UIControlState.normal)
         } else {
             player!.pause()
-            //playButton!.setImage(UIImage(named: "player_control_play_50px.png"), forState: UIControlState.Normal)
-            playButton!.setTitle("Play", for: UIControlState.normal)
+            playButton!.setImage(UIImage(named: "play.png"), for: UIControlState.normal)
+            //playButton!.setTitle("Play", for: UIControlState.normal)
         }
         
         

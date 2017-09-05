@@ -23,6 +23,8 @@
 		A6B115051F5CBE660058B302 /* LessonContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B115031F5CBE660058B302 /* LessonContentViewController.swift */; };
 		A6B115091F5EE5840058B302 /* ImageName.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B115081F5EE5840058B302 /* ImageName.png */; };
 		A6B1150C1F5F11B80058B302 /* The-Staff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6B1150B1F5F11B80058B302 /* The-Staff.jpg */; };
+		A6B1150E1F5F13A40058B302 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B1150D1F5F13A40058B302 /* play.png */; };
+		A6B115121F5F18280058B302 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B115111F5F18280058B302 /* pause.png */; };
 		DC733A832E1E5296A0659DB4 /* Pods_Maestro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4A59EE0C5CAE4810EDE3BCD /* Pods_Maestro.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		A6B115031F5CBE660058B302 /* LessonContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonContentViewController.swift; sourceTree = "<group>"; };
 		A6B115081F5EE5840058B302 /* ImageName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageName.png; sourceTree = "<group>"; };
 		A6B1150B1F5F11B80058B302 /* The-Staff.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The-Staff.jpg"; sourceTree = "<group>"; };
+		A6B1150D1F5F13A40058B302 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		A6B115111F5F18280058B302 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		B4A59EE0C5CAE4810EDE3BCD /* Pods_Maestro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maestro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F0AE24D1506D8EE3B498CF /* Pods-Maestro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maestro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maestro/Pods-Maestro.debug.xcconfig"; sourceTree = "<group>"; };
 		F9A84F8C566F794A8CEF2646 /* Pods-Maestro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maestro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maestro/Pods-Maestro.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 		A6B1150A1F5EE93E0058B302 /* MockUpResources */ = {
 			isa = PBXGroup;
 			children = (
+				A6B115111F5F18280058B302 /* pause.png */,
+				A6B1150D1F5F13A40058B302 /* play.png */,
 				A6B1150B1F5F11B80058B302 /* The-Staff.jpg */,
 				A6B115081F5EE5840058B302 /* ImageName.png */,
 			);
@@ -323,6 +329,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6B115091F5EE5840058B302 /* ImageName.png in Resources */,
+				A6B1150E1F5F13A40058B302 /* play.png in Resources */,
+				A6B115121F5F18280058B302 /* pause.png in Resources */,
 				276BAEB81F51D90D00526EAB /* Podfile in Resources */,
 				A6B1150C1F5F11B80058B302 /* The-Staff.jpg in Resources */,
 				276BAE911F51D48F00526EAB /* Assets.xcassets in Resources */,
