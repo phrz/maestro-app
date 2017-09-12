@@ -60,6 +60,8 @@ class LessonTitleView: UIView {
 		}()
 		
 		super.init(frame: frame)
+		backgroundColor = .white
+		
 		lessonCard.addSubview(lessonDetail)
 		lessonCard.addSubview(lessonTitle)
 		lessonCard.addSubview(lessonIcon)

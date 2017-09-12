@@ -33,13 +33,10 @@ class LessonContentView: UIView {
         }()
         
         lessonImage = {
-            let screenSize: CGRect = UIScreen.main.bounds
-            let vImg = UIImageView()
-            vImg.frame = CGRect(x: 0, y: 0, width: 5, height: screenSize.height * 0.01)
-            let i = UIImage(named:"The-Staff.jpg")
-            vImg.image = i
-            vImg.translatesAutoresizingMaskIntoConstraints = false
-            return vImg
+            let iv = UIImageView()
+            iv.image = UIImage(named:"The-Staff.jpg")
+			iv.contentMode = .scaleAspectFit
+            return iv
         }()
         
         lessonDetail = {
@@ -72,6 +69,7 @@ class LessonContentView: UIView {
         }()
 		
 		super.init(frame: frame)
+		backgroundColor = .white
 		
 		audioPlayerPlayButton.addTarget(self, action: #selector(self.playButtonTapped(sender:)), for: .touchUpInside)
         
@@ -80,6 +78,7 @@ class LessonContentView: UIView {
         lessonCard.addSubview(nextButton)
         
         lessonCard.addSubview(audioPlayerPlayButton)
+		lessonCard.addSubview(audioPlayerSlider)
         addSubview(lessonCard)
         
         updateConstraints()
@@ -108,30 +107,28 @@ class LessonContentView: UIView {
         }
         
         lessonImage.snp.makeConstraints { (make) -> Void in
-            make.edges.equalTo(lessonCard).inset(UIEdgeInsetsMake(2, 20, 400, 20))
+            make.left.equalTo(lessonCard.snp.leftMargin)
+			make.right.equalTo(lessonCard.snp.rightMargin)
+			make.top.equalTo(lessonCard.snp.top).offset(1*em)
         }
 
         lessonDetail.snp.makeConstraints { (make) in
-            make.top.equalTo(lessonImage.snp.bottomMargin).offset(6*em)
+            make.top.equalTo(audioPlayerPlayButton.snp.bottom).offset(1*em)
             make.left.equalTo(lessonCard.snp.leftMargin)
             make.right.equalTo(lessonCard.snp.rightMargin)
         }
         
-        /*lessonAudio.snp.makeConstraints { (make) in
-            make.top.equalTo(lessonDetail.snp.bottomMargin).offset(2*em)
-            make.left.equalTo(lessonCard.snp.leftMargin)
-            make.right.equalTo(lessonCard.snp.rightMargin)
-        }*/
-        
         audioPlayerPlayButton.snp.makeConstraints { make in
-//            p.frame = CGRect(x: 10, y: 10, width: 40, height: 30)
+			make.top.equalTo(lessonImage.snp.bottom).offset(1*em)
+			make.left.equalTo(lessonCard.snp.leftMargin)
             make.width.equalTo(40)
             make.height.equalTo(40)
         }
         
         audioPlayerSlider.snp.makeConstraints { make in
-            make.width.equalTo(300)
-            make.height.equalTo(20)
+			make.centerY.equalTo(audioPlayerPlayButton.snp.centerY)
+            make.left.equalTo(audioPlayerPlayButton.snp.right)
+			make.right.equalTo(lessonCard.snp.rightMargin)
         }
         
         nextButton.snp.makeConstraints { (make) in
