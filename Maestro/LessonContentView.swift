@@ -21,12 +21,8 @@ class LessonContentView: UIView {
     
     let audioPlayerPlayButton: UIButton
     let audioPlayerSlider: UISlider
-    let playerItem: AVPlayerItem?
-    
-    let progressBar: UISlider
 
     override init(frame: CGRect) {
-        super.init(frame: frame)
         
         lessonCard = {
             let em = UIFont.systemFontSize
@@ -50,7 +46,7 @@ class LessonContentView: UIView {
             let d = UILabel()
             d.numberOfLines = 0
             d.lineBreakMode = .byWordWrapping
-            d.textColor = UIColor(white: 0, alpha: 0.6)
+            d.textColor = .black
             d.text = "The staff consists of five lines and four spaces. Each of those lines and each of those spaces represents a different letter, which in turn represents a note. Those lines and spaces represent notes named A-G, and the note sequence moves alphabetically up the staff."
             return d
         }()
@@ -63,10 +59,9 @@ class LessonContentView: UIView {
         
         audioPlayerPlayButton = {
             let p = UIButton()
-            p.setImage(UIImage(named: "play.png"), for: .normal)
+            p.setImage(UIImage.init(named: "play-icon"), for: .normal)
             p.backgroundColor = .clear
             p.tintColor = .black
-            playButton.addTarget(self, action: #selector(self.playButtonTapped(_:)), for: .touchUpInside)
             return p
         }()
         
@@ -75,6 +70,10 @@ class LessonContentView: UIView {
             s.minimumValue = 0
             return s
         }()
+		
+		super.init(frame: frame)
+		
+		audioPlayerPlayButton.addTarget(self, action: #selector(self.playButtonTapped(sender:)), for: .touchUpInside)
         
         lessonCard.addSubview(lessonImage)
         lessonCard.addSubview(lessonDetail)
@@ -91,7 +90,10 @@ class LessonContentView: UIView {
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+	
+	func playButtonTapped(sender: Any) {
+		print("Play Button Tapped")
+	}
     
     override func updateConstraints() {
         let em = UIFont.systemFontSize
@@ -124,7 +126,7 @@ class LessonContentView: UIView {
         audioPlayerPlayButton.snp.makeConstraints { make in
 //            p.frame = CGRect(x: 10, y: 10, width: 40, height: 30)
             make.width.equalTo(40)
-            make.height.equalTo(30)
+            make.height.equalTo(40)
         }
         
         audioPlayerSlider.snp.makeConstraints { make in

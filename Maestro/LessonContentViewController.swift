@@ -13,8 +13,8 @@ import AVFoundation
 
 class LessonContentViewController: UIViewController {
     
-    var audioPlayer: AVPlayer
-    var audioContent: AVPlayerItem
+    var audioPlayer: AVPlayer?
+    var audioContent: AVPlayerItem?
     
     var lessonContentView: LessonContentView {
         return view as! LessonContentView
@@ -35,59 +35,60 @@ class LessonContentViewController: UIViewController {
     }
     
     func setupPlaybackSlider() {
-        let duration : CMTime = audioContent.asset.duration
-        let seconds : Float64 = CMTimeGetSeconds(duration)
+        let duration: CMTime = audioContent!.asset.duration
+        let seconds: Float64 = CMTimeGetSeconds(duration)
         
         let s = lessonContentView.audioPlayerSlider
         s.maximumValue = Float(seconds)
         s.isContinuous = false
-        s.tintColor = UIColor.darkGray
-        
-        // When the user modifies the slider, change the
-        // playback position.
+        s.tintColor = .darkGray
         s.addTarget(self, action: #selector(playbackSliderValueChanged(_:)), for: .valueChanged)
         
         // Every second, advance the slider.
         let everySecond = CMTime(seconds: 1, preferredTimescale: 1)
-        
-        audioPlayer.addPeriodicTimeObserver(forInterval: everySecond, queue: .main) { (CMTime) -> Void in
-            guard self.audioPlayer.currentItem?.status == .readyToPlay else { return }
-            let time: Float64 = CMTimeGetSeconds(self.player.currentTime());
-            self.playbackSlider!.value = Float ( time );
+		
+		guard let player = audioPlayer else {
+			print("audioPlayer was nil in setupPlaybackSlider!")
+			return
+		}
+		
+        player.addPeriodicTimeObserver(forInterval: everySecond, queue: .main) { (CMTime) -> Void in
+            guard player.currentItem?.status == .readyToPlay else { return }
+            let time: Float64 = CMTimeGetSeconds(player.currentTime());
+            self.lessonContentView.audioPlayerSlider.value = Float(time);
         }
     }
     
     func playButtonTapped(_ sender: UIButton) {
-        NSLog("pressed!")
-        print("here it plays")
-        if player?.rate == 0 {
-            
-            player!.play()
-            playButton!.setImage(UIImage(named: "pause.png"), for: UIControlState.normal)
+        if audioPlayer?.rate == 0 {
+            audioPlayer?.play()
+            sender.setImage(
+				UIImage(named: "pause-icon"), for: UIControlState.normal
+			)
             //playButton!.setTitle("Pause", for: UIControlState.normal)
         } else {
-            player!.pause()
-            playButton!.setImage(UIImage(named: "play.png"), for: UIControlState.normal)
+            audioPlayer?.pause()
+            sender.setImage(UIImage(named: "play-icon"), for: UIControlState.normal)
             //playButton!.setTitle("Play", for: UIControlState.normal)
         }
-        
-        
     }
     
     func playbackSliderValueChanged(_ playbackSlider: UISlider) {
-        
-        let seconds : Int64 = Int64(playbackSlider.value)
-        let targetTime:CMTime = CMTimeMake(seconds, 1)
-        
-        player!.seek(to: targetTime)
-        
-        if player!.rate == 0 {
-            player?.play()
-            playButton!.setImage(UIImage(named: "pause.png"), for: UIControlState.normal)
+		guard let player = audioPlayer else {
+			print("player is nil")
+			return
+		}
+        let targetTime: CMTime = CMTime(seconds: Double(playbackSlider.value), preferredTimescale: 1)
+		
+		player.seek(to: targetTime)
+		
+        if player.rate == 0 {
+            player.play()
+            lessonContentView.audioPlayerPlayButton.setImage(
+				UIImage(named: "pause-icon"), for: UIControlState.normal
+			)
         }
     }
-
-        // Do any additional setup after loading the view.
 
     
     override func didReceiveMemoryWarning() {
