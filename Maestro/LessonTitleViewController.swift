@@ -16,19 +16,28 @@ class LessonTitleViewController: UIViewController {
 	
 	override func loadView() {
 		view = LessonTitleView(frame: UIScreen.main.bounds)
-		self.title = "BLAH"
+		self.title = "LESSON"
 	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+		
+		lessonTitleView.startButton.addTarget(
+			self,
+			action: #selector(didTouchStartButton(sender:)),
+			for: .touchUpInside
+		)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+	
+	func didTouchStartButton(sender: UIButton) {
+		let vc = LessonContentViewController()
+		self.navigationController?.pushViewController(vc, animated: true)
+	}
 
     /*
     // MARK: - Navigation
