@@ -7,20 +7,17 @@
 //
 
 import UIKit
-import MediaPlayer
-import AudioToolbox
 import AVFoundation
-
+import UIImageViewAlignedSwift
 
 class LessonContentView: UIView {
     
     let lessonCard: UIView
-    let lessonImage: UIImageView
+    let lessonImage: UIImageViewAligned
     let lessonDetail: UILabel
     let nextButton: UIButton
     
-    let audioPlayerPlayButton: UIButton
-    let audioPlayerSlider: UISlider
+	let audioPlayer: AudioPlayerView
 
     override init(frame: CGRect) {
         
@@ -33,9 +30,10 @@ class LessonContentView: UIView {
         }()
         
         lessonImage = {
-            let iv = UIImageView()
-            iv.image = UIImage(named:"The-Staff.jpg")
+            let iv = UIImageViewAligned()
+            iv.image = UIImage(named:"staff")
 			iv.contentMode = .scaleAspectFit
+			iv.alignment = .top
             return iv
         }()
         
@@ -49,36 +47,21 @@ class LessonContentView: UIView {
         }()
         
         nextButton = {
-            let b = UnderlineButton()
+            let b = UnderlineButton(frame: .zero)
             b.setTitle("Next", for: .normal)
             return b
         }()
         
-        audioPlayerPlayButton = {
-            let p = UIButton()
-            p.setImage(UIImage.init(named: "play-icon"), for: .normal)
-            p.backgroundColor = .clear
-            p.tintColor = .black
-            return p
-        }()
-        
-        audioPlayerSlider = {
-            let s = UISlider()
-            s.minimumValue = 0
-            return s
-        }()
+		audioPlayer = AudioPlayerView()
 		
 		super.init(frame: frame)
 		backgroundColor = .white
-		
-		audioPlayerPlayButton.addTarget(self, action: #selector(self.playButtonTapped(sender:)), for: .touchUpInside)
         
         lessonCard.addSubview(lessonImage)
         lessonCard.addSubview(lessonDetail)
         lessonCard.addSubview(nextButton)
         
-        lessonCard.addSubview(audioPlayerPlayButton)
-		lessonCard.addSubview(audioPlayerSlider)
+        lessonCard.addSubview(audioPlayer)
         addSubview(lessonCard)
         
         updateConstraints()
@@ -89,16 +72,12 @@ class LessonContentView: UIView {
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-	
-	func playButtonTapped(sender: Any) {
-		print("Play Button Tapped")
-	}
     
     override func updateConstraints() {
         let em = UIFont.systemFontSize
         //		let statusBarHeight = UIApplication.shared.statusBarFrame.height
         
-        lessonCard.snp.makeConstraints { (make) in
+        lessonCard.snp.makeConstraints { make in
             let margin = UIEdgeInsets(top: 0,
                                       left: 1*em,
                                       bottom: 1*em,
@@ -106,32 +85,26 @@ class LessonContentView: UIView {
             make.edges.equalToSuperview().inset(margin)
         }
         
-        lessonImage.snp.makeConstraints { (make) -> Void in
+        lessonImage.snp.makeConstraints { make -> Void in
+			make.height.lessThanOrEqualTo(lessonCard).multipliedBy(0.3)
             make.left.equalTo(lessonCard.snp.leftMargin)
 			make.right.equalTo(lessonCard.snp.rightMargin)
 			make.top.equalTo(lessonCard.snp.top).offset(1*em)
         }
+		
+		audioPlayer.snp.makeConstraints { make -> Void in
+			make.top.equalTo(lessonImage.snp.bottom).offset(0.5*em)
+			make.left.equalTo(lessonCard.snp.leftMargin)
+			make.right.equalTo(lessonCard.snp.rightMargin)
+		}
 
-        lessonDetail.snp.makeConstraints { (make) in
-            make.top.equalTo(audioPlayerPlayButton.snp.bottom).offset(1*em)
+        lessonDetail.snp.makeConstraints { make in
+            make.top.equalTo(audioPlayer.snp.bottom).offset(0.25*em)
             make.left.equalTo(lessonCard.snp.leftMargin)
             make.right.equalTo(lessonCard.snp.rightMargin)
         }
         
-        audioPlayerPlayButton.snp.makeConstraints { make in
-			make.top.equalTo(lessonImage.snp.bottom).offset(1*em)
-			make.left.equalTo(lessonCard.snp.leftMargin)
-            make.width.equalTo(40)
-            make.height.equalTo(40)
-        }
-        
-        audioPlayerSlider.snp.makeConstraints { make in
-			make.centerY.equalTo(audioPlayerPlayButton.snp.centerY)
-            make.left.equalTo(audioPlayerPlayButton.snp.right)
-			make.right.equalTo(lessonCard.snp.rightMargin)
-        }
-        
-        nextButton.snp.makeConstraints { (make) in
+        nextButton.snp.makeConstraints { make in
             make.rightMargin.equalToSuperview()
             make.bottomMargin.equalToSuperview()
         }

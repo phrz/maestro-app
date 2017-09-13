@@ -31,7 +31,7 @@ class TestView: UIView {
 	}
 	
 	override func updateConstraints() {
-		testLabel.snp.makeConstraints { (make) in
+		testLabel.snp.makeConstraints { make in
 			make.width.equalTo(200)
 			make.height.equalTo(60)
 			make.center.equalTo(self)

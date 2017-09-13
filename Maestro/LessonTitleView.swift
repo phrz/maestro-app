@@ -79,7 +79,7 @@ class LessonTitleView: UIView {
 		let em = UIFont.systemFontSize
 //		let statusBarHeight = UIApplication.shared.statusBarFrame.height
 		
-		lessonCard.snp.makeConstraints { (make) in
+		lessonCard.snp.makeConstraints { make in
 			let margin = UIEdgeInsets(top: 0,
 			                          left: 1*em,
 			                          bottom: 1*em,
@@ -87,26 +87,26 @@ class LessonTitleView: UIView {
 			make.edges.equalToSuperview().inset(margin)
 		}
 		
-		lessonDetail.snp.makeConstraints { (make) in
+		lessonDetail.snp.makeConstraints { make in
 			make.top.equalTo(lessonCard.snp.topMargin)
 			make.left.equalTo(lessonCard.snp.leftMargin)
 			make.right.equalTo(lessonCard.snp.rightMargin)
 		}
 		
-		lessonTitle.snp.makeConstraints { (make) in
+		lessonTitle.snp.makeConstraints { make in
 			make.top.equalTo(lessonDetail.snp.bottom).offset(0.5*em)
 			make.left.equalTo(lessonCard.snp.leftMargin)
 			make.right.equalTo(lessonCard.snp.rightMargin)
 		}
 		
-		lessonIcon.snp.makeConstraints { (make) in
+		lessonIcon.snp.makeConstraints { make in
 			make.top.equalTo(lessonTitle.snp.bottom).offset(2*em)
 			make.left.equalTo(lessonCard.snp.leftMargin)
 			make.height.equalTo(64)
 			make.width.lessThanOrEqualToSuperview()
 		}
 		
-		startButton.snp.makeConstraints { (make) in
+		startButton.snp.makeConstraints { make in
 			make.rightMargin.equalToSuperview()
 			make.bottomMargin.equalToSuperview()
 		}

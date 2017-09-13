@@ -9,18 +9,24 @@
 import UIKit
 
 class UnderlineButton: UIButton {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+	
+	private static let normalColor: UIColor = .black
 	
 	override init(frame: CGRect) {
+		let em = UIFont.systemFontSize
 		super.init(frame: frame)
-		self.setTitleColor(.black, for: .normal)
+		
+		self.setTitleColor(type(of: self).normalColor, for: .normal)
+		
+		contentEdgeInsets = UIEdgeInsetsMake(em, em, em, em)
+		
+		for event in [UIControlEvents.touchDown, UIControlEvents.touchDragEnter] {
+			addTarget(self, action: #selector(self.didBeginHighlighting), for: event)
+		}
+		
+		for event in [UIControlEvents.touchUpInside, UIControlEvents.touchDragExit] {
+			addTarget(self, action: #selector(self.didStopHighlighting), for: event)
+		}
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -40,15 +46,29 @@ class UnderlineButton: UIButton {
 				return
 		}
 		
+		let alpha = CGFloat(isHighlighted ? 0.1 : 0.2)
+		
 		ctx.saveGState()
 		let rect = CGRect(x: textRect.minX, y: textRect.maxY, width: textRect.width, height: 3)
 		let path = CGPath(rect: rect, transform: nil)
 		ctx.addPath(path)
-		let color = UIColor(white: 0, alpha: 0.2)
+		let color = UIColor(white: 0, alpha: alpha)
 		ctx.setFillColor(color.cgColor)
 		ctx.closePath()
 		ctx.fillPath()
 		ctx.restoreGState()
+	}
+	
+	func didBeginHighlighting() {
+		UIView.animate(withDuration: 0.1) {
+			self.alpha = 0.5
+		}
+	}
+	
+	func didStopHighlighting() {
+		UIView.animate(withDuration: 0.1) {
+			self.alpha = 1
+		}
 	}
 
 }
