@@ -7,12 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27371F801F58567E0019E8FE /* LessonTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27371F7F1F58567E0019E8FE /* LessonTitleViewController.swift */; };
+		27371F821F58568F0019E8FE /* LessonTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27371F811F58568F0019E8FE /* LessonTitleView.swift */; };
+		27371F841F585BBF0019E8FE /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27371F831F585BBF0019E8FE /* TestView.swift */; };
+		27371F881F586D7F0019E8FE /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27371F871F586D7F0019E8FE /* UnderlineButton.swift */; };
+		2763317B1F5A31F300E2EA67 /* MaestroNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763317A1F5A31F300E2EA67 /* MaestroNavigationBar.swift */; };
 		276BAE8A1F51D48F00526EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE891F51D48F00526EAB /* AppDelegate.swift */; };
-		276BAE8C1F51D48F00526EAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE8B1F51D48F00526EAB /* ViewController.swift */; };
+		276BAE8C1F51D48F00526EAB /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE8B1F51D48F00526EAB /* TestViewController.swift */; };
 		276BAE911F51D48F00526EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276BAE901F51D48F00526EAB /* Assets.xcassets */; };
 		276BAE9F1F51D48F00526EAB /* MaestroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE9E1F51D48F00526EAB /* MaestroTests.swift */; };
 		276BAEAA1F51D48F00526EAB /* MaestroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAEA91F51D48F00526EAB /* MaestroUITests.swift */; };
-		276BAEB81F51D90D00526EAB /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 276BAEB71F51D90D00526EAB /* Podfile */; };
+		27D17CE81F5A2E800049382F /* UIImageViewAlignedSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D17CE71F5A2E800049382F /* UIImageViewAlignedSwift.framework */; };
+		A6B115041F5CBE660058B302 /* LessonContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B115021F5CBE660058B302 /* LessonContentView.swift */; };
+		A6B115051F5CBE660058B302 /* LessonContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B115031F5CBE660058B302 /* LessonContentViewController.swift */; };
+		A6B1150C1F5F11B80058B302 /* The-Staff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6B1150B1F5F11B80058B302 /* The-Staff.jpg */; };
+		A6B115141F5F20260058B302 /* SliderBuffering.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B115131F5F20260058B302 /* SliderBuffering.swift */; };
 		DC733A832E1E5296A0659DB4 /* Pods_Maestro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4A59EE0C5CAE4810EDE3BCD /* Pods_Maestro.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,9 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27371F7F1F58567E0019E8FE /* LessonTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonTitleViewController.swift; sourceTree = "<group>"; };
+		27371F811F58568F0019E8FE /* LessonTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonTitleView.swift; sourceTree = "<group>"; };
+		27371F831F585BBF0019E8FE /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		27371F871F586D7F0019E8FE /* UnderlineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineButton.swift; sourceTree = "<group>"; };
+		2763317A1F5A31F300E2EA67 /* MaestroNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaestroNavigationBar.swift; sourceTree = "<group>"; };
 		276BAE861F51D48F00526EAB /* Maestro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maestro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		276BAE891F51D48F00526EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		276BAE8B1F51D48F00526EAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		276BAE8B1F51D48F00526EAB /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		276BAE901F51D48F00526EAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		276BAE951F51D48F00526EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		276BAE9A1F51D48F00526EAB /* MaestroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaestroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,7 +59,15 @@
 		276BAEA51F51D48F00526EAB /* MaestroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaestroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		276BAEA91F51D48F00526EAB /* MaestroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaestroUITests.swift; sourceTree = "<group>"; };
 		276BAEAB1F51D48F00526EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		276BAEB71F51D90D00526EAB /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		276BAEB71F51D90D00526EAB /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		27D17CE71F5A2E800049382F /* UIImageViewAlignedSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIImageViewAlignedSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/Maestro-brumgfvogdyfwchklxufaqtvbcqn/Build/Products/Debug-iphonesimulator/UIImageViewAlignedSwift/UIImageViewAlignedSwift.framework"; sourceTree = "<group>"; };
+		A6B115021F5CBE660058B302 /* LessonContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonContentView.swift; sourceTree = "<group>"; };
+		A6B115031F5CBE660058B302 /* LessonContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonContentViewController.swift; sourceTree = "<group>"; };
+		A6B115081F5EE5840058B302 /* ImageName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageName.png; sourceTree = "<group>"; };
+		A6B1150B1F5F11B80058B302 /* The-Staff.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The-Staff.jpg"; sourceTree = "<group>"; };
+		A6B1150D1F5F13A40058B302 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		A6B115111F5F18280058B302 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		A6B115131F5F20260058B302 /* SliderBuffering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderBuffering.swift; sourceTree = "<group>"; };
 		B4A59EE0C5CAE4810EDE3BCD /* Pods_Maestro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maestro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F0AE24D1506D8EE3B498CF /* Pods-Maestro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maestro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maestro/Pods-Maestro.debug.xcconfig"; sourceTree = "<group>"; };
 		F9A84F8C566F794A8CEF2646 /* Pods-Maestro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maestro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maestro/Pods-Maestro.release.xcconfig"; sourceTree = "<group>"; };
@@ -56,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27D17CE81F5A2E800049382F /* UIImageViewAlignedSwift.framework in Frameworks */,
 				DC733A832E1E5296A0659DB4 /* Pods_Maestro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,9 +112,28 @@
 		16580A1B85F311987F86C54D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27D17CE71F5A2E800049382F /* UIImageViewAlignedSwift.framework */,
 				B4A59EE0C5CAE4810EDE3BCD /* Pods_Maestro.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27371F851F585CE40019E8FE /* TestView */ = {
+			isa = PBXGroup;
+			children = (
+				276BAE8B1F51D48F00526EAB /* TestViewController.swift */,
+				27371F831F585BBF0019E8FE /* TestView.swift */,
+			);
+			name = TestView;
+			sourceTree = "<group>";
+		};
+		27371F861F585CF10019E8FE /* LessonTitleView */ = {
+			isa = PBXGroup;
+			children = (
+				27371F7F1F58567E0019E8FE /* LessonTitleViewController.swift */,
+				27371F811F58568F0019E8FE /* LessonTitleView.swift */,
+			);
+			name = LessonTitleView;
 			sourceTree = "<group>";
 		};
 		276BAE7D1F51D48F00526EAB = {
@@ -120,10 +162,16 @@
 		276BAE881F51D48F00526EAB /* Maestro */ = {
 			isa = PBXGroup;
 			children = (
+				A6B1150A1F5EE93E0058B302 /* MockUpResources */,
 				276BAE891F51D48F00526EAB /* AppDelegate.swift */,
-				276BAE8B1F51D48F00526EAB /* ViewController.swift */,
+				2763317A1F5A31F300E2EA67 /* MaestroNavigationBar.swift */,
+				27371F871F586D7F0019E8FE /* UnderlineButton.swift */,
+				A6B115011F5CBDB40058B302 /* LessonContentView */,
+				27371F851F585CE40019E8FE /* TestView */,
+				27371F861F585CF10019E8FE /* LessonTitleView */,
 				276BAE901F51D48F00526EAB /* Assets.xcassets */,
 				276BAE951F51D48F00526EAB /* Info.plist */,
+				A6B115131F5F20260058B302 /* SliderBuffering.swift */,
 			);
 			path = Maestro;
 			sourceTree = "<group>";
@@ -144,6 +192,26 @@
 				276BAEAB1F51D48F00526EAB /* Info.plist */,
 			);
 			path = MaestroUITests;
+			sourceTree = "<group>";
+		};
+		A6B115011F5CBDB40058B302 /* LessonContentView */ = {
+			isa = PBXGroup;
+			children = (
+				A6B115021F5CBE660058B302 /* LessonContentView.swift */,
+				A6B115031F5CBE660058B302 /* LessonContentViewController.swift */,
+			);
+			name = LessonContentView;
+			sourceTree = "<group>";
+		};
+		A6B1150A1F5EE93E0058B302 /* MockUpResources */ = {
+			isa = PBXGroup;
+			children = (
+				A6B115111F5F18280058B302 /* pause.png */,
+				A6B1150D1F5F13A40058B302 /* play.png */,
+				A6B1150B1F5F11B80058B302 /* The-Staff.jpg */,
+				A6B115081F5EE5840058B302 /* ImageName.png */,
+			);
+			name = MockUpResources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				276BAEB81F51D90D00526EAB /* Podfile in Resources */,
+				A6B1150C1F5F11B80058B302 /* The-Staff.jpg in Resources */,
 				276BAE911F51D48F00526EAB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,12 +392,14 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/UIImageViewAlignedSwift/UIImageViewAlignedSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageViewAlignedSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -343,7 +413,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				276BAE8C1F51D48F00526EAB /* ViewController.swift in Sources */,
+				2763317B1F5A31F300E2EA67 /* MaestroNavigationBar.swift in Sources */,
+				A6B115141F5F20260058B302 /* SliderBuffering.swift in Sources */,
+				27371F801F58567E0019E8FE /* LessonTitleViewController.swift in Sources */,
+				27371F841F585BBF0019E8FE /* TestView.swift in Sources */,
+				27371F881F586D7F0019E8FE /* UnderlineButton.swift in Sources */,
+				A6B115051F5CBE660058B302 /* LessonContentViewController.swift in Sources */,
+				A6B115041F5CBE660058B302 /* LessonContentView.swift in Sources */,
+				27371F821F58568F0019E8FE /* LessonTitleView.swift in Sources */,
+				276BAE8C1F51D48F00526EAB /* TestViewController.swift in Sources */,
 				276BAE8A1F51D48F00526EAB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +482,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
+				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -454,6 +534,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -578,6 +659,7 @@
 				276BAEB01F51D48F00526EAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		276BAEB11F51D48F00526EAB /* Build configuration list for PBXNativeTarget "MaestroTests" */ = {
 			isa = XCConfigurationList;
@@ -586,6 +668,7 @@
 				276BAEB31F51D48F00526EAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		276BAEB41F51D48F00526EAB /* Build configuration list for PBXNativeTarget "MaestroUITests" */ = {
 			isa = XCConfigurationList;
@@ -594,6 +677,7 @@
 				276BAEB61F51D48F00526EAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

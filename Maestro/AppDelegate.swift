@@ -12,12 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
+	let startingPoint: UIViewController = LessonTitleViewController()
 
-
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+	func application(
+		_ application: UIApplication,
+		didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
+	) -> Bool {
 		// Override point for customization after application launch.
+		let nc = UINavigationController(navigationBarClass: MaestroNavigationBar.self, toolbarClass: nil)
+		nc.setViewControllers([startingPoint], animated: false)
+		// nc.isNavigationBarHidden = true
+		
 		window = UIWindow(frame: UIScreen.main.bounds)
-		window?.rootViewController = ViewController()
+		window?.rootViewController = nc
 		window?.backgroundColor = .white
 		window?.makeKeyAndVisible()
 		return true
