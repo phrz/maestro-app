@@ -21,12 +21,23 @@ class LessonContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		lessonContentView.nextButton.addTarget(
+			self,
+			action: #selector(didTouchNextButton(sender:)),
+			for: .touchUpInside
+		)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	func didTouchNextButton(sender: UIButton) {
+		let vc = LessonQuizViewController()
+		self.navigationController?.pushViewController(vc, animated: true)
+	}
     
 
     /*
