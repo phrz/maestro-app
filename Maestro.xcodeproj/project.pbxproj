@@ -17,8 +17,8 @@
 		276BAE911F51D48F00526EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276BAE901F51D48F00526EAB /* Assets.xcassets */; };
 		276BAE9F1F51D48F00526EAB /* MaestroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE9E1F51D48F00526EAB /* MaestroTests.swift */; };
 		276BAEAA1F51D48F00526EAB /* MaestroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAEA91F51D48F00526EAB /* MaestroUITests.swift */; };
-		277692751F69ABBD003A57DF /* QuizContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277692731F69ABBD003A57DF /* QuizContentView.swift */; };
-		277692761F69ABBD003A57DF /* QuizContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277692741F69ABBD003A57DF /* QuizContentViewController.swift */; };
+		277692791F69AC43003A57DF /* LessonQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277692771F69AC43003A57DF /* LessonQuizView.swift */; };
+		2776927A1F69AC43003A57DF /* LessonQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277692781F69AC43003A57DF /* LessonQuizViewController.swift */; };
 		27D17CE81F5A2E800049382F /* UIImageViewAlignedSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D17CE71F5A2E800049382F /* UIImageViewAlignedSwift.framework */; };
 		A6B115041F5CBE660058B302 /* LessonContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B115021F5CBE660058B302 /* LessonContentView.swift */; };
 		A6B115051F5CBE660058B302 /* LessonContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B115031F5CBE660058B302 /* LessonContentViewController.swift */; };
@@ -62,8 +62,8 @@
 		276BAEA91F51D48F00526EAB /* MaestroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaestroUITests.swift; sourceTree = "<group>"; };
 		276BAEAB1F51D48F00526EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		276BAEB71F51D90D00526EAB /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		277692731F69ABBD003A57DF /* QuizContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizContentView.swift; sourceTree = "<group>"; };
-		277692741F69ABBD003A57DF /* QuizContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizContentViewController.swift; sourceTree = "<group>"; };
+		277692771F69AC43003A57DF /* LessonQuizView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonQuizView.swift; sourceTree = "<group>"; };
+		277692781F69AC43003A57DF /* LessonQuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonQuizViewController.swift; sourceTree = "<group>"; };
 		27D17CE71F5A2E800049382F /* UIImageViewAlignedSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIImageViewAlignedSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/Maestro-brumgfvogdyfwchklxufaqtvbcqn/Build/Products/Debug-iphonesimulator/UIImageViewAlignedSwift/UIImageViewAlignedSwift.framework"; sourceTree = "<group>"; };
 		A6B115021F5CBE660058B302 /* LessonContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonContentView.swift; sourceTree = "<group>"; };
 		A6B115031F5CBE660058B302 /* LessonContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonContentViewController.swift; sourceTree = "<group>"; };
@@ -202,8 +202,8 @@
 		277692721F69ABB1003A57DF /* LessonQuizView */ = {
 			isa = PBXGroup;
 			children = (
-				277692731F69ABBD003A57DF /* QuizContentView.swift */,
-				277692741F69ABBD003A57DF /* QuizContentViewController.swift */,
+				277692771F69AC43003A57DF /* LessonQuizView.swift */,
+				277692781F69AC43003A57DF /* LessonQuizViewController.swift */,
 			);
 			name = LessonQuizView;
 			sourceTree = "<group>";
@@ -432,12 +432,12 @@
 				27371F801F58567E0019E8FE /* LessonTitleViewController.swift in Sources */,
 				27371F841F585BBF0019E8FE /* TestView.swift in Sources */,
 				27371F881F586D7F0019E8FE /* UnderlineButton.swift in Sources */,
-				277692761F69ABBD003A57DF /* QuizContentViewController.swift in Sources */,
-				277692751F69ABBD003A57DF /* QuizContentView.swift in Sources */,
+				2776927A1F69AC43003A57DF /* LessonQuizViewController.swift in Sources */,
 				A6B115051F5CBE660058B302 /* LessonContentViewController.swift in Sources */,
 				A6B115041F5CBE660058B302 /* LessonContentView.swift in Sources */,
 				27371F821F58568F0019E8FE /* LessonTitleView.swift in Sources */,
 				276BAE8C1F51D48F00526EAB /* TestViewController.swift in Sources */,
+				277692791F69AC43003A57DF /* LessonQuizView.swift in Sources */,
 				276BAE8A1F51D48F00526EAB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
