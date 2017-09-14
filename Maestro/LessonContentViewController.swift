@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 class LessonContentViewController: LessonCardViewController {
     
@@ -29,7 +28,7 @@ class LessonContentViewController: LessonCardViewController {
     }
 	
 	override func didTouchNextButton(sender: UIButton) {
-		let vc = LessonCardViewController()
+		let vc = LessonQuizViewController()
 		self.navigationController?.pushViewController(vc, animated: true)
 	}
 

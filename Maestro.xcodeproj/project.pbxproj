@@ -11,12 +11,16 @@
 		27371F821F58568F0019E8FE /* LessonTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27371F811F58568F0019E8FE /* LessonTitleView.swift */; };
 		27371F841F585BBF0019E8FE /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27371F831F585BBF0019E8FE /* TestView.swift */; };
 		27371F881F586D7F0019E8FE /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27371F871F586D7F0019E8FE /* UnderlineButton.swift */; };
+		2743B4841F6A5F0800A86995 /* CheckboxListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2743B4831F6A5F0800A86995 /* CheckboxListView.swift */; };
+		2743B4861F6A5F1A00A86995 /* CheckboxItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2743B4851F6A5F1A00A86995 /* CheckboxItemView.swift */; };
 		2763317B1F5A31F300E2EA67 /* MaestroNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763317A1F5A31F300E2EA67 /* MaestroNavigationBar.swift */; };
 		276BAE8A1F51D48F00526EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE891F51D48F00526EAB /* AppDelegate.swift */; };
 		276BAE8C1F51D48F00526EAB /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE8B1F51D48F00526EAB /* TestViewController.swift */; };
 		276BAE911F51D48F00526EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276BAE901F51D48F00526EAB /* Assets.xcassets */; };
 		276BAE9F1F51D48F00526EAB /* MaestroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE9E1F51D48F00526EAB /* MaestroTests.swift */; };
 		276BAEAA1F51D48F00526EAB /* MaestroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAEA91F51D48F00526EAB /* MaestroUITests.swift */; };
+		2775001E1F6A49AF00B52A58 /* LessonQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2775001D1F6A49AF00B52A58 /* LessonQuizView.swift */; };
+		277500201F6A49BE00B52A58 /* LessonQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2775001F1F6A49BE00B52A58 /* LessonQuizViewController.swift */; };
 		2776927F1F69AECE003A57DF /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776927E1F69AECE003A57DF /* AudioPlayerView.swift */; };
 		277692831F6A2451003A57DF /* LessonCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277692821F6A2451003A57DF /* LessonCardViewController.swift */; };
 		277692851F6A245E003A57DF /* LessonCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277692841F6A245E003A57DF /* LessonCardView.swift */; };
@@ -49,6 +53,8 @@
 		27371F811F58568F0019E8FE /* LessonTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonTitleView.swift; sourceTree = "<group>"; };
 		27371F831F585BBF0019E8FE /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		27371F871F586D7F0019E8FE /* UnderlineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineButton.swift; sourceTree = "<group>"; };
+		2743B4831F6A5F0800A86995 /* CheckboxListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxListView.swift; sourceTree = "<group>"; };
+		2743B4851F6A5F1A00A86995 /* CheckboxItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxItemView.swift; sourceTree = "<group>"; };
 		2763317A1F5A31F300E2EA67 /* MaestroNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaestroNavigationBar.swift; sourceTree = "<group>"; };
 		276BAE861F51D48F00526EAB /* Maestro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maestro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		276BAE891F51D48F00526EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +68,8 @@
 		276BAEA91F51D48F00526EAB /* MaestroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaestroUITests.swift; sourceTree = "<group>"; };
 		276BAEAB1F51D48F00526EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		276BAEB71F51D90D00526EAB /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		2775001D1F6A49AF00B52A58 /* LessonQuizView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonQuizView.swift; sourceTree = "<group>"; };
+		2775001F1F6A49BE00B52A58 /* LessonQuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonQuizViewController.swift; sourceTree = "<group>"; };
 		2776927E1F69AECE003A57DF /* AudioPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		277692821F6A2451003A57DF /* LessonCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCardViewController.swift; sourceTree = "<group>"; };
 		277692841F6A245E003A57DF /* LessonCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCardView.swift; sourceTree = "<group>"; };
@@ -172,6 +180,8 @@
 				2763317A1F5A31F300E2EA67 /* MaestroNavigationBar.swift */,
 				27371F871F586D7F0019E8FE /* UnderlineButton.swift */,
 				2776927E1F69AECE003A57DF /* AudioPlayerView.swift */,
+				2743B4831F6A5F0800A86995 /* CheckboxListView.swift */,
+				2743B4851F6A5F1A00A86995 /* CheckboxItemView.swift */,
 				277692811F6A243F003A57DF /* LessonCardView */,
 				A6B115011F5CBDB40058B302 /* LessonContentView */,
 				277692721F69ABB1003A57DF /* LessonQuizView */,
@@ -205,6 +215,8 @@
 		277692721F69ABB1003A57DF /* LessonQuizView */ = {
 			isa = PBXGroup;
 			children = (
+				2775001F1F6A49BE00B52A58 /* LessonQuizViewController.swift */,
+				2775001D1F6A49AF00B52A58 /* LessonQuizView.swift */,
 			);
 			name = LessonQuizView;
 			sourceTree = "<group>";
@@ -444,11 +456,15 @@
 				27371F881F586D7F0019E8FE /* UnderlineButton.swift in Sources */,
 				277692831F6A2451003A57DF /* LessonCardViewController.swift in Sources */,
 				A6B115051F5CBE660058B302 /* LessonContentViewController.swift in Sources */,
+				277500201F6A49BE00B52A58 /* LessonQuizViewController.swift in Sources */,
 				A6B115041F5CBE660058B302 /* LessonContentView.swift in Sources */,
 				277692851F6A245E003A57DF /* LessonCardView.swift in Sources */,
 				27371F821F58568F0019E8FE /* LessonTitleView.swift in Sources */,
+				2775001E1F6A49AF00B52A58 /* LessonQuizView.swift in Sources */,
 				276BAE8C1F51D48F00526EAB /* TestViewController.swift in Sources */,
 				276BAE8A1F51D48F00526EAB /* AppDelegate.swift in Sources */,
+				2743B4841F6A5F0800A86995 /* CheckboxListView.swift in Sources */,
+				2743B4861F6A5F1A00A86995 /* CheckboxItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
