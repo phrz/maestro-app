@@ -16,7 +16,6 @@ class LessonTitleViewController: UIViewController {
 	
 	override func loadView() {
 		view = LessonTitleView(frame: UIScreen.main.bounds)
-		self.title = "LESSON"
 	}
 	
     override func viewDidLoad() {
