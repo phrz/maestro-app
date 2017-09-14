@@ -9,6 +9,8 @@
 import UIKit
 
 class LessonQuizViewController: LessonCardViewController {
+	
+	var questions: [String] = ["Question 1", "Question 2", "Question 3"]
 
 	var lessonQuizView: LessonQuizView {
 		return view as! LessonQuizView
@@ -20,7 +22,8 @@ class LessonQuizViewController: LessonCardViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		lessonQuizView.quizAnswers.onSelectionChangeCallback = self.didChangeSelectedAnswer(in:to:at:)
+		lessonQuizView.quizAnswers.delegate = self
+		lessonQuizView.quizAnswers.dataSource = self
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -32,9 +35,20 @@ class LessonQuizViewController: LessonCardViewController {
 		//let vc = LessonCardViewController()
 		//self.navigationController?.pushViewController(vc, animated: true)
 	}
-	
-	func didChangeSelectedAnswer(in checkboxList: CheckboxListView, to answer: CheckboxItemView, at position: UInt) {
-		print("Changed selected answer \(position)!")
-	}
+}
 
+extension LessonQuizViewController: CheckboxListViewDelegate {
+	func checkboxList(_ checkboxList: CheckboxListView, didChangeSelectionToIndex index: Int) {
+		print("didChangeSelection to \"\(questions[index])\"")
+	}
+}
+
+extension LessonQuizViewController: CheckboxListDataSource {
+	func checkboxList(numberOfRowsInList checkboxList: CheckboxListView) -> Int {
+		return questions.count
+	}
+	
+	func checkboxList(_ checkboxList: CheckboxListView, titleForCheckboxAtRow row: Int) -> String {
+		return questions[row]
+	}
 }

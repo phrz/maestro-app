@@ -33,9 +33,7 @@ class LessonTitleViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 	
-	func didTouchStartButton(sender: UIButton) {
-		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-		
+	func didTouchStartButton(sender: UIButton) {		
 		let vc = LessonContentViewController()
 		self.navigationController?.pushViewController(vc, animated: true)
 	}

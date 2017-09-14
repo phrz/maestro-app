@@ -33,6 +33,11 @@ class LessonCardViewController: UIViewController {
 		print("Warning: unhandled didTouchNextButton")
 	}
 	
+	override func willMove(toParentViewController parent: UIViewController?) {
+		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+		super.willMove(toParentViewController: parent)
+	}
+	
     /*
     // MARK: - Navigation
 
