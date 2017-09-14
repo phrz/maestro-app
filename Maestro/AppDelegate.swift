@@ -23,10 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
 	) -> Bool {
 		// Load some lesson
-		API.shared.getAllLessons()
-		if let vc = startingPoint as? LessonTitleViewController {
-			
+		API.shared.getLesson(numbered: 1).then { lesson in
+			print(lesson)
+		}.catch { error in
+			print("Error: \(error)")
 		}
+		
+		/*if let vc = startingPoint as? LessonTitleViewController {
+			
+		}*/
 		
 		// Override point for customization after application launch.
 		let nc = UINavigationController(navigationBarClass: MaestroNavigationBar.self, toolbarClass: nil)
