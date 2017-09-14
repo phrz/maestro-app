@@ -14,7 +14,7 @@ class LessonContentView: LessonCardView {
 	
     let lessonDetail: UILabel
     
-	let audioPlayer: AudioPlayerView
+	//let audioPlayer: AudioPlayerView
 
 	override init(frame: CGRect) {
         
@@ -27,14 +27,14 @@ class LessonContentView: LessonCardView {
             return d
         }()
         
-		audioPlayer = AudioPlayerView()
+		//audioPlayer = AudioPlayerView()
 		
 		super.init(frame: frame)
 		
 		lessonImage.image = #imageLiteral(resourceName: "staff")
 		
         lessonCard.addSubview(lessonDetail)
-        lessonCard.addSubview(audioPlayer)
+        //lessonCard.addSubview(audioPlayer)
 		
         updateConstraints()
         
@@ -49,11 +49,11 @@ class LessonContentView: LessonCardView {
 		
         let em = UIFont.systemFontSize
 		
-		audioPlayer.snp.makeConstraints { make -> Void in
+		/*audioPlayer.snp.makeConstraints { make -> Void in
 			make.centerY.equalTo(nextButton)
 			make.left.equalTo(lessonCard.snp.leftMargin)
 			make.right.equalTo(nextButton.snp.left).offset(-1*em)
-		}
+		}*/
 		
         lessonDetail.snp.makeConstraints { make in
             make.top.equalTo(lessonImage.snp.bottom).offset(2*em)

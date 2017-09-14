@@ -11,6 +11,12 @@ import UIKit
 class LessonCardViewController: UIViewController, LessonLocationAware {
 	
 	var lessonCardIndex: Int?
+	var lessonContent: LessonCard? {
+		didSet {
+			guard lessonContent != nil else { return }
+			setLessonContent(lessonContent!)
+		}
+	}
 	
 	var lessonCardView: LessonCardView {
 		return view as! LessonCardView
@@ -24,6 +30,10 @@ class LessonCardViewController: UIViewController, LessonLocationAware {
 			action: #selector(didTouchNextButton(sender:)),
 			for: .touchUpInside
 		)
+	}
+	
+	func setLessonContent(_ lc: LessonCard) {
+		print("setLessonContent")
 	}
 	
 	override func didReceiveMemoryWarning() {

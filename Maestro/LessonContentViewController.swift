@@ -10,13 +10,6 @@ import UIKit
 
 class LessonContentViewController: LessonCardViewController {
 	
-	var lessonContent: LessonContent? {
-		didSet {
-			guard let lc = lessonContent else { return }
-			setLessonContent(lc)
-		}
-	}
-	
     var lessonContentView: LessonContentView {
         return view as! LessonContentView
     }
@@ -29,10 +22,14 @@ class LessonContentViewController: LessonCardViewController {
         super.viewDidLoad()
     }
 	
-	func setLessonContent(_ lc: LessonContent) {
+	override func setLessonContent(_ lc: LessonCard) {
+		guard let lcon = lc as? LessonContent else {
+			print("Bad cast")
+			return
+		}
 		DispatchQueue.main.async {
-			self.lessonContentView.lessonDetail.text = lc.text
-			if let img = lc.imageURL {
+			self.lessonContentView.lessonDetail.text = lcon.text
+			if let img = lcon.imageURL {
 				self.lessonContentView.lessonImage.image = UIImage(named: img)
 			} else {
 				print("NO IMG")

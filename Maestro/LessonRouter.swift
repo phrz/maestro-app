@@ -18,16 +18,24 @@ class LessonRouter {
 		
 		var vc: LessonCardViewController?
 		
-		guard let i = item.lessonCardIndex else { return nil }
+		guard let i = item.lessonCardIndex else {
+			print("Router: warning, current card has no lesson index.")
+			return nil
+		}
 		let next = i+1
 		guard next < (currentLesson?.cards.count)! else { return nil }
+		print("i: \(i), next: \(next)")
 		
-		let cvc = LessonContentViewController()
-		cvc.lessonCardIndex = i+1
-		cvc.lessonContent = currentLesson!.cards[i+1] as? LessonContent
-		vc = cvc
+		if let content = currentLesson!.cards[next] as? LessonContent {
+			vc = LessonContentViewController()
+			vc!.lessonContent = content
+		} else if let quiz = currentLesson!.cards[next] as? LessonQuiz {
+			vc = LessonQuizViewController()
+			vc!.lessonContent = quiz
+		}
+		vc?.lessonCardIndex = next
 		print("Getting card #\(i+1) from lesson \(currentLesson?.index ?? -99)")
 		
-		return vc!
+		return vc
 	}
 }

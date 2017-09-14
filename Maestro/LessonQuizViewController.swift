@@ -10,7 +10,7 @@ import UIKit
 
 class LessonQuizViewController: LessonCardViewController {
 	
-	var questions: [String] = ["Question 1", "Question 2", "Question 3"]
+	var answers: [QuizAnswer] = []
 
 	var lessonQuizView: LessonQuizView {
 		return view as! LessonQuizView
@@ -24,6 +24,23 @@ class LessonQuizViewController: LessonCardViewController {
 		super.viewDidLoad()
 		lessonQuizView.quizAnswers.delegate = self
 		lessonQuizView.quizAnswers.dataSource = self
+	}
+	
+	override func setLessonContent(_ lc: LessonCard) {
+		guard let lq = lc as? LessonQuiz else {
+			print("Bad cast")
+			return
+		}
+		DispatchQueue.main.async {
+			self.lessonQuizView.quizQuestion.text = lq.questionText
+			if let img = lq.imageURL {
+				self.lessonQuizView.lessonImage.image = UIImage(named: img)
+			} else {
+				print("NO IMG")
+			}
+			self.answers = lq.answers
+			self.lessonQuizView.quizAnswers.reloadData()
+		}
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -41,16 +58,16 @@ class LessonQuizViewController: LessonCardViewController {
 
 extension LessonQuizViewController: CheckboxListViewDelegate {
 	func checkboxList(_ checkboxList: CheckboxListView, didChangeSelectionToIndex index: Int) {
-		print("didChangeSelection to \"\(questions[index])\"")
+		print("didChangeSelection to \"\(answers[index].answerText)\"")
 	}
 }
 
 extension LessonQuizViewController: CheckboxListDataSource {
 	func checkboxList(numberOfRowsInList checkboxList: CheckboxListView) -> Int {
-		return questions.count
+		return answers.count
 	}
 	
 	func checkboxList(_ checkboxList: CheckboxListView, titleForCheckboxAtRow row: Int) -> String {
-		return questions[row]
+		return answers[row].answerText
 	}
 }
