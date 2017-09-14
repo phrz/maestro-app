@@ -12,7 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-	let startingPoint: UIViewController = LessonTitleViewController()
+	let startingPoint: UIViewController = {
+		let vc = LessonTitleViewController()
+		vc.lessonCardIndex = 0
+		return vc
+	}()
 
 	func application(
 		_ application: UIApplication,

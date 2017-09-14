@@ -9,7 +9,7 @@
 import UIKit
 
 class LessonContentViewController: LessonCardViewController {
-    
+	
     var lessonContentView: LessonContentView {
         return view as! LessonContentView
     }
@@ -28,7 +28,7 @@ class LessonContentViewController: LessonCardViewController {
     }
 	
 	override func didTouchNextButton(sender: UIButton) {
-		let vc = LessonQuizViewController()
+		let vc = LessonRouter.shared.nextCard(after: self)
 		self.navigationController?.pushViewController(vc, animated: true)
 	}
 

@@ -8,7 +8,9 @@
 
 import UIKit
 
-class LessonTitleViewController: UIViewController {
+class LessonTitleViewController: UIViewController, LessonLocationAware {
+	
+	var lessonCardIndex: Int?
 	
 	var lessonTitleView: LessonTitleView {
 		return view as! LessonTitleView
@@ -34,7 +36,7 @@ class LessonTitleViewController: UIViewController {
     }
 	
 	func didTouchStartButton(sender: UIButton) {		
-		let vc = LessonContentViewController()
+		let vc = LessonRouter.shared.nextCard(after: self)
 		self.navigationController?.pushViewController(vc, animated: true)
 	}
 

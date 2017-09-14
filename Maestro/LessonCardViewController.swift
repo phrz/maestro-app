@@ -8,7 +8,9 @@
 
 import UIKit
 
-class LessonCardViewController: UIViewController {
+class LessonCardViewController: UIViewController, LessonLocationAware {
+	
+	var lessonCardIndex: Int?
 	
 	var lessonCardView: LessonCardView {
 		return view as! LessonCardView

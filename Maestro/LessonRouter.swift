@@ -13,5 +13,16 @@ class LessonRouter {
 	
 	var currentLesson: Lesson?
 	
-	init() {}
+	func nextCard(after item: LessonLocationAware) -> LessonCardViewController {
+		print("LessonRouter.nextCard stub")
+		let vc = LessonContentViewController()
+		
+		if let i = item.lessonCardIndex {
+			vc.lessonCardIndex = i+1
+		} else {
+			print("Warning: nextCard found nil index in stub")
+		}
+		
+		return vc
+	}
 }
