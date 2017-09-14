@@ -5,4 +5,5 @@ target 'Maestro' do
 	pod 'Parse'
 	pod 'SnapKit', '~> 3.2.0'
 	pod 'UIImageViewAlignedSwift'
+	pod 'PromiseKit'
 end
