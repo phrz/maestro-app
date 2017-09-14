@@ -10,7 +10,7 @@ import UIKit
 
 class LessonTitleViewController: UIViewController, LessonLocationAware {
 	
-	var lessonCardIndex: Int?
+	var lessonCardIndex: Int? = -1
 	
 	var lessonTitleView: LessonTitleView {
 		return view as! LessonTitleView
@@ -37,7 +37,7 @@ class LessonTitleViewController: UIViewController, LessonLocationAware {
 	
 	func didTouchStartButton(sender: UIButton) {		
 		let vc = LessonRouter.shared.nextCard(after: self)
-		self.navigationController?.pushViewController(vc, animated: true)
+		self.navigationController?.pushViewController(vc!, animated: true)
 	}
 
     /*

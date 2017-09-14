@@ -12,26 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-	let startingPoint: UIViewController = {
-		let vc = LessonTitleViewController()
-		vc.lessonCardIndex = 0
-		return vc
-	}()
+	let startingPoint: UIViewController = LessonTitleViewController()
 
 	func application(
 		_ application: UIApplication,
 		didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
 	) -> Bool {
-		// Load some lesson
-		API.shared.getLesson(numbered: 1).then { lesson in
-			print(lesson)
-		}.catch { error in
-			print("Error: \(error)")
-		}
-		
-		/*if let vc = startingPoint as? LessonTitleViewController {
-			
-		}*/
 		
 		// Override point for customization after application launch.
 		let nc = UINavigationController(navigationBarClass: MaestroNavigationBar.self, toolbarClass: nil)
@@ -39,10 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		nc.navigationBar.tintColor = .black
 		// nc.isNavigationBarHidden = true
 		
-		window = UIWindow(frame: UIScreen.main.bounds)
-		window?.rootViewController = nc
-		window?.backgroundColor = .white
-		window?.makeKeyAndVisible()
+		API.shared.getLesson(numbered: 1).then { lesson in
+			LessonRouter.shared.currentLesson = lesson
+		}.then(on: .main) { _ -> Void in
+			self.window = UIWindow(frame: UIScreen.main.bounds)
+			self.window?.rootViewController = nc
+			self.window?.backgroundColor = .white
+			self.window?.makeKeyAndVisible()
+		}.catch { error in
+			print("Error: \(error)")
+		}
 		return true
 	}
 

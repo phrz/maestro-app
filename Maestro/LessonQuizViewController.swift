@@ -32,7 +32,9 @@ class LessonQuizViewController: LessonCardViewController {
 	}
 	
 	override func didTouchNextButton(sender: UIButton) {
-		let vc = LessonRouter.shared.nextCard(after: self)
+		guard let vc = LessonRouter.shared.nextCard(after: self) else {
+			return
+		}
 		self.navigationController?.pushViewController(vc, animated: true)
 	}
 }

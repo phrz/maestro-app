@@ -10,6 +10,13 @@ import UIKit
 
 class LessonContentViewController: LessonCardViewController {
 	
+	var lessonContent: LessonContent? {
+		didSet {
+			guard let lc = lessonContent else { return }
+			setLessonContent(lc)
+		}
+	}
+	
     var lessonContentView: LessonContentView {
         return view as! LessonContentView
     }
@@ -21,6 +28,17 @@ class LessonContentViewController: LessonCardViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+	
+	func setLessonContent(_ lc: LessonContent) {
+		DispatchQueue.main.async {
+			self.lessonContentView.lessonDetail.text = lc.text
+			if let img = lc.imageURL {
+				self.lessonContentView.lessonImage.image = UIImage(named: img)
+			} else {
+				print("NO IMG")
+			}
+		}
+	}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -28,7 +46,7 @@ class LessonContentViewController: LessonCardViewController {
     }
 	
 	override func didTouchNextButton(sender: UIButton) {
-		let vc = LessonRouter.shared.nextCard(after: self)
+		guard let vc = LessonRouter.shared.nextCard(after: self) else { return }
 		self.navigationController?.pushViewController(vc, animated: true)
 	}
 
