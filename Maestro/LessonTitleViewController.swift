@@ -34,6 +34,8 @@ class LessonTitleViewController: UIViewController {
     }
 	
 	func didTouchStartButton(sender: UIButton) {
+		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+		
 		let vc = LessonContentViewController()
 		self.navigationController?.pushViewController(vc, animated: true)
 	}

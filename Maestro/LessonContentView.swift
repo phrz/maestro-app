@@ -10,32 +10,13 @@ import UIKit
 import AVFoundation
 import UIImageViewAlignedSwift
 
-class LessonContentView: UIView {
-    
-    let lessonCard: UIView
-    let lessonImage: UIImageViewAligned
+class LessonContentView: LessonCardView {
+	
     let lessonDetail: UILabel
-    let nextButton: UIButton
     
 	let audioPlayer: AudioPlayerView
 
-    override init(frame: CGRect) {
-        
-        lessonCard = {
-            let em = UIFont.systemFontSize
-            let l = UIView()
-            l.layoutMargins = UIEdgeInsets(top: 3*em, left: 1*em, bottom: 1*em, right: 1*em)
-            l.backgroundColor = UIColor(white: 0.95, alpha: 1) // #F3F3F3
-            return l
-        }()
-        
-        lessonImage = {
-            let iv = UIImageViewAligned()
-            iv.image = UIImage(named:"staff")
-			iv.contentMode = .scaleAspectFit
-			iv.alignment = .top
-            return iv
-        }()
+	override init(frame: CGRect) {
         
         lessonDetail = {
             let d = UILabel()
@@ -46,24 +27,15 @@ class LessonContentView: UIView {
             return d
         }()
         
-        nextButton = {
-            let b = UnderlineButton(frame: .zero)
-            b.setTitle("Next", for: .normal)
-            return b
-        }()
-        
 		audioPlayer = AudioPlayerView()
 		
 		super.init(frame: frame)
-		backgroundColor = .white
-        
-        lessonCard.addSubview(lessonImage)
+		
+		lessonImage.image = #imageLiteral(resourceName: "staff")
+		
         lessonCard.addSubview(lessonDetail)
-        lessonCard.addSubview(nextButton)
-        
         lessonCard.addSubview(audioPlayer)
-        addSubview(lessonCard)
-        
+		
         updateConstraints()
         
     }
@@ -74,42 +46,21 @@ class LessonContentView: UIView {
     }
     
     override func updateConstraints() {
+		
         let em = UIFont.systemFontSize
-        //		let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        
-        lessonCard.snp.makeConstraints { make in
-            let margin = UIEdgeInsets(top: 0,
-                                      left: 1*em,
-                                      bottom: 1*em,
-                                      right: 1*em)
-            make.edges.equalToSuperview().inset(margin)
-        }
-        
-        lessonImage.snp.makeConstraints { make -> Void in
-			make.height.lessThanOrEqualTo(lessonCard).multipliedBy(0.3)
-            make.left.equalTo(lessonCard.snp.leftMargin)
-			make.right.equalTo(lessonCard.snp.rightMargin)
-			make.top.equalTo(lessonCard.snp.top).offset(1*em)
-        }
 		
 		audioPlayer.snp.makeConstraints { make -> Void in
-			make.top.equalTo(lessonImage.snp.bottom).offset(0.5*em)
+			make.centerY.equalTo(nextButton)
 			make.left.equalTo(lessonCard.snp.leftMargin)
-			make.right.equalTo(lessonCard.snp.rightMargin)
+			make.right.equalTo(nextButton.snp.left).offset(-1*em)
 		}
-
+		
         lessonDetail.snp.makeConstraints { make in
-            make.top.equalTo(audioPlayer.snp.bottom).offset(0.25*em)
+            make.top.equalTo(lessonImage.snp.bottom).offset(2*em)
             make.left.equalTo(lessonCard.snp.leftMargin)
             make.right.equalTo(lessonCard.snp.rightMargin)
         }
-        
-        nextButton.snp.makeConstraints { make in
-            make.rightMargin.equalToSuperview()
-            make.bottomMargin.equalToSuperview()
-        }
-        
-        
-        super.updateConstraints()
+		
+		super.updateConstraints()
     }
 }

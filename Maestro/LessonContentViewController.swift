@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class LessonContentViewController: UIViewController {
+class LessonContentViewController: LessonCardViewController {
     
     var lessonContentView: LessonContentView {
         return view as! LessonContentView
@@ -21,12 +21,6 @@ class LessonContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		lessonContentView.nextButton.addTarget(
-			self,
-			action: #selector(didTouchNextButton(sender:)),
-			for: .touchUpInside
-		)
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,18 +28,9 @@ class LessonContentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 	
-	func didTouchNextButton(sender: UIButton) {
-		let vc = LessonQuizViewController()
+	override func didTouchNextButton(sender: UIButton) {
+		let vc = LessonCardViewController()
 		self.navigationController?.pushViewController(vc, animated: true)
 	}
-    
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }

@@ -18,6 +18,8 @@
 		276BAE9F1F51D48F00526EAB /* MaestroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE9E1F51D48F00526EAB /* MaestroTests.swift */; };
 		276BAEAA1F51D48F00526EAB /* MaestroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAEA91F51D48F00526EAB /* MaestroUITests.swift */; };
 		2776927F1F69AECE003A57DF /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776927E1F69AECE003A57DF /* AudioPlayerView.swift */; };
+		277692831F6A2451003A57DF /* LessonCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277692821F6A2451003A57DF /* LessonCardViewController.swift */; };
+		277692851F6A245E003A57DF /* LessonCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277692841F6A245E003A57DF /* LessonCardView.swift */; };
 		27D17CE81F5A2E800049382F /* UIImageViewAlignedSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D17CE71F5A2E800049382F /* UIImageViewAlignedSwift.framework */; };
 		A6B115041F5CBE660058B302 /* LessonContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B115021F5CBE660058B302 /* LessonContentView.swift */; };
 		A6B115051F5CBE660058B302 /* LessonContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B115031F5CBE660058B302 /* LessonContentViewController.swift */; };
@@ -61,6 +63,8 @@
 		276BAEAB1F51D48F00526EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		276BAEB71F51D90D00526EAB /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2776927E1F69AECE003A57DF /* AudioPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
+		277692821F6A2451003A57DF /* LessonCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCardViewController.swift; sourceTree = "<group>"; };
+		277692841F6A245E003A57DF /* LessonCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCardView.swift; sourceTree = "<group>"; };
 		27D17CE71F5A2E800049382F /* UIImageViewAlignedSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIImageViewAlignedSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/Maestro-brumgfvogdyfwchklxufaqtvbcqn/Build/Products/Debug-iphonesimulator/UIImageViewAlignedSwift/UIImageViewAlignedSwift.framework"; sourceTree = "<group>"; };
 		A6B115021F5CBE660058B302 /* LessonContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonContentView.swift; sourceTree = "<group>"; };
 		A6B115031F5CBE660058B302 /* LessonContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonContentViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				2763317A1F5A31F300E2EA67 /* MaestroNavigationBar.swift */,
 				27371F871F586D7F0019E8FE /* UnderlineButton.swift */,
 				2776927E1F69AECE003A57DF /* AudioPlayerView.swift */,
+				277692811F6A243F003A57DF /* LessonCardView */,
 				A6B115011F5CBDB40058B302 /* LessonContentView */,
 				277692721F69ABB1003A57DF /* LessonQuizView */,
 				27371F861F585CF10019E8FE /* LessonTitleView */,
@@ -202,6 +207,15 @@
 			children = (
 			);
 			name = LessonQuizView;
+			sourceTree = "<group>";
+		};
+		277692811F6A243F003A57DF /* LessonCardView */ = {
+			isa = PBXGroup;
+			children = (
+				277692821F6A2451003A57DF /* LessonCardViewController.swift */,
+				277692841F6A245E003A57DF /* LessonCardView.swift */,
+			);
+			name = LessonCardView;
 			sourceTree = "<group>";
 		};
 		A6B115011F5CBDB40058B302 /* LessonContentView */ = {
@@ -428,8 +442,10 @@
 				27371F801F58567E0019E8FE /* LessonTitleViewController.swift in Sources */,
 				27371F841F585BBF0019E8FE /* TestView.swift in Sources */,
 				27371F881F586D7F0019E8FE /* UnderlineButton.swift in Sources */,
+				277692831F6A2451003A57DF /* LessonCardViewController.swift in Sources */,
 				A6B115051F5CBE660058B302 /* LessonContentViewController.swift in Sources */,
 				A6B115041F5CBE660058B302 /* LessonContentView.swift in Sources */,
+				277692851F6A245E003A57DF /* LessonCardView.swift in Sources */,
 				27371F821F58568F0019E8FE /* LessonTitleView.swift in Sources */,
 				276BAE8C1F51D48F00526EAB /* TestViewController.swift in Sources */,
 				276BAE8A1F51D48F00526EAB /* AppDelegate.swift in Sources */,

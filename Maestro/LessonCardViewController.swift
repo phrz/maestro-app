@@ -1,0 +1,46 @@
+//
+//  LessonCardViewController.swift
+//  Maestro
+//
+//  Created by Paul Herz on 9/13/17.
+//  Copyright © 2017 Maestro. All rights reserved.
+//
+
+import UIKit
+
+class LessonCardViewController: UIViewController {
+	
+	var lessonCardView: LessonCardView {
+		return view as! LessonCardView
+	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		lessonCardView.nextButton.addTarget(
+			self,
+			action: #selector(didTouchNextButton(sender:)),
+			for: .touchUpInside
+		)
+	}
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
+	
+	func didTouchNextButton(sender: UIButton) {
+		print("Warning: unhandled didTouchNextButton")
+	}
+	
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
