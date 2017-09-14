@@ -22,6 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		_ application: UIApplication,
 		didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
 	) -> Bool {
+		// Load some lesson
+		API.shared.getAllLessons()
+		if let vc = startingPoint as? LessonTitleViewController {
+			
+		}
+		
 		// Override point for customization after application launch.
 		let nc = UINavigationController(navigationBarClass: MaestroNavigationBar.self, toolbarClass: nil)
 		nc.setViewControllers([startingPoint], animated: false)

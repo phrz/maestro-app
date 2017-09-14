@@ -17,6 +17,7 @@
 		2743B48F1F6A873F00A86995 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2743B48E1F6A873F00A86995 /* Lesson.swift */; };
 		2743B4911F6A87A700A86995 /* LessonCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2743B4901F6A87A700A86995 /* LessonCard.swift */; };
 		2743B4931F6A895B00A86995 /* LessonLocationAware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2743B4921F6A895B00A86995 /* LessonLocationAware.swift */; };
+		2743B4951F6A8C1C00A86995 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2743B4941F6A8C1C00A86995 /* API.swift */; };
 		2763317B1F5A31F300E2EA67 /* MaestroNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763317A1F5A31F300E2EA67 /* MaestroNavigationBar.swift */; };
 		276BAE8A1F51D48F00526EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE891F51D48F00526EAB /* AppDelegate.swift */; };
 		276BAE8C1F51D48F00526EAB /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE8B1F51D48F00526EAB /* TestViewController.swift */; };
@@ -63,6 +64,7 @@
 		2743B48E1F6A873F00A86995 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		2743B4901F6A87A700A86995 /* LessonCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCard.swift; sourceTree = "<group>"; };
 		2743B4921F6A895B00A86995 /* LessonLocationAware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonLocationAware.swift; sourceTree = "<group>"; };
+		2743B4941F6A8C1C00A86995 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		2763317A1F5A31F300E2EA67 /* MaestroNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaestroNavigationBar.swift; sourceTree = "<group>"; };
 		276BAE861F51D48F00526EAB /* Maestro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maestro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		276BAE891F51D48F00526EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				2743B48E1F6A873F00A86995 /* Lesson.swift */,
 				2743B4901F6A87A700A86995 /* LessonCard.swift */,
 				2743B4921F6A895B00A86995 /* LessonLocationAware.swift */,
+				2743B4941F6A8C1C00A86995 /* API.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2743B4951F6A8C1C00A86995 /* API.swift in Sources */,
 				2776927F1F69AECE003A57DF /* AudioPlayerView.swift in Sources */,
 				2743B4931F6A895B00A86995 /* LessonLocationAware.swift in Sources */,
 				2763317B1F5A31F300E2EA67 /* MaestroNavigationBar.swift in Sources */,
