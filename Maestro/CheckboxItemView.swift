@@ -23,9 +23,11 @@ class CheckboxItemView: UIView {
 	let boxLayer: CAShapeLayer
 	let checkLayer: CAShapeLayer
 	
-	var isChecked: Bool = false
-	var isHighlighted: Bool = false
+	private(set) var isChecked: Bool = false
+	private(set) var isHighlighted: Bool = false
 	var shouldUncheckOnSelection: Bool = true
+	
+	var onTouchCallback: ((CheckboxItemView) -> Void)? = nil
 	
 	override var intrinsicContentSize: CGSize {
 		return CGSize(width: UIViewNoIntrinsicMetric, height: 50)
@@ -93,9 +95,18 @@ class CheckboxItemView: UIView {
 		}
 	}
 	
-	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-		isHighlighted = true
+	func changeState(checked: Bool?, highlighted: Bool?) {
+		if let checked = checked {
+			isChecked = checked
+		}
+		if let highlighted = highlighted {
+			isHighlighted = highlighted
+		}
 		setBoxLayerForState()
+	}
+	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		changeState(checked: nil, highlighted: true)
 	}
 	
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -107,12 +118,13 @@ class CheckboxItemView: UIView {
 			isChecked = true
 		}
 		
+		onTouchCallback?(self)
+		
 		setBoxLayerForState()
 	}
 	
 	override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-		isHighlighted = false
-		setBoxLayerForState()
+		changeState(checked: nil, highlighted: false)
 	}
 	
 	override func updateConstraints() {

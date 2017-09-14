@@ -20,6 +20,7 @@ class LessonQuizViewController: LessonCardViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		lessonQuizView.quizAnswers.onSelectionChangeCallback = self.didChangeSelectedAnswer(in:to:at:)
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -30,6 +31,10 @@ class LessonQuizViewController: LessonCardViewController {
 	override func didTouchNextButton(sender: UIButton) {
 		//let vc = LessonCardViewController()
 		//self.navigationController?.pushViewController(vc, animated: true)
+	}
+	
+	func didChangeSelectedAnswer(in checkboxList: CheckboxListView, to answer: CheckboxItemView, at position: UInt) {
+		print("Changed selected answer \(position)!")
 	}
 
 }
