@@ -25,6 +25,7 @@ class CheckboxListView: UIView {
 			reloadData()
 		}
 	}
+	var count: Int = 0
 
 	private var checkboxes: [CheckboxItemView]! = []
 	override var intrinsicContentSize: CGSize {
@@ -39,6 +40,7 @@ class CheckboxListView: UIView {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		isUserInteractionEnabled = true
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -50,13 +52,20 @@ class CheckboxListView: UIView {
 			print("Warning: CheckboxListView has no dataSource")
 			return
 		}
+		for i in 0..<count {
+			if let v = viewWithTag(i) {
+				v.removeFromSuperview()
+			}
+		}
 		checkboxes = []
-		let count = dataSource.checkboxList(numberOfRowsInList: self)
+		
+		count = dataSource.checkboxList(numberOfRowsInList: self)
 		print("dataSource said count was \(count)")
 		for i in 0..<count {
 			let title = dataSource.checkboxList(self, titleForCheckboxAtRow: i)
 			
 			let c = CheckboxItemView(frame: .zero)
+			c.tag = i
 			c.titleLabel.text = title
 			c.shouldUncheckOnSelection = false
 			c.onTouchCallback = self.itemSelected(_:)

@@ -34,7 +34,6 @@ class CheckboxItemView: UIView {
 	}
 	
 	override init(frame: CGRect) {
-		
 		titleLabel = {
 			let t = UILabel()
 			t.lineBreakMode = .byWordWrapping
@@ -59,7 +58,7 @@ class CheckboxItemView: UIView {
 		super.init(frame: frame)
 		
 		setBoxLayerForState()
-		
+		isUserInteractionEnabled = true
 		addSubview(titleLabel)
 		addSubview(box)
 		updateConstraints()
