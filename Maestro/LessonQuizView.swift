@@ -28,6 +28,7 @@ class LessonQuizView: LessonCardView {
 		quizAnswers = CheckboxListView(frame: .zero)
 		
 		super.init(frame: frame)
+		isUserInteractionEnabled = true
 		
 		lessonImage.image = #imageLiteral(resourceName: "staff")
 		
