@@ -22,24 +22,25 @@ class API {
 		Parse.initialize(with: configuration)*/
 	}
 	
-	/*public func getAllLessons() -> Promise<[Any]> {
-		return parseGetAllLessons().then { objects -> [Any] in
+	/*public func getAllLessons() -> Promise<[Lesson]> {
+		return parseGetAllLessons().then { objects -> [Lesson] in
 			for object in objects {
 				print("\n\n\n\(type(of: object))")
+				getAllLessonCards()
 			}
 			return []
 		}.catch { error in
 			print("Caught error in getAllLessons")
 		}
-	}
+	}*/
 	
-	public func getLesson(numbered lessonNumber: Int) -> Promise<Any> {
+	/*public func getLesson(numbered lessonNumber: Int) -> Promise<Any> {
 		return parseGetLesson(numbered: lessonNumber).then { (data: [PFObject]) -> Any in
 			return data
 		}
-	}
+	}*/
 	
-	private func parseGetAllLessons() -> Promise<[PFObject]> {
+	/*private func parseGetAllLessons() -> Promise<[PFObject]> {
 		return Promise<[PFObject]> { fulfill, reject in
 			let query = PFQuery(className: "lesson")
 			query.findObjectsInBackground { object, error in
@@ -52,9 +53,9 @@ class API {
 				}
 			} // end query
 		} // end promise
-	}
+	}*/
 	
-	private func parseGetLesson(numbered lessonNumber: Int) -> Promise<[PFObject]> {
+	/*private func parseGetLesson(numbered lessonNumber: Int) -> Promise<[PFObject]> {
 		return Promise<[PFObject]> { fulfill, reject in
 			let query = PFQuery(className: "lesson")
 			query.whereKey("number", equalTo: [lessonNumber])
