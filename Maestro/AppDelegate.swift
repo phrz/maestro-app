@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
 		let nc = UINavigationController(navigationBarClass: MaestroNavigationBar.self, toolbarClass: nil)
 		nc.setViewControllers([startingPoint], animated: false)
-		nc.navigationBar.tintColor = .black
 		// nc.isNavigationBarHidden = true
 		
 		API.shared.getLesson(numbered: 1).then { lesson in

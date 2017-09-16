@@ -20,10 +20,11 @@ class MaestroNavigationBar: UINavigationBar {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		backgroundColor = .white
+		barTintColor = .white
 		isTranslucent = false
 		setBackgroundImage(UIImage(), for: .default)
 		shadowImage = UIImage()
+		tintColor = .black
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

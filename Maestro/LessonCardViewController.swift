@@ -30,6 +30,8 @@ class LessonCardViewController: UIViewController, LessonLocationAware {
 			action: #selector(didTouchNextButton(sender:)),
 			for: .touchUpInside
 		)
+		
+		navigationItem.titleView = UIImageView(image: UIImage(named: "maestro-m"))
 	}
 	
 	func setLessonContent(_ lc: LessonCard) {

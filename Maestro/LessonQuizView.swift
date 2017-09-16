@@ -25,7 +25,10 @@ class LessonQuizView: LessonCardView {
 			return d
 		}()
 		
-		quizAnswers = CheckboxListView(frame: .zero)
+		quizAnswers = {
+			let a = CheckboxListView(frame: .zero)
+			return a
+		}()
 		
 		super.init(frame: frame)
 		isUserInteractionEnabled = true

@@ -40,7 +40,6 @@ class CheckboxListView: UIView {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		isUserInteractionEnabled = true
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -97,6 +96,9 @@ class CheckboxListView: UIView {
 					make.top.equalToSuperview()
 				} else {
 					make.top.equalTo(checkboxes[n-1].snp.bottom)
+				}
+				if n == checkboxes.count-1 {
+					make.bottom.equalToSuperview()
 				}
 				make.left.equalToSuperview()
 				make.right.equalToSuperview()
