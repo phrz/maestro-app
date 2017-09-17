@@ -71,9 +71,11 @@ class CheckboxItemView: UIView {
 	private func setBoxLayerForState() {
 		DispatchQueue.main.async {
 			let l = self.boxLayer
+			let c = self.checkLayer
+			let t = self.titleLabel
+			
 			l.strokeColor = UIColor.clear.cgColor
 			
-			let c = self.checkLayer
 			if self.isChecked {
 				// check
 				c.fillColor = UIColor.white.cgColor
@@ -82,6 +84,8 @@ class CheckboxItemView: UIView {
 				l.path = path.cgPath
 				let alpha = self.isHighlighted ? 0.6 : 1
 				l.fillColor = UIColor(white: 0, alpha: CGFloat(alpha)).cgColor
+				// label
+				t.alpha = 1
 			} else {
 				// check
 				c.fillColor = UIColor.clear.cgColor
@@ -90,6 +94,8 @@ class CheckboxItemView: UIView {
 				l.path = path.cgPath.copy(strokingWithWidth: 3, lineCap: .butt, lineJoin: .miter, miterLimit: 0)
 				let alpha = self.isHighlighted ? 0.5 : 0.3
 				l.fillColor = UIColor(white: 0, alpha: CGFloat(alpha)).cgColor
+				// label
+				t.alpha = self.isHighlighted ? 1 : 0.7
 			}
 		}
 	}

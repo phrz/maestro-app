@@ -21,14 +21,14 @@ class LessonCardView: UIView {
 			let em = UIFont.systemFontSize
 			let l = UIView()
 			l.layoutMargins = UIEdgeInsets(top: 3*em, left: 1*em, bottom: 1*em, right: 1*em)
-			l.backgroundColor = UIColor(white: 0.95, alpha: 1) // #F3F3F3
+			l.backgroundColor = UIColor(white: 0.93, alpha: 1) // #F3F3F3
 			return l
 		}()
 		
 		lessonImage = {
 			let iv = UIImageViewAligned()
 			iv.contentMode = .scaleAspectFit
-			iv.alignment = .top
+			iv.alignment = .center
 			return iv
 		}()
 		
@@ -64,7 +64,7 @@ class LessonCardView: UIView {
 		}
 		
 		lessonImage.snp.makeConstraints { make -> Void in
-			make.height.lessThanOrEqualTo(lessonCard).multipliedBy(0.3)
+			make.height.equalToSuperview().multipliedBy(0.3)
 			make.left.equalTo(lessonCard.snp.leftMargin)
 			make.right.equalTo(lessonCard.snp.rightMargin)
 			make.top.equalTo(lessonCard.snp.top).offset(1*em)

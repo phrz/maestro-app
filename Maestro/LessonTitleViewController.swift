@@ -41,6 +41,10 @@ class LessonTitleViewController: UIViewController, LessonLocationAware {
 		let vc = LessonRouter.shared.nextCard(after: self)
 		self.navigationController?.pushViewController(vc!, animated: true)
 	}
+	
+	override func willMove(toParentViewController parent: UIViewController?) {
+		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+	}
 
     /*
     // MARK: - Navigation
