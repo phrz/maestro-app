@@ -29,7 +29,7 @@ class LessonTitleViewController: UIViewController, LessonLocationAware {
 			for: .touchUpInside
 		)
 		
-		navigationItem.titleView = UIImageView(image: UIImage(named: "maestro-m"))
+		//navigationItem.titleView = UIImageView(image: UIImage(named: "maestro-m"))
     }
 
     override func didReceiveMemoryWarning() {

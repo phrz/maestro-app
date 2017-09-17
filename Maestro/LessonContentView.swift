@@ -40,27 +40,33 @@ class LessonContentView: LessonCardView {
         
     }
     
-    
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+	
+	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		let em = UIFont.systemFontSize
+		lessonDetail.snp.remakeConstraints { make in
+			
+			make.right.equalTo(lessonCard.snp.rightMargin)
+			make.bottom.lessThanOrEqualTo(nextButton.snp.top)
+			
+			switch traitCollection.verticalSizeClass {
+			case .compact:
+				make.top.equalToSuperview().offset(1*em)
+				make.left.equalTo(lessonImage.snp.right).offset(1*em)
+			case .regular:
+				make.top.equalTo(lessonImage.snp.bottom).offset(1*em)
+				make.left.equalTo(lessonCard.snp.leftMargin)
+			default:
+				print("Unknown size class")
+			}
+		}
+		super.traitCollectionDidChange(previousTraitCollection)
+	}
     
     override func updateConstraints() {
-		
-        let em = UIFont.systemFontSize
-		
-		/*audioPlayer.snp.makeConstraints { make -> Void in
-			make.centerY.equalTo(nextButton)
-			make.left.equalTo(lessonCard.snp.leftMargin)
-			make.right.equalTo(nextButton.snp.left).offset(-1*em)
-		}*/
-		
-        lessonDetail.snp.makeConstraints { make in
-            make.top.equalTo(lessonImage.snp.bottom).offset(2*em)
-            make.left.equalTo(lessonCard.snp.leftMargin)
-            make.right.equalTo(lessonCard.snp.rightMargin)
-        }
-		
+//        let em = UIFont.systemFontSize
 		super.updateConstraints()
     }
 }
