@@ -16,6 +16,22 @@ class LessonTitleViewController: UIViewController, LessonLocationAware {
 		return view as! LessonTitleView
 	}
 	
+	var lessonTitle: String? {
+		didSet {
+			DispatchQueue.main.async {
+				self.lessonTitleView.lessonTitle.text = self.lessonTitle
+			}
+		}
+	}
+	
+	var lessonNumber: Int? {
+		didSet {
+			DispatchQueue.main.async {
+				self.lessonTitleView.lessonDetail.text = "LESSON \(self.lessonNumber!)"
+			}
+		}
+	}
+	
 	override func loadView() {
 		view = LessonTitleView(frame: UIScreen.main.bounds)
 	}

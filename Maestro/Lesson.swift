@@ -35,7 +35,6 @@ struct Lesson {
 				print("Lesson.init?(fromPFObject:) could not cast Any to [String: Any] for individual lesson card.")
 				return nil
 			}
-			print(cardObject)
 			
 			var card: LessonCard?
 			switch type {

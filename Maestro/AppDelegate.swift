@@ -12,14 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-	let startingPoint: UIViewController = LessonTitleViewController()
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
-		let nc = MaestroNavigationController(rootViewController: startingPoint)
+		let nc = MaestroNavigationController()
 		
-		API.shared.getLesson(numbered: 1).then { lesson in
+		API.shared.getLesson(numbered: 1).then { lesson -> Void in
 			LessonRouter.shared.currentLesson = lesson
+			nc.viewControllers = [LessonRouter.shared.titleCard()!]
 		}.then(on: .main) { _ -> Void in
 			self.window = UIWindow(frame: UIScreen.main.bounds)
 			let w = self.window!

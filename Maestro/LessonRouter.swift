@@ -13,6 +13,20 @@ class LessonRouter {
 	
 	var currentLesson: Lesson?
 	
+	func titleCard() -> LessonTitleViewController? {
+		
+		guard let currentLesson = currentLesson else {
+			print("Router: warning, no current lesson.")
+			return nil
+		}
+		
+		let vc = LessonTitleViewController()
+		vc.lessonTitle = currentLesson.title
+		vc.lessonNumber = currentLesson.index
+		
+		return vc
+	}
+	
 	func nextCard(after item: LessonLocationAware) -> LessonCardViewController? {
 		
 		var vc: LessonCardViewController?
