@@ -69,13 +69,14 @@ class API {
 	private func parseGetLesson(numbered lessonNumber: Int) -> Promise<PFObject> {
 		return Promise<PFObject> { fulfill, reject in
 			let query = PFQuery(className: "lesson")
-			query.whereKey("number", equalTo: lessonNumber)
+			query.whereKey("number", equalTo: String(lessonNumber))
 			query.findObjectsInBackground { objects, error in
 				if let error = error {
 					reject(error)
-				} else if let object = objects?[0] {
-					fulfill(object)
+				} else if let objects = objects, objects.count > 0 {
+					fulfill(objects[0])
 				} else {
+					print("API.parseGetLesson(numbered:) failed to retrieve lesson #\(lessonNumber): objects = \(objects?.debugDescription ?? "nil")")
 					reject(APIError.objectNotFound)
 				}
 			}

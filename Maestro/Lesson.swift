@@ -17,35 +17,39 @@ struct Lesson {
 	init?(fromPFObject o: PFObject){
 		guard
 			let title = o["title"] as? String,
-			let index = o["index"] as? Int,
-			let _cards = o["cards"] as? [PFObject]
+			let _index = o["number"] as? String,
+			let index = Int(_index),
+			let _cards = o["content"] as? [Any]
 		else {
 			print("Lesson.init?(fromPFObject:) failed when casting keys title, index, and cards from PFObject.")
 			return nil
 		}
 		
 		var cards: [LessonCard] = []
-		for cardObject in _cards {
+		for any in _cards {
 			guard
+				let cardObject = any as? [String: Any],
 				let rawType = cardObject["type"] as? String,
 				let type = CardType(rawValue: rawType)
 			else {
-				print("Lesson.init?(fromPFObject:) could not determine type of card given type field '\(cardObject["type"] as? String ?? "nil")', expecting 'quiz' or 'content'.")
+				print("Lesson.init?(fromPFObject:) could not cast Any to [String: Any] for individual lesson card.")
 				return nil
 			}
+			print(cardObject)
 			
 			var card: LessonCard?
 			switch type {
 			case .content:
-				card = LessonContent(fromPFObject: cardObject)
+				card = LessonContent(fromJSON: cardObject)
 			case .quiz:
-				card = LessonQuiz(fromPFObject: cardObject)
+				card = LessonQuiz(fromJSON: cardObject)
 			}
 			guard card != nil else {
 				print("Lesson.init?(fromPFObject:) failed when calling LessonContent or LessonQuiz failable initializer.")
 				return nil
 			}
 			cards.append(card!)
+			
 		}
 		
 		self.title = title

@@ -17,7 +17,7 @@ protocol LessonCard {
 	var type: CardType { get }
 	var imageURL: String? { get }
 	
-	init?(fromPFObject o: PFObject)
+	init?(fromJSON json: [String: Any])
 }
 
 struct LessonContent: LessonCard {
@@ -25,7 +25,7 @@ struct LessonContent: LessonCard {
 	let text: String
 	let imageURL: String?
 	
-	init?(fromPFObject o: PFObject) {
+	init?(fromJSON json: [String: Any]) {
 //		guard
 //			let type = obj["type"] as? CardType,
 //			let text = obj["text"] as? String,
@@ -37,7 +37,7 @@ struct LessonContent: LessonCard {
 //		self.type = type
 //		self.text = text
 //		self.imageURL = imageURL
-		print("LessonContent.init?(fromPFObject:) stub (always fails).")
+		print("LessonContent.init?(fromJSON:) stub (always fails).")
 		return nil
 	}
 }
@@ -50,8 +50,8 @@ struct LessonQuiz: LessonCard {
 	let imageURL: String?
 	let answers: [QuizAnswer]
 	
-	init?(fromPFObject o: PFObject) {
-		print("LessonQuiz.init?(fromPFObject:) stub (always fails).")
+	init?(fromJSON json: [String: Any]) {
+		print("LessonQuiz.init?(fromJSON:) stub (always fails).")
 		return nil
 	}
 }
