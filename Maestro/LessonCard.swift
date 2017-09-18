@@ -26,19 +26,21 @@ struct LessonContent: LessonCard {
 	let imageURL: String?
 	
 	init?(fromJSON json: [String: Any]) {
-//		guard
-//			let type = obj["type"] as? CardType,
-//			let text = obj["text"] as? String,
-//			let imageURL = obj["imageURL"] as? String
-//		else{
-//			return nil
-//		}
-//		
-//		self.type = type
-//		self.text = text
-//		self.imageURL = imageURL
-		print("LessonContent.init?(fromJSON:) stub (always fails).")
-		return nil
+		guard
+			let text = json["text"] as? String
+		else {
+			print("LessonContent.init?(fromJSON:) could not cast text and image keys from content JSON.")
+			return nil
+		}
+		
+		self.text = text
+		
+		// Optional properties
+		if let imageURL = json["image"] as? String {
+			self.imageURL = imageURL
+		} else {
+			self.imageURL = nil
+		}
 	}
 }
 
@@ -51,12 +53,45 @@ struct LessonQuiz: LessonCard {
 	let answers: [QuizAnswer]
 	
 	init?(fromJSON json: [String: Any]) {
-		print("LessonQuiz.init?(fromJSON:) stub (always fails).")
-		return nil
+		guard
+			let questionText = json["question"] as? String,
+			let _answers = json["answers"] as? Array<[String: Any]>
+		else {
+			print("LessonQuiz.init?(fromJSON:) could not cast text and image keys from content JSON.")
+			return nil
+		}
+		
+		self.questionText = questionText
+		
+		var answers = [QuizAnswer]()
+		for _answer in _answers {
+			guard let answer = QuizAnswer(fromJSON: _answer) else { return nil }
+			answers.append(answer)
+		}
+		self.answers = answers
+		
+		// Optional properties
+		if let imageURL = json["image"] as? String {
+			self.imageURL = imageURL
+		} else {
+			self.imageURL = nil
+		}
 	}
 }
 
 struct QuizAnswer {
 	let answerText: String
 	let isCorrect: Bool
+	
+	init?(fromJSON json: [String: Any]) {
+		guard
+			let answerText = json["answer"] as? String,
+			let isCorrect = json["correct"] as? Bool
+		else {
+			print("QuizAnswer.init?(fromJSON:) could not cast answer and correct keys from JSON.")
+			return nil
+		}
+		self.answerText = answerText
+		self.isCorrect = isCorrect
+	}
 }
