@@ -27,6 +27,7 @@ class LessonQuizView: LessonCardView {
 		
 		quizAnswers = {
 			let a = CheckboxListView(frame: .zero)
+			a.tintColor = .black
 			return a
 		}()
 		
@@ -39,7 +40,7 @@ class LessonQuizView: LessonCardView {
 		quizTextContainer.addSubview(quizQuestion)
 		quizTextContainer.addSubview(quizAnswers)
 		
-		updateConstraints()
+		setNeedsUpdateConstraints()
 		
 	}
 	
@@ -66,25 +67,26 @@ class LessonQuizView: LessonCardView {
 			make.right.equalTo(lessonCard.snp.rightMargin)
 		}
 		
-		quizQuestion.snp.remakeConstraints { make in
+		super.traitCollectionDidChange(previousTraitCollection)
+	}
+	
+	override func updateConstraints() {
+		let em = UIFont.systemFontSize
+		
+		quizQuestion.snp.makeConstraints { make in
 			make.left.equalToSuperview()
 			make.right.equalToSuperview()
 			make.top.equalToSuperview()
 		}
 		
-		quizAnswers.snp.remakeConstraints { make in
+		quizAnswers.snp.makeConstraints { make in
 			make.top.equalTo(quizQuestion.snp.bottom).offset(1*em)
 			make.left.equalToSuperview()
 			make.right.equalToSuperview()
 			make.bottom.equalToSuperview()
 		}
 		
-		super.traitCollectionDidChange(previousTraitCollection)
+		super.updateConstraints()
 	}
-	
-//	override func updateConstraints() {
-//		let em = UIFont.systemFontSize
-//		super.updateConstraints()
-//	}
 
 }

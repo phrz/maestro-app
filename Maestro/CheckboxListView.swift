@@ -30,10 +30,7 @@ class CheckboxListView: UIView {
 	private var checkboxes: [CheckboxItemView]! = []
 	override var intrinsicContentSize: CGSize {
 		get {
-			var sum: CGFloat = 0.0
-			checkboxes.forEach { c in
-				sum += c.intrinsicContentSize.height
-			}
+			let sum: CGFloat = checkboxes.reduce(0.0){ $0 + $1.intrinsicContentSize.height }
 			return CGSize(width: UIViewNoIntrinsicMetric, height: sum)
 		}
 	}
@@ -41,6 +38,10 @@ class CheckboxListView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		translatesAutoresizingMaskIntoConstraints = false
+		
+		snp.makeConstraints { make in
+			make.height.equalTo(intrinsicContentSize.height)
+		}
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -48,31 +49,33 @@ class CheckboxListView: UIView {
 	}
 	
 	func reloadData() {
-		guard let dataSource = dataSource else {
+		guard let dataSource = self.dataSource else {
 			print("Warning: CheckboxListView has no dataSource")
 			return
 		}
-		for i in 0..<count {
-			if let v = viewWithTag(i) {
+		
+		for i in 0..<self.count {
+			if let v = self.viewWithTag(i) {
 				v.removeFromSuperview()
 			}
 		}
-		checkboxes = []
 		
-		count = dataSource.checkboxList(numberOfRowsInList: self)
-		print("dataSource said count was \(count)")
-		for i in 0..<count {
+		self.checkboxes = []
+		
+		self.count = dataSource.checkboxList(numberOfRowsInList: self)
+		print("dataSource said count was \(self.count)")
+		for i in 0..<self.count {
 			let title = dataSource.checkboxList(self, titleForCheckboxAtRow: i)
 			let c = CheckboxItemView(frame: .zero)
 			c.tag = i
 			c.titleLabel.text = title
 			c.shouldUncheckOnSelection = false
 			c.onTouchCallback = self.itemSelected(_:)
-			addSubview(c)
-			checkboxes.append(c)
+			self.addSubview(c)
+			self.checkboxes.append(c)
 		}
 		
-		setNeedsUpdateConstraints()
+		self.setNeedsUpdateConstraints()
 	}
 	
 	func itemSelected(_ item: CheckboxItemView) {
@@ -90,9 +93,11 @@ class CheckboxListView: UIView {
 	}
 	
 	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-		snp.makeConstraints { make in
+		invalidateIntrinsicContentSize()
+		snp.updateConstraints { make in
 			make.height.equalTo(intrinsicContentSize.height)
 		}
+		super.traitCollectionDidChange(previousTraitCollection)
 	}
 	
 	override func updateConstraints() {
@@ -105,14 +110,6 @@ class CheckboxListView: UIView {
 				}
 				make.left.equalToSuperview()
 				make.right.equalToSuperview()
-			}
-		}
-		if let last = checkboxes.last {
-//			snp.makeConstraints { make in
-//				make.bottom.equalTo(last)
-//			}
-			last.snp.makeConstraints { make in
-				make.bottom.equalToSuperview()
 			}
 		}
 		super.updateConstraints()

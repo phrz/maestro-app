@@ -34,7 +34,7 @@ class CheckboxItemView: UIView {
 	}
 	
 	private var intrinsicHeight: CGFloat {
-		switch traitCollection.verticalSizeClass {
+		switch UIScreen.main.traitCollection.verticalSizeClass {
 		case .regular:
 			return 50
 		case .compact:
@@ -59,7 +59,6 @@ class CheckboxItemView: UIView {
 			let t = UILabel()
 			t.lineBreakMode = .byWordWrapping
 			t.numberOfLines = 0
-			t.textColor = .black
 			t.text = "Label"
 			return t
 		}()
@@ -69,7 +68,6 @@ class CheckboxItemView: UIView {
 		checkLayer = CAShapeLayer()
 		
 		super.init(frame: frame)
-		titleLabel.textColor = tintColor
 		
 		translatesAutoresizingMaskIntoConstraints = false
 		
@@ -81,11 +79,32 @@ class CheckboxItemView: UIView {
 		addSubview(titleLabel)
 		addSubview(box)
 		
+		titleLabel.textColor = self.tintColor
+		
+		titleLabel.snp.makeConstraints { make in
+			make.left.equalTo(box.snp.right)
+			make.right.equalToSuperview()
+			make.centerY.equalToSuperview()
+		}
+		
+		box.snp.makeConstraints { make in
+			make.left.equalToSuperview()
+			make.centerY.equalToSuperview()
+			make.width.equalTo(intrinsicHeight)
+			make.height.equalTo(intrinsicHeight)
+		}
+		
 		setNeedsUpdateConstraints()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+	
+	override func tintColorDidChange() {
+		super.tintColorDidChange()
+		titleLabel.textColor = tintColor
+		redrawCheckboxForCurrentState()
 	}
 	
 	private func redrawCheckboxForCurrentState() {
@@ -158,26 +177,12 @@ class CheckboxItemView: UIView {
 	
 	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 		invalidateIntrinsicContentSize()
-		super.traitCollectionDidChange(previousTraitCollection)
 		redrawCheckboxForCurrentState()
-		box.snp.remakeConstraints { make in
-			make.left.equalToSuperview()
-			make.centerY.equalToSuperview()
+		box.snp.updateConstraints { make in
 			make.width.equalTo(intrinsicHeight)
 			make.height.equalTo(intrinsicHeight)
 		}
-	}
-	
-	override func updateConstraints() {
-		// let em = UIFont.systemFontSize
-		
-		titleLabel.snp.makeConstraints { make in
-			make.left.equalTo(box.snp.right)
-			make.right.equalToSuperview()
-			make.centerY.equalToSuperview()
-		}
-		
-		super.updateConstraints()
+		super.traitCollectionDidChange(previousTraitCollection)
 	}
 
 }
