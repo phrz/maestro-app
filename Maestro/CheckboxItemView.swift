@@ -69,6 +69,7 @@ class CheckboxItemView: UIView {
 		checkLayer = CAShapeLayer()
 		
 		super.init(frame: frame)
+		titleLabel.textColor = tintColor
 		
 		translatesAutoresizingMaskIntoConstraints = false
 		
@@ -106,7 +107,7 @@ class CheckboxItemView: UIView {
 				let path = UIBezierPath(ovalIn: CGRect(x: 0.14*h, y: 0.14*h, width: 0.72*h, height: 0.72*h))
 				l.path = path.cgPath
 				let alpha = self.isHighlighted ? 0.6 : 1
-				l.fillColor = UIColor(white: 0, alpha: CGFloat(alpha)).cgColor
+				l.fillColor = self.tintColor.withAlphaComponent(CGFloat(alpha)).cgColor
 				// label
 				t.alpha = 1
 			} else {
@@ -116,7 +117,7 @@ class CheckboxItemView: UIView {
 				let path = UIBezierPath(ovalIn: CGRect(x: 0.2*h, y: 0.2*h, width: 0.6*h, height: 0.6*h))
 				l.path = path.cgPath.copy(strokingWithWidth: 3, lineCap: .butt, lineJoin: .miter, miterLimit: 0)
 				let alpha = self.isHighlighted ? 0.5 : 0.3
-				l.fillColor = UIColor(white: 0, alpha: CGFloat(alpha)).cgColor
+				l.fillColor = self.tintColor.withAlphaComponent(CGFloat(alpha)).cgColor
 				// label
 				t.alpha = self.isHighlighted ? 1 : 0.7
 			}

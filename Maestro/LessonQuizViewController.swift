@@ -24,7 +24,9 @@ class LessonQuizViewController: LessonCardViewController {
 		super.viewDidLoad()
 		lessonQuizView.quizAnswers.delegate = self
 		lessonQuizView.quizAnswers.dataSource = self
-		lessonQuizView.nextButton.titleLabel?.text = "Check"
+		
+		lessonQuizView.nextButton.setTitle("Check", for: .normal)
+		lessonQuizView.nextButton.isEnabled = false
 	}
 	
 	override func setLessonContent(_ lc: LessonCard) {
@@ -50,16 +52,21 @@ class LessonQuizViewController: LessonCardViewController {
 	}
 	
 	override func didTouchNextButton(sender: UIButton) {
-		guard let vc = LessonRouter.shared.nextCard(after: self) else {
-			return
+		sender.isEnabled = false
+		Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+			sender.isEnabled = true
 		}
-		self.navigationController?.pushViewController(vc, animated: true)
+//		guard let vc = LessonRouter.shared.nextCard(after: self) else {
+//			return
+//		}
+//		self.navigationController?.pushViewController(vc, animated: true)
 	}
 }
 
 extension LessonQuizViewController: CheckboxListViewDelegate {
 	func checkboxList(_ checkboxList: CheckboxListView, didChangeSelectionToIndex index: Int) {
-		print("didChangeSelection to \"\(answers[index].answerText)\"")
+//		print("didChangeSelection to \"\(answers[index].answerText)\"")
+		lessonQuizView.nextButton.isEnabled = true
 	}
 }
 
