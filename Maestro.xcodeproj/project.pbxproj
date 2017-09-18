@@ -18,7 +18,7 @@
 		2743B4911F6A87A700A86995 /* LessonCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2743B4901F6A87A700A86995 /* LessonCard.swift */; };
 		2743B4931F6A895B00A86995 /* LessonLocationAware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2743B4921F6A895B00A86995 /* LessonLocationAware.swift */; };
 		2743B4951F6A8C1C00A86995 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2743B4941F6A8C1C00A86995 /* API.swift */; };
-		2763317B1F5A31F300E2EA67 /* MaestroNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763317A1F5A31F300E2EA67 /* MaestroNavigationBar.swift */; };
+		2746AF0C1F6EF7A700A44CDF /* MaestroNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746AF0B1F6EF7A700A44CDF /* MaestroNavigationController.swift */; };
 		276BAE8A1F51D48F00526EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE891F51D48F00526EAB /* AppDelegate.swift */; };
 		276BAE8C1F51D48F00526EAB /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BAE8B1F51D48F00526EAB /* TestViewController.swift */; };
 		276BAE911F51D48F00526EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276BAE901F51D48F00526EAB /* Assets.xcassets */; };
@@ -65,7 +65,7 @@
 		2743B4901F6A87A700A86995 /* LessonCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCard.swift; sourceTree = "<group>"; };
 		2743B4921F6A895B00A86995 /* LessonLocationAware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonLocationAware.swift; sourceTree = "<group>"; };
 		2743B4941F6A8C1C00A86995 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		2763317A1F5A31F300E2EA67 /* MaestroNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaestroNavigationBar.swift; sourceTree = "<group>"; };
+		2746AF0B1F6EF7A700A44CDF /* MaestroNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaestroNavigationController.swift; sourceTree = "<group>"; };
 		276BAE861F51D48F00526EAB /* Maestro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maestro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		276BAE891F51D48F00526EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		276BAE8B1F51D48F00526EAB /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 			children = (
 				2743B48B1F6A86E300A86995 /* API */,
 				276BAE891F51D48F00526EAB /* AppDelegate.swift */,
-				2763317A1F5A31F300E2EA67 /* MaestroNavigationBar.swift */,
+				2746AF0B1F6EF7A700A44CDF /* MaestroNavigationController.swift */,
 				27371F871F586D7F0019E8FE /* UnderlineButton.swift */,
 				2776927E1F69AECE003A57DF /* AudioPlayerView.swift */,
 				2743B4831F6A5F0800A86995 /* CheckboxListView.swift */,
@@ -460,7 +460,6 @@
 				2743B4951F6A8C1C00A86995 /* API.swift in Sources */,
 				2776927F1F69AECE003A57DF /* AudioPlayerView.swift in Sources */,
 				2743B4931F6A895B00A86995 /* LessonLocationAware.swift in Sources */,
-				2763317B1F5A31F300E2EA67 /* MaestroNavigationBar.swift in Sources */,
 				2743B48D1F6A86F500A86995 /* LessonRouter.swift in Sources */,
 				A6B115141F5F20260058B302 /* SliderBuffering.swift in Sources */,
 				27371F801F58567E0019E8FE /* LessonTitleViewController.swift in Sources */,
@@ -469,6 +468,7 @@
 				277692831F6A2451003A57DF /* LessonCardViewController.swift in Sources */,
 				2743B48F1F6A873F00A86995 /* Lesson.swift in Sources */,
 				A6B115051F5CBE660058B302 /* LessonContentViewController.swift in Sources */,
+				2746AF0C1F6EF7A700A44CDF /* MaestroNavigationController.swift in Sources */,
 				277500201F6A49BE00B52A58 /* LessonQuizViewController.swift in Sources */,
 				A6B115041F5CBE660058B302 /* LessonContentView.swift in Sources */,
 				277692851F6A245E003A57DF /* LessonCardView.swift in Sources */,

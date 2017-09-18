@@ -26,21 +26,23 @@ class CheckboxListView: UIView {
 		}
 	}
 	var count: Int = 0
+	var selection: Int?
 
-	private var checkboxes: [CheckboxItemView]! = []
+	var checkboxes: [CheckboxItemView]! = []
 	override var intrinsicContentSize: CGSize {
 		get {
-			var sum: CGFloat = 0.0
-			checkboxes.forEach { c in
-				sum += c.intrinsicContentSize.height
-			}
+			let sum: CGFloat = checkboxes.reduce(0.0){ $0 + $1.intrinsicContentSize.height }
 			return CGSize(width: UIViewNoIntrinsicMetric, height: sum)
 		}
 	}
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		isUserInteractionEnabled = true
+		translatesAutoresizingMaskIntoConstraints = false
+		
+		snp.makeConstraints { make in
+			make.height.equalTo(intrinsicContentSize.height)
+		}
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -48,32 +50,33 @@ class CheckboxListView: UIView {
 	}
 	
 	func reloadData() {
-		guard let dataSource = dataSource else {
+		guard let dataSource = self.dataSource else {
 			print("Warning: CheckboxListView has no dataSource")
 			return
 		}
-		for i in 0..<count {
-			if let v = viewWithTag(i) {
+		
+		for i in 0..<self.count {
+			if let v = self.viewWithTag(i) {
 				v.removeFromSuperview()
 			}
 		}
-		checkboxes = []
 		
-		count = dataSource.checkboxList(numberOfRowsInList: self)
-		print("dataSource said count was \(count)")
-		for i in 0..<count {
+		self.checkboxes = []
+		
+		self.count = dataSource.checkboxList(numberOfRowsInList: self)
+		print("dataSource said count was \(self.count)")
+		for i in 0..<self.count {
 			let title = dataSource.checkboxList(self, titleForCheckboxAtRow: i)
-			
 			let c = CheckboxItemView(frame: .zero)
 			c.tag = i
 			c.titleLabel.text = title
 			c.shouldUncheckOnSelection = false
 			c.onTouchCallback = self.itemSelected(_:)
-			addSubview(c)
-			checkboxes.append(c)
+			self.addSubview(c)
+			self.checkboxes.append(c)
 		}
 		
-		updateConstraints()
+		self.setNeedsUpdateConstraints()
 	}
 	
 	func itemSelected(_ item: CheckboxItemView) {
@@ -81,6 +84,13 @@ class CheckboxListView: UIView {
 			print("Warning: checkbox called itemSelected but was not a member of checklist")
 			return
 		}
+		guard index != self.selection else {
+			print("Reselected same checkbox. Not triggering didChangeSelectionToIndex event.")
+			return
+		}
+		
+		self.selection = index
+		
 		DispatchQueue.main.async {
 			for (n,c) in self.checkboxes.enumerated() {
 				if n == index { continue }
@@ -88,6 +98,14 @@ class CheckboxListView: UIView {
 			}
 		}
 		delegate?.checkboxList(self, didChangeSelectionToIndex: index)
+	}
+	
+	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		invalidateIntrinsicContentSize()
+		snp.updateConstraints { make in
+			make.height.equalTo(intrinsicContentSize.height)
+		}
+		super.traitCollectionDidChange(previousTraitCollection)
 	}
 	
 	override func updateConstraints() {

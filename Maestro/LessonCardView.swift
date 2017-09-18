@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import UIImageViewAlignedSwift
+import SnapKit
 
 class LessonCardView: UIView {
 
@@ -21,14 +22,14 @@ class LessonCardView: UIView {
 			let em = UIFont.systemFontSize
 			let l = UIView()
 			l.layoutMargins = UIEdgeInsets(top: 3*em, left: 1*em, bottom: 1*em, right: 1*em)
-			l.backgroundColor = UIColor(white: 0.95, alpha: 1) // #F3F3F3
+			l.backgroundColor = UIColor(white: 0.93, alpha: 1) // #F3F3F3
 			return l
 		}()
 		
 		lessonImage = {
 			let iv = UIImageViewAligned()
 			iv.contentMode = .scaleAspectFit
-			iv.alignment = .top
+			iv.alignment = .center
 			return iv
 		}()
 		
@@ -51,9 +52,28 @@ class LessonCardView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		let em = UIFont.systemFontSize
+		lessonImage.snp.remakeConstraints { make in
+			switch traitCollection.verticalSizeClass {
+			case .compact:
+				make.left.equalTo(lessonCard.snp.leftMargin)
+				make.top.equalTo(lessonCard.snp.top).offset(1*em)
+				make.bottom.equalTo(lessonCard.snp.bottom).offset(-1*em)
+				make.width.equalToSuperview().multipliedBy(0.4)
+			case .regular:
+				make.height.equalToSuperview().multipliedBy(0.3)
+				make.left.equalTo(lessonCard.snp.leftMargin)
+				make.right.equalTo(lessonCard.snp.rightMargin)
+				make.top.equalTo(lessonCard.snp.top).offset(1*em)
+			default:
+				print("Unknown size class")
+			}
+		}
+	}
+	
 	override func updateConstraints() {
 		let em = UIFont.systemFontSize
-		//		let statusBarHeight = UIApplication.shared.statusBarFrame.height
 		
 		lessonCard.snp.makeConstraints { make in
 			let margin = UIEdgeInsets(top: 0,
@@ -61,13 +81,6 @@ class LessonCardView: UIView {
 			                          bottom: 1*em,
 			                          right: 1*em)
 			make.edges.equalToSuperview().inset(margin)
-		}
-		
-		lessonImage.snp.makeConstraints { make -> Void in
-			make.height.lessThanOrEqualTo(lessonCard).multipliedBy(0.3)
-			make.left.equalTo(lessonCard.snp.leftMargin)
-			make.right.equalTo(lessonCard.snp.rightMargin)
-			make.top.equalTo(lessonCard.snp.top).offset(1*em)
 		}
 		
 		nextButton.snp.makeConstraints { make in

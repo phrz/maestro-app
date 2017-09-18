@@ -12,6 +12,16 @@ class UnderlineButton: UIButton {
 	
 	private static let normalColor: UIColor = .black
 	
+	override var isEnabled: Bool {
+		didSet {
+			if isEnabled {
+				alpha = 1
+			} else {
+				alpha = 0.4
+			}
+		}
+	}
+	
 	override init(frame: CGRect) {
 		let em = UIFont.systemFontSize
 		super.init(frame: frame)
