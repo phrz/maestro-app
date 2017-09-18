@@ -9,13 +9,15 @@
 import Foundation
 import Parse
 
-enum CardType {
-	case content, quiz
+enum CardType: String {
+	case content = "content", quiz = "quiz"
 }
 
 protocol LessonCard {
 	var type: CardType { get }
 	var imageURL: String? { get }
+	
+	init?(fromPFObject o: PFObject)
 }
 
 struct LessonContent: LessonCard {
@@ -23,18 +25,20 @@ struct LessonContent: LessonCard {
 	let text: String
 	let imageURL: String?
 	
-	init?(fromPFObject obj: [String: Any]){
-		guard
-			let type = obj["type"] as? CardType,
-			let text = obj["text"] as? String,
-			let imageURL = obj["imageURL"] as? String
-		else{
-			return nil
-		}
-		
-		self.type = type
-		self.text = text
-		self.imageURL = imageURL
+	init?(fromPFObject o: PFObject) {
+//		guard
+//			let type = obj["type"] as? CardType,
+//			let text = obj["text"] as? String,
+//			let imageURL = obj["imageURL"] as? String
+//		else{
+//			return nil
+//		}
+//		
+//		self.type = type
+//		self.text = text
+//		self.imageURL = imageURL
+		print("LessonContent.init?(fromPFObject:) stub (always fails).")
+		return nil
 	}
 }
 
@@ -46,22 +50,10 @@ struct LessonQuiz: LessonCard {
 	let imageURL: String?
 	let answers: [QuizAnswer]
 	
-	/*init?(fromPFObject obj: [String: Any]){
-		guard
-			let type = obj["type"] as? CardType,
-			let questionText = obj["questionText"] as? String,
-			let imageURL = obj["imageURL"] as? String,
-			let _answers = obj["answers"] as? [PFObject]
-		else{
-				return nil
-		}
-		
-		self.type = type
-		self.questionText = text
-		self.imageURL = imageURL
-		self.answers = 
-	}*/
-
+	init?(fromPFObject o: PFObject) {
+		print("LessonQuiz.init?(fromPFObject:) stub (always fails).")
+		return nil
+	}
 }
 
 struct QuizAnswer {
