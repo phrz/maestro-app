@@ -11,6 +11,12 @@ import UIKit
 class LessonQuizViewController: LessonCardViewController {
 	
 	var answers: [QuizAnswer] = []
+	var currentSelectedCheckbox: Int?
+	
+	// initially the next button says "Check" and checks the
+	// answer. Once the answer is correctly provided, it will
+	// actually go to the next slide.
+	var nextButtonTriggersNext: Bool = false
 
 	var lessonQuizView: LessonQuizView {
 		return view as! LessonQuizView
@@ -52,14 +58,42 @@ class LessonQuizViewController: LessonCardViewController {
 	}
 	
 	override func didTouchNextButton(sender: UIButton) {
-		sender.isEnabled = false
-		Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
-			sender.isEnabled = true
+		
+		guard !nextButtonTriggersNext else {
+			guard let vc = LessonRouter.shared.nextCard(after: self) else {
+				print("No next card provided by LessonRouter!")
+				return
+			}
+			self.navigationController?.pushViewController(vc, animated: true)
+			return
 		}
-//		guard let vc = LessonRouter.shared.nextCard(after: self) else {
-//			return
-//		}
-//		self.navigationController?.pushViewController(vc, animated: true)
+		
+		sender.isEnabled = false
+		self.lessonQuizView.quizAnswers.isUserInteractionEnabled = false
+		
+		guard let selected = currentSelectedCheckbox else {
+			print("Could not retrieve answer corresponding to checkbox: currentSelectedCheckbox was nil")
+			return
+		}
+		
+		let isCorrect = answers[selected].isCorrect
+		
+		// Highlight the answer, either red or green
+		let selectedBox = lessonQuizView.quizAnswers.checkboxes[selected]
+		if isCorrect {
+			// Mark selected (correct) answer in green and unfreeze Next
+			// button to proceed. Do not unfreeze checkboxes.
+			selectedBox.tintColor = UIColor(colorLiteralRed: 0.296, green: 0.8476, blue: 0.39, alpha: 1)
+			sender.setTitle("Next", for: .normal)
+			nextButtonTriggersNext = true
+			sender.isEnabled = true
+		} else {
+			// Mark selected (wrong) answer in red and unfreeze checkboxes
+			// to allow user to select another answer. Do not unfreeze Check
+			// button until answer is changed.
+			selectedBox.tintColor = .red
+			self.lessonQuizView.quizAnswers.isUserInteractionEnabled = true
+		}
 	}
 }
 
@@ -67,6 +101,7 @@ extension LessonQuizViewController: CheckboxListViewDelegate {
 	func checkboxList(_ checkboxList: CheckboxListView, didChangeSelectionToIndex index: Int) {
 //		print("didChangeSelection to \"\(answers[index].answerText)\"")
 		lessonQuizView.nextButton.isEnabled = true
+		currentSelectedCheckbox = index
 	}
 }
 

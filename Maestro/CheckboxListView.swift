@@ -26,8 +26,9 @@ class CheckboxListView: UIView {
 		}
 	}
 	var count: Int = 0
+	var selection: Int?
 
-	private var checkboxes: [CheckboxItemView]! = []
+	var checkboxes: [CheckboxItemView]! = []
 	override var intrinsicContentSize: CGSize {
 		get {
 			let sum: CGFloat = checkboxes.reduce(0.0){ $0 + $1.intrinsicContentSize.height }
@@ -83,6 +84,13 @@ class CheckboxListView: UIView {
 			print("Warning: checkbox called itemSelected but was not a member of checklist")
 			return
 		}
+		guard index != self.selection else {
+			print("Reselected same checkbox. Not triggering didChangeSelectionToIndex event.")
+			return
+		}
+		
+		self.selection = index
+		
 		DispatchQueue.main.async {
 			for (n,c) in self.checkboxes.enumerated() {
 				if n == index { continue }
