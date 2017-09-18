@@ -33,7 +33,9 @@ class LessonCardViewController: UIViewController, LessonLocationAware {
 	}
 	
 	func setLessonContent(_ lc: LessonCard) {
-		print("setLessonContent")
+		if let urlString = lessonContent?.imageURL, let url = URL(string: urlString) {
+			loadImage(withURL: url)
+		}
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -48,6 +50,14 @@ class LessonCardViewController: UIViewController, LessonLocationAware {
 	override func willMove(toParentViewController parent: UIViewController?) {
 		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 		super.willMove(toParentViewController: parent)
+	}
+	
+	func loadImage(withURL url: URL) {
+		API.shared.loadImage(withURL: url).then(on: .main) { image -> Void in
+			self.lessonCardView.lessonImage.image = image
+		}.catch { error in
+			print("LessonCardViewController.loadImage: failed to load URL \(url) with error \(error)")
+		}
 	}
 	
     /*

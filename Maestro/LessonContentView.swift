@@ -31,8 +31,6 @@ class LessonContentView: LessonCardView {
 		
 		super.init(frame: frame)
 		
-		lessonImage.image = #imageLiteral(resourceName: "staff")
-		
         lessonCard.addSubview(lessonDetail)
         //lessonCard.addSubview(audioPlayer)
 		

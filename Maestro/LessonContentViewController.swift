@@ -29,12 +29,8 @@ class LessonContentViewController: LessonCardViewController {
 		}
 		DispatchQueue.main.async {
 			self.lessonContentView.lessonDetail.text = lcon.text
-			if let img = lcon.imageURL {
-				self.lessonContentView.lessonImage.image = UIImage(named: img)
-			} else {
-				print("NO IMG")
-			}
 		}
+		super.setLessonContent(lc)
 	}
     
     override func didReceiveMemoryWarning() {

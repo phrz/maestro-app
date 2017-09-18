@@ -6,12 +6,12 @@
 //  Copyright © 2017 Maestro. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Parse
 import PromiseKit
 
 enum APIError: Error {
-	case couldNotInterpretLessonData, objectNotFound
+	case couldNotInterpretLessonData, objectNotFound, imageLoadFailed
 }
 
 class API {
@@ -24,6 +24,21 @@ class API {
 			c.clientKey = "orange"
 		}
 		Parse.initialize(with: configuration)
+	}
+	
+	func loadImage(withURL url: URL) -> Promise<UIImage> {
+		return Promise { fulfill, reject in
+			// Load the data, cast it to an image, then fulfill the promise.
+			let task = URLSession.shared.dataTask(with: url) { data, response, error in
+				if let data = data, let image = UIImage(data: data) {
+					fulfill(image)
+				} else {
+					// Probably an HTTP error. Warrants further error handling.
+					reject(APIError.imageLoadFailed)
+				}
+			}
+			task.resume() // execute the above task.
+		}
 	}
 	
 	/*

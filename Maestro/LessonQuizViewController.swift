@@ -42,14 +42,10 @@ class LessonQuizViewController: LessonCardViewController {
 		}
 		DispatchQueue.main.async {
 			self.lessonQuizView.quizQuestion.text = lq.questionText
-			if let img = lq.imageURL {
-				self.lessonQuizView.lessonImage.image = UIImage(named: img)
-			} else {
-				print("NO IMG")
-			}
 			self.answers = lq.answers
 			self.lessonQuizView.quizAnswers.reloadData()
 		}
+		super.setLessonContent(lc)
 	}
 	
 	override func didReceiveMemoryWarning() {
