@@ -12,9 +12,9 @@ class LessonQuizView: LessonCardView {
 	
 	let quizQuestion: UILabel
 	let quizAnswers: CheckboxListView
+	let quizTextContainer: UIView = UIView()
 	
 	override init(frame: CGRect) {
-		
 		quizQuestion = {
 			let d = UILabel()
 			d.numberOfLines = 0
@@ -35,8 +35,9 @@ class LessonQuizView: LessonCardView {
 		
 		lessonImage.image = #imageLiteral(resourceName: "staff")
 		
-		lessonCard.addSubview(quizQuestion)
-		lessonCard.addSubview(quizAnswers)
+		lessonCard.addSubview(quizTextContainer)
+		quizTextContainer.addSubview(quizQuestion)
+		quizTextContainer.addSubview(quizAnswers)
 		
 		updateConstraints()
 		
@@ -46,23 +47,44 @@ class LessonQuizView: LessonCardView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	override func updateConstraints() {
-		
+	
+	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 		let em = UIFont.systemFontSize
 		
-		quizQuestion.snp.makeConstraints { make in
-			make.top.equalTo(lessonImage.snp.bottom).offset(2*em)
-			make.left.equalTo(lessonCard.snp.leftMargin)
+		quizTextContainer.snp.remakeConstraints { make in
+			switch traitCollection.verticalSizeClass {
+			case .compact:
+				make.top.greaterThanOrEqualToSuperview().offset(1*em)
+				make.left.equalTo(lessonImage.snp.right).offset(1*em)
+				make.centerYWithinMargins.equalToSuperview().offset(-1*em).priority(50)
+			case .regular:
+				make.top.equalTo(lessonImage.snp.bottom).offset(2*em)
+				make.left.equalTo(lessonCard.snp.leftMargin)
+			default:
+				print("Unknown size class")
+			}
 			make.right.equalTo(lessonCard.snp.rightMargin)
 		}
 		
-		quizAnswers.snp.makeConstraints { make in
-			make.left.equalTo(lessonCard.snp.leftMargin)
-			make.right.equalTo(lessonCard.snp.rightMargin)
+		quizQuestion.snp.remakeConstraints { make in
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+			make.top.equalToSuperview()
+		}
+		
+		quizAnswers.snp.remakeConstraints { make in
 			make.top.equalTo(quizQuestion.snp.bottom).offset(1*em)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+			make.bottom.equalToSuperview()
 		}
 		
-		super.updateConstraints()
+		super.traitCollectionDidChange(previousTraitCollection)
 	}
+	
+//	override func updateConstraints() {
+//		let em = UIFont.systemFontSize
+//		super.updateConstraints()
+//	}
 
 }

@@ -24,6 +24,7 @@ class LessonQuizViewController: LessonCardViewController {
 		super.viewDidLoad()
 		lessonQuizView.quizAnswers.delegate = self
 		lessonQuizView.quizAnswers.dataSource = self
+		lessonQuizView.nextButton.titleLabel?.text = "Check"
 	}
 	
 	override func setLessonContent(_ lc: LessonCard) {

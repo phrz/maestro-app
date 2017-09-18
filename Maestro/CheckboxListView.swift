@@ -40,6 +40,7 @@ class CheckboxListView: UIView {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		translatesAutoresizingMaskIntoConstraints = false
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -62,7 +63,6 @@ class CheckboxListView: UIView {
 		print("dataSource said count was \(count)")
 		for i in 0..<count {
 			let title = dataSource.checkboxList(self, titleForCheckboxAtRow: i)
-			
 			let c = CheckboxItemView(frame: .zero)
 			c.tag = i
 			c.titleLabel.text = title
@@ -72,7 +72,7 @@ class CheckboxListView: UIView {
 			checkboxes.append(c)
 		}
 		
-		updateConstraints()
+		setNeedsUpdateConstraints()
 	}
 	
 	func itemSelected(_ item: CheckboxItemView) {
@@ -89,6 +89,12 @@ class CheckboxListView: UIView {
 		delegate?.checkboxList(self, didChangeSelectionToIndex: index)
 	}
 	
+	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		snp.makeConstraints { make in
+			make.height.equalTo(intrinsicContentSize.height)
+		}
+	}
+	
 	override func updateConstraints() {
 		for (n,c) in checkboxes.enumerated() {
 			c.snp.makeConstraints { make in
@@ -97,11 +103,16 @@ class CheckboxListView: UIView {
 				} else {
 					make.top.equalTo(checkboxes[n-1].snp.bottom)
 				}
-				if n == checkboxes.count-1 {
-					make.bottom.equalToSuperview()
-				}
 				make.left.equalToSuperview()
 				make.right.equalToSuperview()
+			}
+		}
+		if let last = checkboxes.last {
+//			snp.makeConstraints { make in
+//				make.bottom.equalTo(last)
+//			}
+			last.snp.makeConstraints { make in
+				make.bottom.equalToSuperview()
 			}
 		}
 		super.updateConstraints()

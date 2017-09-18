@@ -21,7 +21,7 @@ class CheckboxItemView: UIView {
 	let titleLabel: UILabel
 	let box: UIView
 	let boxLayer: CAShapeLayer
-	let checkLayer: CAShapeLayer
+	var checkLayer: CAShapeLayer
 	
 	private(set) var isChecked: Bool = false
 	private(set) var isHighlighted: Bool = false
@@ -30,7 +30,28 @@ class CheckboxItemView: UIView {
 	var onTouchCallback: ((CheckboxItemView) -> Void)? = nil
 	
 	override var intrinsicContentSize: CGSize {
-		return CGSize(width: UIViewNoIntrinsicMetric, height: 50)
+		return CGSize(width: UIViewNoIntrinsicMetric, height: intrinsicHeight)
+	}
+	
+	private var intrinsicHeight: CGFloat {
+		switch traitCollection.verticalSizeClass {
+		case .regular:
+			return 50
+		case .compact:
+			return 40
+		default:
+			print("Warning: unknown size class in CheckboxItemView")
+			return UIViewNoIntrinsicMetric
+		}
+	}
+	
+	override func contentHuggingPriority(for axis: UILayoutConstraintAxis) -> UILayoutPriority {
+		switch axis {
+		case .horizontal:
+			return UILayoutPriorityFittingSizeLevel
+		case .vertical:
+			return UILayoutPriorityRequired
+		}
 	}
 	
 	override init(frame: CGRect) {
@@ -45,42 +66,44 @@ class CheckboxItemView: UIView {
 		
 		box = UIView()
 		boxLayer = CAShapeLayer()
-		checkLayer = {
-			let c = CAShapeLayer()
-			c.path = UIBezierPath(ovalIn: CGRect(x: 20, y: 20, width: 10, height: 10)).cgPath
-			c.strokeColor = UIColor.clear.cgColor
-			c.fillColor = UIColor.clear.cgColor
-			return c
-		}()
-		box.layer.addSublayer(boxLayer)
-		box.layer.addSublayer(checkLayer)
+		checkLayer = CAShapeLayer()
 		
 		super.init(frame: frame)
 		
-		setBoxLayerForState()
+		translatesAutoresizingMaskIntoConstraints = false
+		
+		redrawCheckboxForCurrentState()
 		isUserInteractionEnabled = true
+		
+		box.layer.addSublayer(boxLayer)
+		box.layer.addSublayer(checkLayer)
 		addSubview(titleLabel)
 		addSubview(box)
-		updateConstraints()
+		
+		setNeedsUpdateConstraints()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	private func setBoxLayerForState() {
+	private func redrawCheckboxForCurrentState() {
 		DispatchQueue.main.async {
 			let l = self.boxLayer
 			let c = self.checkLayer
 			let t = self.titleLabel
+			let h = self.intrinsicHeight
 			
+			c.strokeColor = UIColor.clear.cgColor
 			l.strokeColor = UIColor.clear.cgColor
+			
+			c.path = UIBezierPath(ovalIn: CGRect(x: 0.4*h, y: 0.4*h, width: 0.2*h, height: 0.2*h)).cgPath
 			
 			if self.isChecked {
 				// check
 				c.fillColor = UIColor.white.cgColor
 				// box
-				let path = UIBezierPath(ovalIn: CGRect(x: 7, y: 7, width: 36, height: 36))
+				let path = UIBezierPath(ovalIn: CGRect(x: 0.14*h, y: 0.14*h, width: 0.72*h, height: 0.72*h))
 				l.path = path.cgPath
 				let alpha = self.isHighlighted ? 0.6 : 1
 				l.fillColor = UIColor(white: 0, alpha: CGFloat(alpha)).cgColor
@@ -90,7 +113,7 @@ class CheckboxItemView: UIView {
 				// check
 				c.fillColor = UIColor.clear.cgColor
 				// box
-				let path = UIBezierPath(ovalIn: CGRect(x: 10, y: 10, width: 30, height: 30))
+				let path = UIBezierPath(ovalIn: CGRect(x: 0.2*h, y: 0.2*h, width: 0.6*h, height: 0.6*h))
 				l.path = path.cgPath.copy(strokingWithWidth: 3, lineCap: .butt, lineJoin: .miter, miterLimit: 0)
 				let alpha = self.isHighlighted ? 0.5 : 0.3
 				l.fillColor = UIColor(white: 0, alpha: CGFloat(alpha)).cgColor
@@ -107,7 +130,7 @@ class CheckboxItemView: UIView {
 		if let highlighted = highlighted {
 			isHighlighted = highlighted
 		}
-		setBoxLayerForState()
+		redrawCheckboxForCurrentState()
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -125,22 +148,27 @@ class CheckboxItemView: UIView {
 		
 		onTouchCallback?(self)
 		
-		setBoxLayerForState()
+		redrawCheckboxForCurrentState()
 	}
 	
 	override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
 		changeState(checked: nil, highlighted: false)
 	}
 	
+	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		invalidateIntrinsicContentSize()
+		super.traitCollectionDidChange(previousTraitCollection)
+		redrawCheckboxForCurrentState()
+		box.snp.remakeConstraints { make in
+			make.left.equalToSuperview()
+			make.centerY.equalToSuperview()
+			make.width.equalTo(intrinsicHeight)
+			make.height.equalTo(intrinsicHeight)
+		}
+	}
+	
 	override func updateConstraints() {
 		// let em = UIFont.systemFontSize
-		
-		box.snp.makeConstraints { make in
-			make.left.equalToSuperview()
-			make.height.equalTo(50)
-			make.width.equalTo(box.snp.height)
-			make.centerY.equalToSuperview()
-		}
 		
 		titleLabel.snp.makeConstraints { make in
 			make.left.equalTo(box.snp.right)
