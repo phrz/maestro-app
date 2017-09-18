@@ -28,6 +28,8 @@ class LessonTitleViewController: UIViewController, LessonLocationAware {
 			action: #selector(didTouchStartButton(sender:)),
 			for: .touchUpInside
 		)
+		
+		//navigationItem.titleView = UIImageView(image: UIImage(named: "maestro-m"))
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +40,10 @@ class LessonTitleViewController: UIViewController, LessonLocationAware {
 	func didTouchStartButton(sender: UIButton) {		
 		let vc = LessonRouter.shared.nextCard(after: self)
 		self.navigationController?.pushViewController(vc!, animated: true)
+	}
+	
+	override func willMove(toParentViewController parent: UIViewController?) {
+		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 	}
 
     /*

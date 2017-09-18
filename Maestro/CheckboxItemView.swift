@@ -21,7 +21,7 @@ class CheckboxItemView: UIView {
 	let titleLabel: UILabel
 	let box: UIView
 	let boxLayer: CAShapeLayer
-	let checkLayer: CAShapeLayer
+	var checkLayer: CAShapeLayer
 	
 	private(set) var isChecked: Bool = false
 	private(set) var isHighlighted: Bool = false
@@ -30,7 +30,28 @@ class CheckboxItemView: UIView {
 	var onTouchCallback: ((CheckboxItemView) -> Void)? = nil
 	
 	override var intrinsicContentSize: CGSize {
-		return CGSize(width: UIViewNoIntrinsicMetric, height: 50)
+		return CGSize(width: UIViewNoIntrinsicMetric, height: intrinsicHeight)
+	}
+	
+	private var intrinsicHeight: CGFloat {
+		switch UIScreen.main.traitCollection.verticalSizeClass {
+		case .regular:
+			return 50
+		case .compact:
+			return 40
+		default:
+			print("Warning: unknown size class in CheckboxItemView")
+			return UIViewNoIntrinsicMetric
+		}
+	}
+	
+	override func contentHuggingPriority(for axis: UILayoutConstraintAxis) -> UILayoutPriority {
+		switch axis {
+		case .horizontal:
+			return UILayoutPriorityFittingSizeLevel
+		case .vertical:
+			return UILayoutPriorityRequired
+		}
 	}
 	
 	override init(frame: CGRect) {
@@ -38,58 +59,86 @@ class CheckboxItemView: UIView {
 			let t = UILabel()
 			t.lineBreakMode = .byWordWrapping
 			t.numberOfLines = 0
-			t.textColor = .black
 			t.text = "Label"
 			return t
 		}()
 		
 		box = UIView()
 		boxLayer = CAShapeLayer()
-		checkLayer = {
-			let c = CAShapeLayer()
-			c.path = UIBezierPath(ovalIn: CGRect(x: 20, y: 20, width: 10, height: 10)).cgPath
-			c.strokeColor = UIColor.clear.cgColor
-			c.fillColor = UIColor.clear.cgColor
-			return c
-		}()
-		box.layer.addSublayer(boxLayer)
-		box.layer.addSublayer(checkLayer)
+		checkLayer = CAShapeLayer()
 		
 		super.init(frame: frame)
 		
-		setBoxLayerForState()
+		translatesAutoresizingMaskIntoConstraints = false
+		
+		redrawCheckboxForCurrentState()
 		isUserInteractionEnabled = true
+		
+		box.layer.addSublayer(boxLayer)
+		box.layer.addSublayer(checkLayer)
 		addSubview(titleLabel)
 		addSubview(box)
-		updateConstraints()
+		
+		titleLabel.textColor = self.tintColor
+		
+		titleLabel.snp.makeConstraints { make in
+			make.left.equalTo(box.snp.right)
+			make.right.equalToSuperview()
+			make.centerY.equalToSuperview()
+		}
+		
+		box.snp.makeConstraints { make in
+			make.left.equalToSuperview()
+			make.centerY.equalToSuperview()
+			make.width.equalTo(intrinsicHeight)
+			make.height.equalTo(intrinsicHeight)
+		}
+		
+		setNeedsUpdateConstraints()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	private func setBoxLayerForState() {
+	override func tintColorDidChange() {
+		super.tintColorDidChange()
+		titleLabel.textColor = tintColor
+		redrawCheckboxForCurrentState()
+	}
+	
+	private func redrawCheckboxForCurrentState() {
 		DispatchQueue.main.async {
 			let l = self.boxLayer
+			let c = self.checkLayer
+			let t = self.titleLabel
+			let h = self.intrinsicHeight
+			
+			c.strokeColor = UIColor.clear.cgColor
 			l.strokeColor = UIColor.clear.cgColor
 			
-			let c = self.checkLayer
+			c.path = UIBezierPath(ovalIn: CGRect(x: 0.4*h, y: 0.4*h, width: 0.2*h, height: 0.2*h)).cgPath
+			
 			if self.isChecked {
 				// check
 				c.fillColor = UIColor.white.cgColor
 				// box
-				let path = UIBezierPath(ovalIn: CGRect(x: 7, y: 7, width: 36, height: 36))
+				let path = UIBezierPath(ovalIn: CGRect(x: 0.14*h, y: 0.14*h, width: 0.72*h, height: 0.72*h))
 				l.path = path.cgPath
 				let alpha = self.isHighlighted ? 0.6 : 1
-				l.fillColor = UIColor(white: 0, alpha: CGFloat(alpha)).cgColor
+				l.fillColor = self.tintColor.withAlphaComponent(CGFloat(alpha)).cgColor
+				// label
+				t.alpha = 1
 			} else {
 				// check
 				c.fillColor = UIColor.clear.cgColor
 				// box
-				let path = UIBezierPath(ovalIn: CGRect(x: 10, y: 10, width: 30, height: 30))
+				let path = UIBezierPath(ovalIn: CGRect(x: 0.2*h, y: 0.2*h, width: 0.6*h, height: 0.6*h))
 				l.path = path.cgPath.copy(strokingWithWidth: 3, lineCap: .butt, lineJoin: .miter, miterLimit: 0)
 				let alpha = self.isHighlighted ? 0.5 : 0.3
-				l.fillColor = UIColor(white: 0, alpha: CGFloat(alpha)).cgColor
+				l.fillColor = self.tintColor.withAlphaComponent(CGFloat(alpha)).cgColor
+				// label
+				t.alpha = self.isHighlighted ? 1 : 0.7
 			}
 		}
 	}
@@ -101,7 +150,7 @@ class CheckboxItemView: UIView {
 		if let highlighted = highlighted {
 			isHighlighted = highlighted
 		}
-		setBoxLayerForState()
+		redrawCheckboxForCurrentState()
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -119,30 +168,21 @@ class CheckboxItemView: UIView {
 		
 		onTouchCallback?(self)
 		
-		setBoxLayerForState()
+		redrawCheckboxForCurrentState()
 	}
 	
 	override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
 		changeState(checked: nil, highlighted: false)
 	}
 	
-	override func updateConstraints() {
-		// let em = UIFont.systemFontSize
-		
-		box.snp.makeConstraints { make in
-			make.left.equalToSuperview()
-			make.height.equalTo(50)
-			make.width.equalTo(box.snp.height)
-			make.centerY.equalToSuperview()
+	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		invalidateIntrinsicContentSize()
+		redrawCheckboxForCurrentState()
+		box.snp.updateConstraints { make in
+			make.width.equalTo(intrinsicHeight)
+			make.height.equalTo(intrinsicHeight)
 		}
-		
-		titleLabel.snp.makeConstraints { make in
-			make.left.equalTo(box.snp.right)
-			make.right.equalToSuperview()
-			make.centerY.equalToSuperview()
-		}
-		
-		super.updateConstraints()
+		super.traitCollectionDidChange(previousTraitCollection)
 	}
 
 }

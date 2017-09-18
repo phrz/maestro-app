@@ -14,24 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	let startingPoint: UIViewController = LessonTitleViewController()
 
-	func application(
-		_ application: UIApplication,
-		didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
-	) -> Bool {
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
-		// Override point for customization after application launch.
-		let nc = UINavigationController(navigationBarClass: MaestroNavigationBar.self, toolbarClass: nil)
-		nc.setViewControllers([startingPoint], animated: false)
-		nc.navigationBar.tintColor = .black
-		// nc.isNavigationBarHidden = true
+		let nc = MaestroNavigationController(rootViewController: startingPoint)
 		
 		API.shared.getLesson(numbered: 1).then { lesson in
 			LessonRouter.shared.currentLesson = lesson
 		}.then(on: .main) { _ -> Void in
 			self.window = UIWindow(frame: UIScreen.main.bounds)
-			self.window?.rootViewController = nc
-			self.window?.backgroundColor = .white
-			self.window?.makeKeyAndVisible()
+			let w = self.window!
+			w.rootViewController = nc
+			w.backgroundColor = .white
+			w.makeKeyAndVisible()
 		}.catch { error in
 			print("Error: \(error)")
 		}
