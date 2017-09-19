@@ -39,7 +39,6 @@ class CheckboxListView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		translatesAutoresizingMaskIntoConstraints = false
-		
 		snp.makeConstraints { make in
 			make.height.equalTo(intrinsicContentSize.height)
 		}
@@ -64,7 +63,7 @@ class CheckboxListView: UIView {
 		self.checkboxes = []
 		
 		self.count = dataSource.checkboxList(numberOfRowsInList: self)
-		print("dataSource said count was \(self.count)")
+		
 		for i in 0..<self.count {
 			let title = dataSource.checkboxList(self, titleForCheckboxAtRow: i)
 			let c = CheckboxItemView(frame: .zero)
@@ -76,16 +75,17 @@ class CheckboxListView: UIView {
 			self.checkboxes.append(c)
 		}
 		
+		self.invalidateIntrinsicContentSize()
 		self.setNeedsUpdateConstraints()
 	}
 	
 	func itemSelected(_ item: CheckboxItemView) {
 		guard let index = checkboxes.index(of: item) else {
-			print("Warning: checkbox called itemSelected but was not a member of checklist")
+//			print("Warning: checkbox called itemSelected but was not a member of checklist")
 			return
 		}
 		guard index != self.selection else {
-			print("Reselected same checkbox. Not triggering didChangeSelectionToIndex event.")
+//			print("Reselected same checkbox. Not triggering didChangeSelectionToIndex event.")
 			return
 		}
 		
@@ -109,6 +109,9 @@ class CheckboxListView: UIView {
 	}
 	
 	override func updateConstraints() {
+		snp.updateConstraints { make in
+			make.height.equalTo(intrinsicContentSize.height)
+		}
 		for (n,c) in checkboxes.enumerated() {
 			c.snp.makeConstraints { make in
 				if n == 0 {

@@ -108,38 +108,38 @@ class CheckboxItemView: UIView {
 	}
 	
 	private func redrawCheckboxForCurrentState() {
-		DispatchQueue.main.async {
-			let l = self.boxLayer
-			let c = self.checkLayer
-			let t = self.titleLabel
-			let h = self.intrinsicHeight
+		let l = boxLayer
+		let c = checkLayer
+		let t = titleLabel
+		let h = intrinsicHeight
+		
+		c.strokeColor = UIColor.clear.cgColor
+		l.strokeColor = UIColor.clear.cgColor
+		
+		c.path = UIBezierPath(ovalIn: CGRect(x: 0.4*h, y: 0.4*h, width: 0.2*h, height: 0.2*h)).cgPath
+		
+		if self.isChecked {
+			let path = UIBezierPath(ovalIn: CGRect(x: 0.14*h, y: 0.14*h, width: 0.72*h, height: 0.72*h))
+			let alpha = self.isHighlighted ? 0.6 : 1
 			
-			c.strokeColor = UIColor.clear.cgColor
-			l.strokeColor = UIColor.clear.cgColor
+			// check
+			c.fillColor = UIColor.white.cgColor
+			// box
+			l.path = path.cgPath
+			l.fillColor = self.tintColor.withAlphaComponent(CGFloat(alpha)).cgColor
+			// label
+			t.alpha = 1
+		} else {
+			let path = UIBezierPath(ovalIn: CGRect(x: 0.2*h, y: 0.2*h, width: 0.6*h, height: 0.6*h))
+			let alpha = self.isHighlighted ? 0.5 : 0.3
 			
-			c.path = UIBezierPath(ovalIn: CGRect(x: 0.4*h, y: 0.4*h, width: 0.2*h, height: 0.2*h)).cgPath
-			
-			if self.isChecked {
-				// check
-				c.fillColor = UIColor.white.cgColor
-				// box
-				let path = UIBezierPath(ovalIn: CGRect(x: 0.14*h, y: 0.14*h, width: 0.72*h, height: 0.72*h))
-				l.path = path.cgPath
-				let alpha = self.isHighlighted ? 0.6 : 1
-				l.fillColor = self.tintColor.withAlphaComponent(CGFloat(alpha)).cgColor
-				// label
-				t.alpha = 1
-			} else {
-				// check
-				c.fillColor = UIColor.clear.cgColor
-				// box
-				let path = UIBezierPath(ovalIn: CGRect(x: 0.2*h, y: 0.2*h, width: 0.6*h, height: 0.6*h))
-				l.path = path.cgPath.copy(strokingWithWidth: 3, lineCap: .butt, lineJoin: .miter, miterLimit: 0)
-				let alpha = self.isHighlighted ? 0.5 : 0.3
-				l.fillColor = self.tintColor.withAlphaComponent(CGFloat(alpha)).cgColor
-				// label
-				t.alpha = self.isHighlighted ? 1 : 0.7
-			}
+			// check
+			c.fillColor = UIColor.clear.cgColor
+			// box
+			l.path = path.cgPath.copy(strokingWithWidth: 3, lineCap: .butt, lineJoin: .miter, miterLimit: 0)
+			l.fillColor = self.tintColor.withAlphaComponent(CGFloat(alpha)).cgColor
+			// label
+			t.alpha = self.isHighlighted ? 1 : 0.7
 		}
 	}
 	

@@ -57,6 +57,7 @@ class LessonQuizViewController: LessonCardViewController {
 		
 		guard !nextButtonTriggersNext else {
 			LessonRouter.shared.pushNextCard(after: self, to: self.navigationController as! MaestroNavigationController)
+			self.lessonQuizView.quizAnswers.isUserInteractionEnabled = true
 			return
 		}
 		
