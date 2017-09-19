@@ -54,7 +54,17 @@ class LessonCardViewController: UIViewController, LessonLocationAware {
 	
 	func loadImage(withURL url: URL) {
 		API.shared.loadImage(withURL: url).then(on: .main) { image -> Void in
-			self.lessonCardView.lessonImage.image = image
+//			self.lessonCardView.lessonImage.image = image
+			
+			// fade in image view
+			UIView.transition(
+				with: self.lessonCardView.lessonImage,
+				duration:0.5,
+				options: .transitionCrossDissolve,
+				animations: { self.lessonCardView.lessonImage.image = image },
+				completion: nil
+			)
+			
 		}.catch { error in
 			print("LessonCardViewController.loadImage: failed to load URL \(url) with error \(error)")
 		}

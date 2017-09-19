@@ -28,6 +28,13 @@ class LessonCardView: UIView {
 		
 		lessonImage = {
 			let iv = UIImageViewAligned()
+			
+			// Create a blank 1x1 image rather than a blank 0x0 image for
+			// animation purposes (cannot divide by zero)
+			UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+			iv.image = UIGraphicsGetImageFromCurrentImageContext()
+			UIGraphicsEndImageContext()
+			
 			iv.contentMode = .scaleAspectFit
 			iv.alignment = .center
 			return iv
