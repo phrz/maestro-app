@@ -27,7 +27,7 @@ class LessonCell: UITableViewCell {
 		cellCardPrimaryLabel = {
 			let l = UILabel()
 			l.text = "cellCardPrimaryLabel"
-			l.font = UIFont.systemFont(ofSize: UIFont.systemFontSize * 1.25)
+			l.font = UIFont.systemFont(ofSize: UIFont.systemFontSize * 1.5)
 			l.numberOfLines = 0
 			l.lineBreakMode = .byWordWrapping
 			return l
@@ -35,7 +35,7 @@ class LessonCell: UITableViewCell {
 		cellCardSecondaryLabel = {
 			let l = UILabel()
 			l.text = "cellCardSecondaryLabel"
-			l.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+			l.font = UIFont.systemFont(ofSize: UIFont.systemFontSize * 1.25)
 			l.numberOfLines = 0
 			l.lineBreakMode = .byWordWrapping
 			l.textColor = UIColor(white: 0, alpha: 0.6)
@@ -50,18 +50,18 @@ class LessonCell: UITableViewCell {
 		contentView.addSubview(cellCard)
 		cellCard.addSubview(cellCardPrimaryLabel)
 		cellCard.addSubview(cellCardSecondaryLabel)
+		
 		setNeedsUpdateConstraints()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-
 	
     override func setSelected(_ selected: Bool, animated: Bool) {
 //        super.setSelected(selected, animated: animated)
 		if selected {
-			cellCard.backgroundColor = UIColor(white: 0.9, alpha: 1)
+			cellCard.backgroundColor = UIColor(white: 0.8, alpha: 1)
 		} else {
 			cellCard.backgroundColor = .white
 		}
@@ -71,7 +71,10 @@ class LessonCell: UITableViewCell {
 		let boxPadding = 10
 		let textPadding = 15
 		cellCard.snp.makeConstraints { make in
-			make.edges.equalToSuperview().inset(boxPadding)
+			make.left.equalToSuperview().inset(boxPadding)
+			make.right.equalToSuperview().inset(boxPadding)
+			make.top.equalToSuperview().offset(2*boxPadding)
+			make.bottom.equalToSuperview()
 		}
 		cellCardSecondaryLabel.snp.makeConstraints { make in
 			make.left.equalToSuperview().inset(textPadding)

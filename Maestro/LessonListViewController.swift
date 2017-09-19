@@ -10,7 +10,7 @@ import UIKit
 
 class LessonListViewController: UITableViewController {
 
-	let items = ["A","B","C"]
+	var stubs: [LessonStub] = []
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,15 +18,25 @@ class LessonListViewController: UITableViewController {
 		tableView.dataSource = self
 		tableView.delegate = self
 		tableView.separatorColor = .clear
-		tableView.backgroundColor = .darkGray
+		tableView.backgroundColor = UIColor(white: 0.5, alpha: 1)
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 50
+		loadLessons()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	func loadLessons() {
+		API.shared.getLessonStubs().then(on: .main) { stubs -> Void in
+			self.stubs = stubs
+			self.tableView.reloadData()
+		}.catch { error in
+			print("loadLessons(): caught error from API.getLessonStubs()")
+		}
+	}
 
     // MARK: - Table view data source
 
@@ -37,13 +47,25 @@ class LessonListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return items.count
+        return stubs.count
     }
 	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "lessonCell", for: indexPath) as! LessonCell
-		cell.cellCardPrimaryLabel.text = items[indexPath.row]
+		let stub = stubs[indexPath.row]
+		cell.cellCardPrimaryLabel.text = stub.title
+		cell.cellCardSecondaryLabel.text = "LESSON \(stub.index)"
         return cell
     }
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let stub = stubs[indexPath.row]
+		API.shared.getLesson(numbered: stub.index).then { lesson -> Void in
+			LessonRouter.shared.currentLesson = lesson
+			LessonRouter.shared.pushTitleCard(to: self.navigationController as! MaestroNavigationController)
+		}.catch { error in
+			print("LessonListViewController - error in tableView(_:didSelectRowAt:) \(error)")
+		}
+	}
 
 }

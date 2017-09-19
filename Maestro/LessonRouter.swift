@@ -67,4 +67,12 @@ class LessonRouter {
 		}
 		nc.pushViewController(vc, animated: true)
 	}
+	
+	func pushTitleCard(to nc: MaestroNavigationController) {
+		guard let vc = titleCard() else {
+			print("LessonRouter.pushTitleCard(to:) did not receive a View Controller from titleCard().")
+			return
+		}
+		nc.pushViewController(vc, animated: true)
+	}
 }

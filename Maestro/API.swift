@@ -41,34 +41,39 @@ class API {
 		}
 	}
 	
-	/*
-	public func getAllLessons() -> Promise<[Lesson]> {
-		return parseGetAllLessons().then { objects -> [Lesson] in
+	
+	public func getLessonStubs() -> Promise<[LessonStub]> {
+		return parseGetLessonStubs().then { objects -> [LessonStub] in
+			var stubs = [LessonStub]()
 			for object in objects {
-				print("\n\n\n\(type(of: object))")
-				getAllLessonCards()
+				guard let stub = LessonStub(fromPFObject: object) else {
+					throw APIError.couldNotInterpretLessonData
+				}
+				stubs.append(stub)
 			}
-			return []
+			return stubs
 		}.catch { error in
-			print("Caught error in getAllLessons")
+			print("Caught error in getLessonStubs: \(error)")
 		}
 	}
 	
-	private func parseGetAllLessons() -> Promise<[PFObject]> {
+	private func parseGetLessonStubs() -> Promise<[PFObject]> {
 		return Promise<[PFObject]> { fulfill, reject in
 			let query = PFQuery(className: "lesson")
-			query.findObjectsInBackground { object, error in
+			query.selectKeys(["title", "number"])
+			query.findObjectsInBackground { objects, error in
 				if let error = error {
 					reject(error)
-				} else if let object = object {
-					fulfill(object)
+				} else if let objects = objects {
+					print(objects)
+					fulfill(objects)
 				} else {
 					fulfill([])
 				}
 			} // end query
 		} // end promise
 	}
-	*/
+
 	
 	public func getLesson(numbered lessonNumber: Int) -> Promise<Lesson> {
 		return parseGetLesson(numbered: lessonNumber).then { data -> Lesson in

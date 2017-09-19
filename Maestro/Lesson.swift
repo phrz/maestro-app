@@ -9,12 +9,29 @@
 import Foundation
 import Parse
 
+struct LessonStub {
+	let title: String
+	let index: Int
+	
+	init?(fromPFObject o: PFObject) {
+		guard
+			let title = o["title"] as? String,
+			let _index = o["number"] as? String,
+			let index = Int(_index)
+		else {
+			return nil
+		}
+		self.title = title
+		self.index = index
+	}
+}
+
 struct Lesson {
 	let title: String
 	let index: Int
 	let cards: [LessonCard]
 	
-	init?(fromPFObject o: PFObject){
+	init?(fromPFObject o: PFObject) {
 		guard
 			let title = o["title"] as? String,
 			let _index = o["number"] as? String,
