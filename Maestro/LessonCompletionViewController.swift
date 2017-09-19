@@ -16,12 +16,18 @@ class LessonCompletionViewController: LessonCardViewController {
 	
 	override func loadView() {
 		view = LessonCompletionView(frame: UIScreen.main.bounds)
+		lessonCompletionView.nextButton.setTitle("Done", for: .normal)
 	}
 	
 	override func setLessonContent(_ lc: LessonCard) { /* stub */ }
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+	}
+	
+	override func didTouchNextButton(sender: UIButton) {
+		LessonRouter.shared.currentLesson = nil
+		navigationController!.popToRootViewController(animated: true)
 	}
 
     override func didReceiveMemoryWarning() {
