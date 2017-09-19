@@ -34,8 +34,6 @@ class LessonQuizView: LessonCardView {
 		super.init(frame: frame)
 		isUserInteractionEnabled = true
 		
-		lessonImage.image = #imageLiteral(resourceName: "staff")
-		
 		lessonCard.addSubview(quizTextContainer)
 		quizTextContainer.addSubview(quizQuestion)
 		quizTextContainer.addSubview(quizAnswers)
