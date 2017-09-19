@@ -52,12 +52,10 @@ class MaestroNavigationController: UINavigationController, UINavigationControlle
 			let locationAwareViewController = viewController as? LessonLocationAware,
 			let location = locationAwareViewController.lessonCardIndex
 			else {
-				print("ZERO PROGRESS BAR")
 				progressBar.setProgress(0.0, animated: false)
 				return
 		}
 		let progress = Float(location)/Float(currentLessonSize)
-		print("SET PROGRESS BAR \(progress)")
 		progressBar.setProgress(progress, animated: true)
 	}
 
