@@ -12,7 +12,8 @@ import UIImageViewAlignedSwift
 import SnapKit
 
 class LessonCardView: UIView {
-
+	
+	var hasImage: Bool = false
 	let lessonCard: UIView
 	let lessonImage: UIImageViewAligned
 	let nextButton: UIButton
@@ -60,27 +61,15 @@ class LessonCardView: UIView {
 	}
 	
 	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-		let em = UIFont.systemFontSize
-		lessonImage.snp.remakeConstraints { make in
-			switch traitCollection.verticalSizeClass {
-			case .compact:
-				make.left.equalTo(lessonCard.snp.leftMargin)
-				make.top.equalTo(lessonCard.snp.top).offset(1*em)
-				make.bottom.equalTo(lessonCard.snp.bottom).offset(-1*em)
-				make.width.equalToSuperview().multipliedBy(0.4)
-			case .regular:
-				make.height.equalToSuperview().multipliedBy(0.3)
-				make.left.equalTo(lessonCard.snp.leftMargin)
-				make.right.equalTo(lessonCard.snp.rightMargin)
-				make.top.equalTo(lessonCard.snp.top).offset(1*em)
-			default:
-				print("Unknown size class")
-			}
-		}
+//		let em = UIFont.systemFontSize
+		makeImageConstraints()
+		super.traitCollectionDidChange(previousTraitCollection)
 	}
 	
 	override func updateConstraints() {
 		let em = UIFont.systemFontSize
+		
+		makeImageConstraints()
 		
 		lessonCard.snp.makeConstraints { make in
 			let margin = UIEdgeInsets(top: 0,
@@ -95,7 +84,35 @@ class LessonCardView: UIView {
 			make.bottomMargin.equalToSuperview()
 		}
 		
-		
 		super.updateConstraints()
+	}
+	
+	func makeImageConstraints() {
+		let em = UIFont.systemFontSize
+		lessonImage.snp.remakeConstraints { make in
+			switch traitCollection.verticalSizeClass {
+			case .compact:
+				make.left.equalTo(lessonCard.snp.leftMargin)
+				make.top.equalTo(lessonCard.snp.top).offset(1*em)
+				if hasImage {
+					make.bottom.equalTo(lessonCard.snp.bottom).offset(-1*em)
+					make.width.equalToSuperview().multipliedBy(0.4)
+				}
+			case .regular:
+				make.top.equalTo(lessonCard.snp.top).offset(1*em)
+				make.left.equalTo(lessonCard.snp.leftMargin)
+				if hasImage {
+					make.height.equalToSuperview().multipliedBy(0.3)
+					make.right.equalTo(lessonCard.snp.rightMargin)
+				}
+			default:
+//				print("Unknown size class")
+				break
+			}
+			if !hasImage {
+				make.width.equalTo(0)
+				make.height.equalTo(0)
+			}
+		}
 	}
 }

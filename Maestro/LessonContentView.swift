@@ -23,7 +23,7 @@ class LessonContentView: LessonCardView {
             d.numberOfLines = 0
             d.lineBreakMode = .byWordWrapping
             d.textColor = .black
-            d.text = "The staff consists of five lines and four spaces. Each of those lines and each of those spaces represents a different letter, which in turn represents a note. Those lines and spaces represent notes named A-G, and the note sequence moves alphabetically up the staff."
+            d.text = "lessonDetail"
             return d
         }()
         
@@ -57,7 +57,8 @@ class LessonContentView: LessonCardView {
 				make.top.equalTo(lessonImage.snp.bottom).offset(1*em)
 				make.left.equalTo(lessonCard.snp.leftMargin)
 			default:
-				print("Unknown size class")
+//				print("Unknown size class")
+				break
 			}
 		}
 		super.traitCollectionDidChange(previousTraitCollection)

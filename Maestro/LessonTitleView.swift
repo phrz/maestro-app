@@ -46,7 +46,7 @@ class LessonTitleView: UIView {
 		}()
 		
 		lessonIcon = {
-			let i = UIImage(imageLiteralResourceName: "quarter-note")
+			let i = UIImage(named: "quarter-note")
 			let iv = UIImageViewAligned(image: i)
 			iv.contentMode = .scaleAspectFit
 			iv.alignment = .topLeft

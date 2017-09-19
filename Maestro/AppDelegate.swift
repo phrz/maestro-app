@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		let nc = MaestroNavigationController()
 		
+		/*
 		API.shared.getLesson(numbered: 1).then { lesson -> Void in
 			LessonRouter.shared.currentLesson = lesson
 			nc.viewControllers = [LessonRouter.shared.titleCard()!]
@@ -29,6 +30,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}.catch { error in
 			print("Error: \(error)")
 		}
+		*/
+		
+		self.window = UIWindow(frame: UIScreen.main.bounds)
+		nc.viewControllers = [LessonListViewController()]
+		let w = self.window!
+		w.rootViewController = nc
+		w.backgroundColor = .white
+		w.makeKeyAndVisible()
+		
 		return true
 	}
 

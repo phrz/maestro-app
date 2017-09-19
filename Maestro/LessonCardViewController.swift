@@ -34,8 +34,12 @@ class LessonCardViewController: UIViewController, LessonLocationAware {
 	
 	func setLessonContent(_ lc: LessonCard) {
 		if let urlString = lessonContent?.imageURL, let url = URL(string: urlString) {
+			lessonCardView.hasImage = true
 			loadImage(withURL: url)
+		} else {
+			lessonCardView.hasImage = false
 		}
+		view.setNeedsUpdateConstraints()
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -55,7 +59,6 @@ class LessonCardViewController: UIViewController, LessonLocationAware {
 	func loadImage(withURL url: URL) {
 		API.shared.loadImage(withURL: url).then(on: .main) { image -> Void in
 //			self.lessonCardView.lessonImage.image = image
-			
 			// fade in image view
 			UIView.transition(
 				with: self.lessonCardView.lessonImage,
@@ -69,15 +72,5 @@ class LessonCardViewController: UIViewController, LessonLocationAware {
 			print("LessonCardViewController.loadImage: failed to load URL \(url) with error \(error)")
 		}
 	}
-	
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

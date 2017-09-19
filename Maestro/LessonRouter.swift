@@ -41,18 +41,21 @@ class LessonRouter {
 			return nil
 		}
 		let next = i+1
-		guard next < currentLesson.cards.count else { return nil }
-//		print("i: \(i), next: \(next)")
+		let lastIndex = currentLesson.cards.count - 1
 		
-		if let content = currentLesson.cards[next] as? LessonContent {
+		if next == lastIndex {
+			return LessonCompletionViewController()
+		} else if next > currentLesson.cards.count {
+			return nil
+		} else if let content = currentLesson.cards[next] as? LessonContent {
 			vc = LessonContentViewController()
 			vc!.lessonContent = content
 		} else if let quiz = currentLesson.cards[next] as? LessonQuiz {
 			vc = LessonQuizViewController()
 			vc!.lessonContent = quiz
 		}
+		
 		vc?.lessonCardIndex = next
-//		print("Getting card #\(i+1) from lesson \(currentLesson?.index ?? -99)")
 		
 		return vc
 	}

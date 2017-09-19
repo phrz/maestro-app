@@ -42,7 +42,6 @@ class MaestroNavigationController: UINavigationController, UINavigationControlle
 			make.centerX.equalToSuperview()
 			make.top.equalTo(n.snp.topMargin)
 			make.bottom.equalTo(n.snp.bottomMargin)
-//			make.height.lessThanOrEqualTo(20).priority(100)
 		}
     }
 	

@@ -21,7 +21,7 @@ class LessonQuizView: LessonCardView {
 			d.lineBreakMode = .byWordWrapping
 			d.textColor = .black
 			d.font = UIFont.systemFont(ofSize: UIFont.systemFontSize * 1.5)
-			d.text = "The staff consists of five lines and four spaces?"
+			d.text = "quizQuestion"
 			return d
 		}()
 		
@@ -60,7 +60,8 @@ class LessonQuizView: LessonCardView {
 				make.top.equalTo(lessonImage.snp.bottom).offset(2*em)
 				make.left.equalTo(lessonCard.snp.leftMargin)
 			default:
-				print("Unknown size class")
+//				print("Unknown size class")
+				break
 			}
 			make.right.equalTo(lessonCard.snp.rightMargin)
 		}

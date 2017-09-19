@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270489CD1F70C99B00AB7EE2 /* LessonCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270489CC1F70C99B00AB7EE2 /* LessonCompletionViewController.swift */; };
+		270489CF1F70C9B800AB7EE2 /* LessonCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270489CE1F70C9B800AB7EE2 /* LessonCompletionView.swift */; };
+		270489D31F70EC5400AB7EE2 /* LessonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270489D21F70EC5400AB7EE2 /* LessonListViewController.swift */; };
+		270489D51F70ECEC00AB7EE2 /* LessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270489D41F70ECEC00AB7EE2 /* LessonCell.swift */; };
 		27371F801F58567E0019E8FE /* LessonTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27371F7F1F58567E0019E8FE /* LessonTitleViewController.swift */; };
 		27371F821F58568F0019E8FE /* LessonTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27371F811F58568F0019E8FE /* LessonTitleView.swift */; };
 		27371F841F585BBF0019E8FE /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27371F831F585BBF0019E8FE /* TestView.swift */; };
@@ -54,6 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		270489CC1F70C99B00AB7EE2 /* LessonCompletionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCompletionViewController.swift; sourceTree = "<group>"; };
+		270489CE1F70C9B800AB7EE2 /* LessonCompletionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCompletionView.swift; sourceTree = "<group>"; };
+		270489D21F70EC5400AB7EE2 /* LessonListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonListViewController.swift; sourceTree = "<group>"; };
+		270489D41F70ECEC00AB7EE2 /* LessonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCell.swift; sourceTree = "<group>"; };
 		27371F7F1F58567E0019E8FE /* LessonTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonTitleViewController.swift; sourceTree = "<group>"; };
 		27371F811F58568F0019E8FE /* LessonTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonTitleView.swift; sourceTree = "<group>"; };
 		27371F831F585BBF0019E8FE /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -137,6 +145,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		270489CB1F70C97B00AB7EE2 /* LessonCompletionView */ = {
+			isa = PBXGroup;
+			children = (
+				270489CC1F70C99B00AB7EE2 /* LessonCompletionViewController.swift */,
+				270489CE1F70C9B800AB7EE2 /* LessonCompletionView.swift */,
+			);
+			name = LessonCompletionView;
+			sourceTree = "<group>";
+		};
+		270489D01F70E5D500AB7EE2 /* Reusable Components */ = {
+			isa = PBXGroup;
+			children = (
+				27371F871F586D7F0019E8FE /* UnderlineButton.swift */,
+				2776927E1F69AECE003A57DF /* AudioPlayerView.swift */,
+				2743B4831F6A5F0800A86995 /* CheckboxListView.swift */,
+				2743B4851F6A5F1A00A86995 /* CheckboxItemView.swift */,
+			);
+			name = "Reusable Components";
+			sourceTree = "<group>";
+		};
+		270489D11F70EBDC00AB7EE2 /* LessonListView */ = {
+			isa = PBXGroup;
+			children = (
+				270489D21F70EC5400AB7EE2 /* LessonListViewController.swift */,
+				270489D41F70ECEC00AB7EE2 /* LessonCell.swift */,
+			);
+			name = LessonListView;
+			sourceTree = "<group>";
+		};
 		27371F851F585CE40019E8FE /* TestView */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,11 +233,10 @@
 				2743B48B1F6A86E300A86995 /* API */,
 				276BAE891F51D48F00526EAB /* AppDelegate.swift */,
 				2746AF0B1F6EF7A700A44CDF /* MaestroNavigationController.swift */,
-				27371F871F586D7F0019E8FE /* UnderlineButton.swift */,
-				2776927E1F69AECE003A57DF /* AudioPlayerView.swift */,
-				2743B4831F6A5F0800A86995 /* CheckboxListView.swift */,
-				2743B4851F6A5F1A00A86995 /* CheckboxItemView.swift */,
+				270489D11F70EBDC00AB7EE2 /* LessonListView */,
+				270489D01F70E5D500AB7EE2 /* Reusable Components */,
 				277692811F6A243F003A57DF /* LessonCardView */,
+				270489CB1F70C97B00AB7EE2 /* LessonCompletionView */,
 				A6B115011F5CBDB40058B302 /* LessonContentView */,
 				277692721F69ABB1003A57DF /* LessonQuizView */,
 				27371F861F585CF10019E8FE /* LessonTitleView */,
@@ -466,6 +502,7 @@
 				27371F841F585BBF0019E8FE /* TestView.swift in Sources */,
 				27371F881F586D7F0019E8FE /* UnderlineButton.swift in Sources */,
 				277692831F6A2451003A57DF /* LessonCardViewController.swift in Sources */,
+				270489D51F70ECEC00AB7EE2 /* LessonCell.swift in Sources */,
 				2743B48F1F6A873F00A86995 /* Lesson.swift in Sources */,
 				A6B115051F5CBE660058B302 /* LessonContentViewController.swift in Sources */,
 				2746AF0C1F6EF7A700A44CDF /* MaestroNavigationController.swift in Sources */,
@@ -476,8 +513,11 @@
 				27371F821F58568F0019E8FE /* LessonTitleView.swift in Sources */,
 				2775001E1F6A49AF00B52A58 /* LessonQuizView.swift in Sources */,
 				276BAE8C1F51D48F00526EAB /* TestViewController.swift in Sources */,
+				270489D31F70EC5400AB7EE2 /* LessonListViewController.swift in Sources */,
 				276BAE8A1F51D48F00526EAB /* AppDelegate.swift in Sources */,
 				2743B4841F6A5F0800A86995 /* CheckboxListView.swift in Sources */,
+				270489CD1F70C99B00AB7EE2 /* LessonCompletionViewController.swift in Sources */,
+				270489CF1F70C9B800AB7EE2 /* LessonCompletionView.swift in Sources */,
 				2743B4861F6A5F1A00A86995 /* CheckboxItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
