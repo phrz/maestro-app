@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MaestroNavigationController: UINavigationController {
+class MaestroNavigationController: UINavigationController, UINavigationControllerDelegate {
 
 	var progressBar: UIProgressView!
 	lazy var logo: UIImageView = {
@@ -19,6 +19,7 @@ class MaestroNavigationController: UINavigationController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.delegate = self
 
 		progressBar = UIProgressView(progressViewStyle: .bar)
 		
@@ -44,6 +45,21 @@ class MaestroNavigationController: UINavigationController {
 //			make.height.lessThanOrEqualTo(20).priority(100)
 		}
     }
+	
+	func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+		guard
+			let currentLessonSize = LessonRouter.shared.currentLesson?.cards.count,
+			let locationAwareViewController = viewController as? LessonLocationAware,
+			let location = locationAwareViewController.lessonCardIndex
+			else {
+				print("ZERO PROGRESS BAR")
+				progressBar.setProgress(0.0, animated: false)
+				return
+		}
+		let progress = Float(location)/Float(currentLessonSize)
+		print("SET PROGRESS BAR \(progress)")
+		progressBar.setProgress(progress, animated: true)
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

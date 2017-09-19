@@ -56,4 +56,12 @@ class LessonRouter {
 		
 		return vc
 	}
+	
+	func pushNextCard(after item: LessonLocationAware, to nc: MaestroNavigationController) {
+		guard let vc = nextCard(after: item) else {
+			print("LessonRouter.pushNextCard(after:to:) did not receive a View Controller from nextCard(after:).")
+			return
+		}
+		nc.pushViewController(vc, animated: true)
+	}
 }
